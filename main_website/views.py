@@ -1,3 +1,37 @@
 from django.shortcuts import render
 
 # Create your views here.
+
+
+
+"this are the function that renders the page"
+def indexPage(request):
+
+    return render(request,'index.html')
+
+
+def about(request):
+
+    return render(request,'')
+
+
+def contact(request):
+
+    return render(request,'')
+
+
+def signIn(request):
+
+    return render(request,'')
+
+
+def signUp(request):
+
+    return render(request,'')
+
+
+def pricing(request):
+
+    return render(request,'')
+
+"END this are the function that renders the page"
