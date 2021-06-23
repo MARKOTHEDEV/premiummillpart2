@@ -12,7 +12,7 @@ def indexPage(request):
 
 def about(request):
 
-    return render(request,'')
+    return render(request,'about.html')
 
 
 def contact(request):
