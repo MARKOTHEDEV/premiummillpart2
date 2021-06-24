@@ -22,12 +22,12 @@ def contact(request):
 
 def signIn(request):
 
-    return render(request,'')
+    return render(request,'PersonalDetails.html')
 
 
 def signUp(request):
 
-    return render(request,'')
+    return render(request,'signUp.html')
 
 
 def pricing(request):

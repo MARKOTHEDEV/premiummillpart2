@@ -3,6 +3,7 @@ use django template
     index.html
     about.html
     contact.html
+    pricing.html
     
 
 
