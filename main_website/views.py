@@ -16,7 +16,7 @@ def about(request):
 
 
 def contact(request):
-    
+
     return render(request,'contact.html')
 
 
@@ -32,6 +32,6 @@ def signUp(request):
 
 def pricing(request):
 
-    return render(request,'')
+    return render(request,'pricing.html')
 
 "END this are the function that renders the page"
