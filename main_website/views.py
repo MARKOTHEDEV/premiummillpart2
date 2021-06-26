@@ -34,4 +34,9 @@ def pricing(request):
 
     return render(request,'pricing.html')
 
+
+def dashboard(request):
+    "this function displays the user dashboard"
+    return render(request,'dashboard/index.html')
+
 "END this are the function that renders the page"
