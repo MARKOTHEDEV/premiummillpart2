@@ -2780,7 +2780,7 @@ jQuery( document ).ready(function() {
 		<div class="clearfix"></div>
 		</div>
 		<nav id="menu-fixed" class="navbar navbar-static-top collapse">
-		<div id="navbar-fixed" class="collapse navbar-collapse"><ul id="menu-primary-menu" class="nav navbar-nav"><li id="menu-item-761" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0"><a title="About Us" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">About Us <span class="caret"></span></a>
+		<div id="navbar-fixed" class="collapse navbar-collapse"><ul id="menu-primary-menu" class="nav navbar-nav"><li id="menu-item-761" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0"><a title="About Us" href="{% url 'about' %}" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">About Us <span class="caret"></span></a>
 		<ul role="menu" class=" dropdown-menu">
 		<li id="menu-item-762" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-762 dropdown"><a title="Our Offer" href="#">Our Offer</a>
 		<ul role="menu" class=" dropdown-menu">
@@ -2797,13 +2797,6 @@ jQuery( document ).ready(function() {
 		</li>
 		<li id="menu-item-32" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-32 dropdown markets0"><a title="Markets" href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Markets <span class="caret"></span></a>
 		<ul role="menu" class=" dropdown-menu">
-		<li id="menu-item-312" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-312 dropdown"><a title="Forex" href="#">Forex</a>
-		<ul role="menu" class=" dropdown-menu">
-		<li id="menu-item-158391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-158391"><a title="Overview" href="forex-trading.html">Overview</a></li>
-		<li id="menu-item-807" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-807"><a title="Details" href="forex-trading/forex-details.html">Details</a></li>
-		<li id="menu-item-158393" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-158393"><a title="Spreads" href="forex-trading/forex-spreads.html">Spreads</a></li>
-		<li id="menu-item-207002" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-207002"><a title="Margins" href="forex-trading/forex-margins.html">Margins</a></li>
-		<li id="menu-item-804" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-804"><a title="Swaps" href="forex-trading/forex-swaps.html">Swaps</a></li>
 		</ul>
 		</li>
 		<li id="menu-item-317" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-317 dropdown"><a title="Indices &amp; Financials" href="#">Indices &#038; Financials</a>
@@ -2985,20 +2978,25 @@ jQuery( document ).ready(function() {
 						<ul id="menu-primary-menu-1" class="nav navbar-nav">
 							
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="a.html"   >About Us<span class="caret"></span></a>
+								<a title="About Us" href="{% url 'about' %}"   >About Us<span class="caret"></span></a>
 							</li>
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="a.html"   >signin<span class="caret"></span></a>
+								<a title="About Us" href="{% url 'signIn' %}"   >signin<span class="caret"></span></a>
 							</li>
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="a.html"   >sign up<span class="caret"></span></a>
+								<a title="About Us" href="{% url 'signUp' %}"   >sign up<span class="caret"></span></a>
 							</li>
 
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="a.html"   >Contact Us<span class="caret"></span></a>
+								<a title="About Us" href="{% url 'pricing' %}"   >our Pricing<span class="caret"></span></a>
+							</li>
+
+
+							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+								<a title="About Us" href="{% url 'contact' %}"   >Contact Us<span class="caret"></span></a>
 							</li>
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="a.html"   >Dashboard<span class="caret"></span></a>
+								<a title="About Us" href="#"   >Dashboard<span class="caret"></span></a>
 							</li>
 						</ul>
 

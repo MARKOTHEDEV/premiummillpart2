@@ -2999,20 +2999,24 @@ jQuery( document ).ready(function() {
 						<ul id="menu-primary-menu-1" class="nav navbar-nav">
 							
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="a.html"   >About Us<span class="caret"></span></a>
+								<a title="About Us" href="{% url 'about' %}"   >About Us<span class="caret"></span></a>
 							</li>
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="a.html"   >signin<span class="caret"></span></a>
+								<a title="About Us" href="{% url 'signIn' %}"   >signin<span class="caret"></span></a>
 							</li>
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="a.html"   >sign up<span class="caret"></span></a>
+								<a title="About Us" href="{% url 'signUp' %}"   >sign up<span class="caret"></span></a>
 							</li>
 
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="a.html"   >Contact Us<span class="caret"></span></a>
+								<a title="About Us" href="{% url 'pricing' %}"   >our Pricing<span class="caret"></span></a>
+							</li>
+
+							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+								<a title="About Us" href="{% url 'contact' %}"   >Contact Us<span class="caret"></span></a>
 							</li>
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="a.html"   >Dashboard<span class="caret"></span></a>
+								<a title="About Us" href="#"   >Dashboard<span class="caret"></span></a>
 							</li>
 						</ul>
 
@@ -3035,9 +3039,9 @@ jQuery( document ).ready(function() {
 <h1>Seize market opportunities</h1>
 <h2 class="max500">Volatility-optimised trading experience </h2>
 <div class="cta-buttons">
-<a href="" class="btn-flat btn-cta-primary">
+<a href="{% url 'signUp' %}" class="btn-flat btn-cta-primary">
 Open an account </a>
-<a href="" class="btn-flat btn-cta-secondary">
+<a href="{% url 'signIn' %}" class="btn-flat btn-cta-secondary">
 Sign in..</a>
 </div>
 <img src="{% static 'wp-content/uploads/2018/05/iphoneXX-Cropped.png' %}" class="mobile-foreground visible-xs center-block img-responsive">

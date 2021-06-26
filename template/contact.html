@@ -961,20 +961,25 @@ html[data-at-entity="CORP"] ul.related_topics li:first-child{
                             <ul id="menu-primary-menu-1" class="nav navbar-nav">
                                 
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-                                    <a title="About Us" href="a.html"   >About Us<span class="caret"></span></a>
+                                    <a title="About Us" href="{% url 'about' %}"   >About Us<span class="caret"></span></a>
                                 </li>
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-                                    <a title="About Us" href="a.html"   >signin<span class="caret"></span></a>
+                                    <a title="About Us" href="{% url 'signIn' %}"   >signin<span class="caret"></span></a>
                                 </li>
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-                                    <a title="About Us" href="a.html"   >sign up<span class="caret"></span></a>
+                                    <a title="About Us" href="{% url 'signUp' %}"   >sign up<span class="caret"></span></a>
                                 </li>
-    
+    						
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-                                    <a title="About Us" href="a.html"   >Contact Us<span class="caret"></span></a>
+                                    <a title="About Us" href="{% url 'pricing' %}"   >our Pricing<span class="caret"></span></a>
+                                </li>
+
+                                
+                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+                                    <a title="About Us" href="{% url 'contact' %}"   >Contact Us<span class="caret"></span></a>
                                 </li>
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-                                    <a title="About Us" href="a.html"   >Dashboard<span class="caret"></span></a>
+                                    <a title="About Us" href="#"   >Dashboard<span class="caret"></span></a>
                                 </li>
                             </ul>
     
@@ -1253,8 +1258,8 @@ Nassau, Bahamas</p>
 </div>
 </div>
 <div class="col-sm-3 col-md-2 hidden-xs basic-sidebar"><ul>
-<li><a class="btn-cto-primary sidebar-btn" href="">Open an account</a></li>
-<li><a class="btn-cto-secondary sidebar-btn" href="">Sign in...</a></li>
+<li><a class="btn-cto-primary sidebar-btn" href="{% url 'signUp' %}">Open an account</a></li>
+<li><a class="btn-cto-secondary sidebar-btn" href="{% url 'signIn' %}">Sign in...</a></li>
 </ul>
 
 </div>
@@ -1290,8 +1295,8 @@ Nassau, Bahamas</p>
 <hr class="bt-grey pt-25 hidden-xs">
 </div>
 <div class="col-xs-12 col-sm-4 col-md-2 mobile-footer-ctos">
-<a class="btn-cto btn-cto-primary col-xs-6" href="">Open an account</a>
-<a class="btn-cto btn-cto-secondary col-xs-6" href="">Try free demo</a>
+<a class="btn-cto btn-cto-primary col-xs-6" href="{% url 'signUp' %}">Open an account</a>
+<a class="btn-cto btn-cto-secondary col-xs-6" href="{% url 'signIn' %}">Sign in..</a>
 </div>
  <div class="clearfix"></div>
 <div class="col-xs-12 col-sm-6 col-md-4 footer-logos-one" id="footer-logos-one">

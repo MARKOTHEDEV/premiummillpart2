@@ -724,15 +724,7 @@ jQuery( document ).ready(function() {
         console.log('AT :: Primary button params');
     });
 
-    // Demo button
-    jQuery(".btn-cto-secondary").click(function(){
-        //run normal popup if the current activtrades_lang != disablePop (see top)
-        if(disablePop.indexOf(activtrades_lang) < 0) {
-            return genericIframeForm("demoregisterpopup");
-        } else {
-            return genericIframeForm("demoregisterpopup", true);
-        }
-    });
+    
 
     // Attach click listeners to any buttons we have on the page
     // which have an iframe-request type id
