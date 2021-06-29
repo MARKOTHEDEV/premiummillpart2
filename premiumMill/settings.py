@@ -121,11 +121,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT =  Path(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
+STATIC_ROOT =  Path(BASE_DIR,'staticfiles')
 
 # SET THE USER MODEL TO USE
 AUTH_USER_MODEL = 'main_website.User'
-
 
 django_heroku.settings(locals())
