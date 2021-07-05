@@ -2880,7 +2880,7 @@ jQuery( document ).ready(function() {
 								<a title="About Us" href="{% url 'about' %}"   >About Us<span class="caret"></span></a>
 							</li>
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="{% url 'signIn' %}"   >signin<span class="caret"></span></a>
+								<a title="About Us" href="{% url 'signIn' %}"   >sign in<span class="caret"></span></a>
 							</li>
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
 								<a title="About Us" href="{% url 'signUp' %}"   >sign up<span class="caret"></span></a>
@@ -3196,7 +3196,8 @@ jQuery( document ).ready(function() {
                       <article class="card__content grid">
                         <div class="card__pricing">
                           <div class="card__pricing-number">
-                            <span class="card__pricing-symbol">$</span>500
+                            <span class="card__pricing-symbol">min: $</span>500 <br>
+                            <span class="card__pricing-symbol">max: $</span>4999
                           </div>
                           <span class="card__pricing-month"></span>
                         </div>
@@ -3211,10 +3212,23 @@ jQuery( document ).ready(function() {
                         </header>
                   
                         <ul class="card__list grid">
-                          <li class="card__list-item">
+							<li class="card__list-item">
+								<i class="uil uil-check card__list-icon"></i>
+								<p class="card__list-description" style="text-align: center;">Mininmum Price: <strong>$500 </strong></p>
+								
+							</li>
+                      
+							  <li class="card__list-item">
+								<i class="uil uil-check card__list-icon"></i>
+								
+								<p class="card__list-description">Maximum Price: <strong>$4999 </strong></p>
+							  </li>
+                      	
+							  <li class="card__list-item">
                             <i class="uil uil-check card__list-icon"></i>
                             <p class="card__list-description">15% weekly </p>
                           </li>
+
                           <li class="card__list-item">
                             <i class="uil uil-check card__list-icon"></i>
                             <p class="card__list-description">Low trade frequency</p>
@@ -3246,8 +3260,11 @@ jQuery( document ).ready(function() {
                       <article class="card__content grid">
                         <div class="card__pricing">
                           <div class="card__pricing-number">
-                            <span class="card__pricing-symbol">$</span>50000
-                          </div>
+                            <span class="card__pricing-symbol">min: $</span>5000
+							<br>
+                            <span class="card__pricing-symbol">max: $</span>19999
+
+						</div>
                           <span class="card__pricing-month"></span>
                         </div>
                   
@@ -3261,6 +3278,20 @@ jQuery( document ).ready(function() {
                         </header>
                   
                         <ul class="card__list grid">
+
+							<li class="card__list-item">
+								<i class="uil uil-check card__list-icon"></i>
+								<p class="card__list-description" style="text-align: center;">Mininmum Price: <strong>$5000  </strong></p>
+								
+							</li>
+                      
+							  <li class="card__list-item">
+								<i class="uil uil-check card__list-icon"></i>
+								
+								<p class="card__list-description">Maximum Price: <strong>$19999 </strong></p>
+							  </li>
+
+
                           <li class="card__list-item">
                             <i class="uil uil-check card__list-icon"></i>
                             <p class="card__list-description">20% weekly </p>
@@ -3296,8 +3327,10 @@ jQuery( document ).ready(function() {
                       <article class="card__content grid">
                         <div class="card__pricing">
                           <div class="card__pricing-number">
-                            <span class="card__pricing-symbol">$</span>20000
-                          </div>
+                            <span class="card__pricing-symbol">min: $</span>20,000
+							<br>
+                            <span class="card__pricing-symbol">max: $</span>99,999
+						</div>
                           <!-- <span class="card__pricing-month">/month</span> -->
                         </div>
                   
@@ -3311,6 +3344,18 @@ jQuery( document ).ready(function() {
                         </header>
                   
                         <ul class="card__list grid">
+							<li class="card__list-item">
+								<i class="uil uil-check card__list-icon"></i>
+								<p class="card__list-description" style="text-align: center;">Mininmum Price: <strong>$20,000  </strong></p>
+								
+							</li>
+                      
+							<li class="card__list-item">
+							<i class="uil uil-check card__list-icon"></i>
+							
+							<p class="card__list-description">Maximum Price: <strong>$99,999</strong></p>
+							</li>
+							
                           <li class="card__list-item">
                             <i class="uil uil-check card__list-icon"></i>
                             <p class="card__list-description">25% weekly </p>
@@ -3348,7 +3393,8 @@ jQuery( document ).ready(function() {
                         <article class="card__content grid">
                             <div class="card__pricing">
                             <div class="card__pricing-number">
-                                <span class="card__pricing-symbol">$</span>100000
+                                <span class="card__pricing-symbol">min: $</span>100,000
+                                <span class="card__pricing-symbol">max: $</span>Above
                             </div>
                             <!-- <span class="card__pricing-month">/month</span> -->
                             </div>
@@ -3363,6 +3409,19 @@ jQuery( document ).ready(function() {
                             </header>
                     
                             <ul class="card__list grid">
+
+								<li class="card__list-item">
+									<i class="uil uil-check card__list-icon"></i>
+									<p class="card__list-description" style="text-align: center;">Mininmum Price: <strong>$100,000  </strong></p>
+									
+								</li>
+						  
+								<li class="card__list-item">
+								<i class="uil uil-check card__list-icon"></i>
+								
+								<p class="card__list-description">Maximum Price: <strong>above </strong></p>
+								</li>
+
                             <li class="card__list-item">
                                 <i class="uil uil-check card__list-icon"></i>
                                 <p class="card__list-description">30% weekly </p>
