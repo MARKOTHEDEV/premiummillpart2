@@ -4,7 +4,7 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Premium Mill -John Doe</title>
+	<title>Hello! John Doe</title>
 
 	<!-- Site favicon -->
 	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'dashboardStaticfiles/vendors/images/apple-touch-icon.png' %}">
@@ -40,20 +40,7 @@
 	</style>
 </head>
 <body>
-	<div class="pre-loader">
-		<div class="pre-loader-box">
-	<!-- dashboardStaticfiles -->
 
-			<div class="loader-logo"><img src="{% static 'dashboardStaticfiles/vendors/images/deskapp-logo.svg' %}" alt=""></div>
-			<div class='loader-progress' id="progress_div">
-				<div class='bar' id='bar1'></div>
-			</div>
-			<div class='percent' id='percent1'>0%</div>
-			<div class="loading-text">
-				Loading...
-			</div>
-		</div>
-	</div>
 
 	<div class="header">
 		<div class="header-left">
@@ -259,9 +246,11 @@
 
 	<div class="left-side-bar">
 		<div class="brand-logo">
-			<a href="index.html">
-				<img src="{% static 'dashboardStaticfiles/vendors/images/deskapp-logo.svg' %}" alt="" class="dark-logo">
-				<img src="{% static 'dashboardStaticfiles/vendors/images/deskapp-logo-white.svg' %}" alt="" class="light-logo">
+			<a href="#">
+				<!-- <img src="{% static 'dashboardStaticfiles/vendors/images/deskapp-logo.svg' %}" alt="" class="dark-logo"> -->
+				<!-- <img src="{% static 'dashboardStaticfiles/vendors/images/deskapp-logo-white.svg' %}" alt="" class="light-logo"> -->
+				<h1 class="hidden-xs" style="font-size: 1.2rem;font-family:cursive;color:white;text-decoration:none;"><i>Premium Mill</i></h1>
+			
 			</a>
 			<div class="close-sidebar" data-toggle="left-sidebar-close">
 				<i class="ion-close-round"></i>
@@ -291,6 +280,14 @@
 						</a>
 					
 					</li>
+
+					<li class="dropdown">
+						<a href="{% url 'pricing' %}" class="dropdown-toggle">
+							<span class="micon dw dw-house-1"></span><span class="mtext">Top Up</span>
+						</a>
+					
+					</li>
+
 
 
 					
@@ -370,21 +367,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-xl-8 mb-30">
-					<div class="card-box height-100-p pd-20">
-						<h2 class="h4 mb-20">Activity</h2>
-						<div id="chart5"></div>
-					</div>
-				</div>
-				<div class="col-xl-4 mb-30">
-					<div class="card-box height-100-p pd-20">
-						<h2 class="h4 mb-20">Lead Target</h2>
-						<div id="chart6"></div>
-					</div>
-				</div>
-			</div>
-			<div class="card-box mb-30">
+		
+			<div class="card-box mb-30" style="overflow: scroll;">
 				<h2 class="h4 pd-20">All Transactions</h2>
 				<table class="data-table table nowrap">
 					<thead>
@@ -416,9 +400,9 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="footer-wrap pd-20 mb-20 card-box">
+			<!-- <div class="footer-wrap pd-20 mb-20 card-box">
 				Admin by premium mill team <a href="{% url 'home' %}" target="_blank">Go home</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<!-- js -->
