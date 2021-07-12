@@ -583,9 +583,44 @@ Enter your credentials and start trading with real money today.
 <section id="liveSignUpSection">
 <article class="
                             before-init">
-<div class="main-wrapper">
+                            <style>
+                                .oa-landing-banner{
+                                    display: none;
+                                }
+                                .marko-responsive-main-wrapper{
+                                    display: flex;
+                                    flex-direction: column;
+                        
+                                }
+                        
+                                .step0-form.marko-personal-details{
+                                    width: 100%;
+                                }
+                                .step0-side-banner.marko-step0-side-banner{
+                                    width: 100%;
+                                    display: none;
+
+                                }
+                                @media screen and (min-width:500px) {
+                                    .oa-landing-banner{
+                                        display: block;
+                                    }
+                                    .marko-responsive-main-wrapper{
+                                    flex-direction: row;
+                                        
+                                    }	
+                                    .step0-form.marko-personal-details{
+                                        width: 58%;
+                                    }
+                                    .step0-side-banner.marko-step0-side-banner{
+                                        width: 42%;
+    
+                                    }
+                                }
+                            </style>
+<div class="main-wrapper marko-responsive-main-wrapper">
 <div class="oa-step-loader step0"></div>
-<div id="PersonalDetails" class="step0-form ">
+<div id="PersonalDetails" class="step0-form marko-personal-details">
 <form action="" class="oa-form" method="post" ref="currentElement" v-bind:data-vv-scope="Scope" v-bind:id="Scope" v-on:submit.prevent="SubmitForm();" valid="false"><input name="__RequestVerificationToken" type="hidden" value="ctmMsOcV4Xh-MN1PjQD8P57Qx2xQjvsit7ZbGVCnoM1nY6P3bHHmO0DoDhyD4j6uWoSZ8_kWi_dxYScchGwcLrChOMo1" /> <h2 class="title-subsection text-center">Sign in</h2>
 
 
@@ -668,7 +703,7 @@ All previously entered information will be lost!
 </div>
 </form>
 </div>
-<div class="step0-side-banner">
+<div class="step0-side-banner marko-step0-side-banner">
 <h3 class="title-subsection">Why choose PREMIUM MILL?</h3>
 <p>
 Maximising your trading through a unique mix of superior value proposition, diverse product offering, competitive spreads and stellar customer service.

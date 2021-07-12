@@ -567,11 +567,48 @@ Complete our effortless online form and start trading with real money today.
 <div class="clearer"></div>
 <div id="body">
 <section id="liveSignUpSection">
-<article class="
-                            before-init">
-<div class="main-wrapper">
-<div class="oa-step-loader step0"></div>
-<div id="PersonalDetails" class="step0-form ">
+<article class="before-init">
+	<style>
+		.oa-landing-banner{
+			display: none;
+		}
+		.marko-responsive-main-wrapper{
+			display: flex;
+			flex-direction: column;
+
+		}
+
+		.step0-form.marko-personal-details{
+			width: 100%;
+		}
+		.step0-side-banner.marko-step0-side-banner{
+			width: 100%;
+			display: none;
+
+		}
+		@media screen and (min-width:500px) {
+			.oa-landing-banner{
+				display: block;
+			}
+			.marko-responsive-main-wrapper{
+			flex-direction: row;
+				
+			}	
+			.step0-form.marko-personal-details{
+				width: 58%;
+			}
+			.step0-side-banner.marko-step0-side-banner{
+				width: 42%;
+			display: block;
+
+
+			}
+		}
+	</style>
+<div class="main-wrapper marko-responsive-main-wrapper">
+
+	<div class="oa-step-loader step0"></div>
+<div id="PersonalDetails" class="step0-form marko-personal-details">
 <form action="" class="oa-form" method="post" ref="currentElement" v-bind:data-vv-scope="Scope" v-bind:id="Scope" v-on:submit.prevent="SubmitForm();" valid="false"><input name="__RequestVerificationToken" type="hidden" value="ctmMsOcV4Xh-MN1PjQD8P57Qx2xQjvsit7ZbGVCnoM1nY6P3bHHmO0DoDhyD4j6uWoSZ8_kWi_dxYScchGwcLrChOMo1" /> <h2 class="title-subsection text-center">Start your application now</h2>
 
 <input Name="UtmParameters.UtmSource" id="UtmParameters.UtmSource" name="UtmSource" type="hidden" value="" />
@@ -588,7 +625,7 @@ Complete our effortless online form and start trading with real money today.
 <label for="CountryId">Country of Residence</label>
 <div class="dropdown-holder relative-pos">
     <!-- <input type="text"> -->
-    <select id="countrySelectID">
+    <select id="countrySelectID" class='form-control'>
         <option value="France">France</option>
     </select>
 <div>
@@ -606,52 +643,24 @@ Complete our effortless online form and start trading with real money today.
 <a href="https://www.activtrades.co.uk/en" target="_blank" class="btn btn-blue">Switch to ActivTrades PLC (London)</a>
 </div> -->
 </div>
-<div>
-<label for="Title">Title</label>
-<div class="oa-radio-btns relative-pos clearfix">
-<div class="half-width">
-<div class="radio-holder">
-<label for="title_mr">
-<div class="controls">
-<input class="ignore" data-val="true" data-val-customrequiredattr="Required" id="title_mr" name="Title" type="radio" v-model="Data.Title" v-on:click="HideSwitchBranchNotification();" v-validate="&#39;required|included:1,2&#39;" value="1" />
-<label></label>
-</div>
-<span>Mr.</span>
-</label>
-</div>
-</div>
-<div class="half-width">
-<div class="radio-holder relative-pos">
-<label for="title_ms">
-<div class="controls">
-<input class="ignore" id="title_ms" name="Title" type="radio" v-model="Data.Title" v-on:click="MxMakeFieldDirty(Scope, fields, &#39;Title&#39;); HideSwitchBranchNotification();" value="2" />
-<label></label>
-</div>
-<span>Ms.</span>
-</label>
-<at-field-validation name="Title" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
-</div>
-</div>
-</div>
-<span class="field-validation-valid" data-valmsg-for="Title" data-valmsg-replace="true"></span>
-</div>
+
 <div class="relative-pos clearfix">
-<div class="full-width">
+<div class="full-width"><br>
 <label for="FirstName">Given name(s) as shown in your passport</label>
 <div class="relative-pos">
-<input class="ignore" data-val="true" data-val-customrequiredattr="Required" data-val-regex="Only Latin letters and dashes are accepted" data-val-regex-pattern="^[^0-9&lt;>%]*$" data-val-stringlength="The maximum length for this field is 40 characters" data-val-stringlength-maxlength="40" id="FirstName" name="FirstName" type="text" v-on:click="HideSwitchBranchNotification();" v-validate="GetRules(&#39;FirstName&#39;)" value="" />
+<input class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-regex="Only Latin letters and dashes are accepted" data-val-regex-pattern="^[^0-9&lt;>%]*$" data-val-stringlength="The maximum length for this field is 40 characters" data-val-stringlength-maxlength="40" id="FirstName" name="FirstName" type="text" v-on:click="HideSwitchBranchNotification();" v-validate="GetRules(&#39;FirstName&#39;)" value="" />
 <at-field-validation name="FirstName" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
 </div>
 </div>
-<div class="full-width">
+<div class="full-width"><br>
 <label for="LastName">Last name(s) as shown in your passport</label>
 <div class="relative-pos">
-<input class="ignore" data-val="true" data-val-customrequiredattr="Required" data-val-regex="Only Latin letters and dashes are accepted" data-val-regex-pattern="^[^0-9&lt;>%]*$" data-val-stringlength="The maximum length for this field is 40 characters" data-val-stringlength-maxlength="40" id="LastName" name="LastName" type="text" v-on:click="HideSwitchBranchNotification();" v-validate="GetRules(&#39;LastName&#39;)" value="" />
+<input class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-regex="Only Latin letters and dashes are accepted" data-val-regex-pattern="^[^0-9&lt;>%]*$" data-val-stringlength="The maximum length for this field is 40 characters" data-val-stringlength-maxlength="40" id="LastName" name="LastName" type="text" v-on:click="HideSwitchBranchNotification();" v-validate="GetRules(&#39;LastName&#39;)" value="" />
 <span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span>
 <at-field-validation name="LastName" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
 </div>
 </div>
-</div>
+</div><br>
 <div class="full-width">
 <label for="Email">Email</label>
 <div class="relative-pos">
@@ -667,32 +676,7 @@ Complete our effortless online form and start trading with real money today.
 <!-- <div class="notification notification-info">
 You have already registered with this email. Please enter your current password to login
 </div> -->
-<div class="oa-radio-btns relative-pos clearfix">
-<div class="half-width">
-<div class="radio-holder">
-<label for="loginTypeSignIn">
-<div class="controls">
-<input class="ignore" data-val="true" data-val-required="The DemoClientLoginType field is required." id="loginTypeSignIn" name="DemoClientLoginType" type="radio" v-model="Data.DemoClientLoginType" v-on:click="MxMakeFieldDirty(Scope, fields, &#39;DemoClientLoginType&#39;); HideSwitchBranchNotification();" v-validate="&#39;required|included:1,2&#39;" value="1" />
-<label></label>
-</div>
-<span>Current Password</span>
-</label>
-</div>
-</div>
-<div class="half-width">
-<div class="radio-holder">
-<label for="loginTypeStartNew" class="relative-pos">
-<div class="controls">
-<input class="ignore" id="loginTypeStartNew" name="DemoClientLoginType" type="radio" v-model="Data.DemoClientLoginType" v-on:click="MxMakeFieldDirty(Scope, fields, &#39;DemoClientLoginType&#39;); HideSwitchBranchNotification();" value="2" />
-<label></label>
-</div>
-<span>Start New</span>
-</label>
-<at-field-validation name="DemoClientLoginType" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
-</div>
-</div>
-<span class="field-validation-valid" data-valmsg-for="DemoClientLoginType" data-valmsg-replace="true"></span>
-</div>
+
 </div>
 <div v-if="CustomerStatus != 'LiveUser' && CustomerStatus != 'ApplicationAlreadySubmitted'">
 <div class="full-width">
@@ -701,13 +685,18 @@ It looks like you already have an application in progress. Please provide your p
 </div> -->
 <div v-if="!Data.IsDemoUserLoggedInPA">
 
-
+<br>
+<div >
+	<label for="">Driver Lincence Or any Identification</label>
+	<input type="file" name="" id="" class="form-control">
+</div>
+<br>
 <div >
     <label for="Password">Password </label>
     <i class="far fa-eye" id="change"></i>
     <input id="password1" type="password" class="form-control ignore" />
 </div>
-
+<br>
 <div >
     <label for="Password">Confirm Password </label>
 
@@ -726,7 +715,7 @@ It looks like you already have an application in progress. Please provide your p
 <!-- <a href="">
 Forgot password?
 </a> -->
-</div>
+</div><br>
 <div class="phone-with-code" v-if="CustomerStatus != 'DemoUserWithOa'">
 <label>Telephone number</label>
 <div class="relative-pos clearfix">
@@ -736,770 +725,15 @@ Forgot password?
 <img src="../Content/images/blank.gif" class="flag" v-bind:class="Data.CountryCodeFlagClass" />
 <span>{{ Data.PhoneCode }}</span>
 </div>
-<div v-if="IsDropdownOpened" class="flags-dropdown">
-<input autocomplete="off" class="form-control ignore" id="SearchPhone" name="SearchPhone" type="text" v-model="SearchPhone" value="" />
-<div v-if="SearchPhoneCode('0033')" v-on:click="SelectPhoneCode('0033', 'fr')">
-<img src="../Content/images/blank.gif" class="flag flag-fr" />0033
-</div>
-<div v-if="SearchPhoneCode('0049')" v-on:click="SelectPhoneCode('0049', 'de')">
-<img src="../Content/images/blank.gif" class="flag flag-de" />0049
-</div>
-<div v-if="SearchPhoneCode('0039')" v-on:click="SelectPhoneCode('0039', 'it')">
-<img src="../Content/images/blank.gif" class="flag flag-it" />0039
-</div>
-<div v-if="SearchPhoneCode('00351')" v-on:click="SelectPhoneCode('00351', 'pt')">
-<img src="../Content/images/blank.gif" class="flag flag-pt" />00351
-</div>
-<div v-if="SearchPhoneCode('0034')" v-on:click="SelectPhoneCode('0034', 'es')">
-<img src="../Content/images/blank.gif" class="flag flag-es" />0034
-</div>
-<div v-if="SearchPhoneCode('0044')" v-on:click="SelectPhoneCode('0044', 'gb')">
-<img src="../Content/images/blank.gif" class="flag flag-gb" />0044
-</div>
-<div v-if="SearchPhoneCode('00355')" v-on:click="SelectPhoneCode('00355', 'al')">
-<img src="../Content/images/blank.gif" class="flag flag-al" />00355
-</div>
-<div v-if="SearchPhoneCode('00213')" v-on:click="SelectPhoneCode('00213', 'dz')">
-<img src="../Content/images/blank.gif" class="flag flag-dz" />00213
-</div>
-<div v-if="SearchPhoneCode('001684')" v-on:click="SelectPhoneCode('001684', 'as')">
-<img src="../Content/images/blank.gif" class="flag flag-as" />001684
-</div>
-<div v-if="SearchPhoneCode('00376')" v-on:click="SelectPhoneCode('00376', 'ad')">
-<img src="../Content/images/blank.gif" class="flag flag-ad" />00376
-</div>
-<div v-if="SearchPhoneCode('00244')" v-on:click="SelectPhoneCode('00244', 'ao')">
-<img src="../Content/images/blank.gif" class="flag flag-ao" />00244
-</div>
-<div v-if="SearchPhoneCode('001264')" v-on:click="SelectPhoneCode('001264', 'ai')">
-<img src="../Content/images/blank.gif" class="flag flag-ai" />001264
-</div>
-<div v-if="SearchPhoneCode('00672')" v-on:click="SelectPhoneCode('00672', 'aq')">
-<img src="../Content/images/blank.gif" class="flag flag-aq" />00672
-</div>
-<div v-if="SearchPhoneCode('001268')" v-on:click="SelectPhoneCode('001268', 'ag')">
-<img src="../Content/images/blank.gif" class="flag flag-ag" />001268
-</div>
-<div v-if="SearchPhoneCode('0054')" v-on:click="SelectPhoneCode('0054', 'ar')">
-<img src="../Content/images/blank.gif" class="flag flag-ar" />0054
-</div>
-<div v-if="SearchPhoneCode('00374')" v-on:click="SelectPhoneCode('00374', 'am')">
-<img src="../Content/images/blank.gif" class="flag flag-am" />00374
-</div>
-<div v-if="SearchPhoneCode('00297')" v-on:click="SelectPhoneCode('00297', 'aw')">
-<img src="../Content/images/blank.gif" class="flag flag-aw" />00297
-</div>
-<div v-if="SearchPhoneCode('0061')" v-on:click="SelectPhoneCode('0061', 'au')">
-<img src="../Content/images/blank.gif" class="flag flag-au" />0061
-</div>
-<div v-if="SearchPhoneCode('0043')" v-on:click="SelectPhoneCode('0043', 'at')">
-<img src="../Content/images/blank.gif" class="flag flag-at" />0043
-</div>
-<div v-if="SearchPhoneCode('00994')" v-on:click="SelectPhoneCode('00994', 'az')">
-<img src="../Content/images/blank.gif" class="flag flag-az" />00994
-</div>
-<div v-if="SearchPhoneCode('001242')" v-on:click="SelectPhoneCode('001242', 'bs')">
-<img src="../Content/images/blank.gif" class="flag flag-bs" />001242
-</div>
-<div v-if="SearchPhoneCode('00973')" v-on:click="SelectPhoneCode('00973', 'bh')">
-<img src="../Content/images/blank.gif" class="flag flag-bh" />00973
-</div>
-<div v-if="SearchPhoneCode('00880')" v-on:click="SelectPhoneCode('00880', 'bd')">
-<img src="../Content/images/blank.gif" class="flag flag-bd" />00880
-</div>
-<div v-if="SearchPhoneCode('001246')" v-on:click="SelectPhoneCode('001246', 'bb')">
-<img src="../Content/images/blank.gif" class="flag flag-bb" />001246
-</div>
-<div v-if="SearchPhoneCode('0032')" v-on:click="SelectPhoneCode('0032', 'be')">
-<img src="../Content/images/blank.gif" class="flag flag-be" />0032
-</div>
-<div v-if="SearchPhoneCode('00501')" v-on:click="SelectPhoneCode('00501', 'bz')">
-<img src="../Content/images/blank.gif" class="flag flag-bz" />00501
-</div>
-<div v-if="SearchPhoneCode('00229')" v-on:click="SelectPhoneCode('00229', 'bj')">
-<img src="../Content/images/blank.gif" class="flag flag-bj" />00229
-</div>
-<div v-if="SearchPhoneCode('001441')" v-on:click="SelectPhoneCode('001441', 'bm')">
-<img src="../Content/images/blank.gif" class="flag flag-bm" />001441
-</div>
-<div v-if="SearchPhoneCode('00975')" v-on:click="SelectPhoneCode('00975', 'bt')">
-<img src="../Content/images/blank.gif" class="flag flag-bt" />00975
-</div>
-<div v-if="SearchPhoneCode('00591')" v-on:click="SelectPhoneCode('00591', 'bo')">
-<img src="../Content/images/blank.gif" class="flag flag-bo" />00591
-</div>
-<div v-if="SearchPhoneCode('00387')" v-on:click="SelectPhoneCode('00387', 'ba')">
-<img src="../Content/images/blank.gif" class="flag flag-ba" />00387
-</div>
-<div v-if="SearchPhoneCode('00267')" v-on:click="SelectPhoneCode('00267', 'bw')">
-<img src="../Content/images/blank.gif" class="flag flag-bw" />00267
-</div>
-<div v-if="SearchPhoneCode('0047')" v-on:click="SelectPhoneCode('0047', 'bv')">
-<img src="../Content/images/blank.gif" class="flag flag-bv" />0047
-</div>
-<div v-if="SearchPhoneCode('0055')" v-on:click="SelectPhoneCode('0055', 'br')">
-<img src="../Content/images/blank.gif" class="flag flag-br" />0055
-</div>
-<div v-if="SearchPhoneCode('00246')" v-on:click="SelectPhoneCode('00246', 'io')">
-<img src="../Content/images/blank.gif" class="flag flag-io" />00246
-</div>
-<div v-if="SearchPhoneCode('001284')" v-on:click="SelectPhoneCode('001284', 'vg')">
-<img src="../Content/images/blank.gif" class="flag flag-vg" />001284
-</div>
-<div v-if="SearchPhoneCode('00673')" v-on:click="SelectPhoneCode('00673', 'bn')">
-<img src="../Content/images/blank.gif" class="flag flag-bn" />00673
-</div>
-<div v-if="SearchPhoneCode('00359')" v-on:click="SelectPhoneCode('00359', 'bg')">
-<img src="../Content/images/blank.gif" class="flag flag-bg" />00359
-</div>
-<div v-if="SearchPhoneCode('00226')" v-on:click="SelectPhoneCode('00226', 'bf')">
-<img src="../Content/images/blank.gif" class="flag flag-bf" />00226
-</div>
-<div v-if="SearchPhoneCode('00257')" v-on:click="SelectPhoneCode('00257', 'bi')">
-<img src="../Content/images/blank.gif" class="flag flag-bi" />00257
-</div>
-<div v-if="SearchPhoneCode('00855')" v-on:click="SelectPhoneCode('00855', 'kh')">
-<img src="../Content/images/blank.gif" class="flag flag-kh" />00855
-</div>
-<div v-if="SearchPhoneCode('00237')" v-on:click="SelectPhoneCode('00237', 'cm')">
-<img src="../Content/images/blank.gif" class="flag flag-cm" />00237
-</div>
-<div v-if="SearchPhoneCode('001')" v-on:click="SelectPhoneCode('001', 'ca')">
-<img src="../Content/images/blank.gif" class="flag flag-ca" />001
-</div>
-<div v-if="SearchPhoneCode('00238')" v-on:click="SelectPhoneCode('00238', 'cv')">
-<img src="../Content/images/blank.gif" class="flag flag-cv" />00238
-</div>
-<div v-if="SearchPhoneCode('001345')" v-on:click="SelectPhoneCode('001345', 'ky')">
-<img src="../Content/images/blank.gif" class="flag flag-ky" />001345
-</div>
-<div v-if="SearchPhoneCode('00236')" v-on:click="SelectPhoneCode('00236', 'cf')">
-<img src="../Content/images/blank.gif" class="flag flag-cf" />00236
-</div>
- <div v-if="SearchPhoneCode('00235')" v-on:click="SelectPhoneCode('00235', 'td')">
-<img src="../Content/images/blank.gif" class="flag flag-td" />00235
-</div>
-<div v-if="SearchPhoneCode('0056')" v-on:click="SelectPhoneCode('0056', 'cl')">
-<img src="../Content/images/blank.gif" class="flag flag-cl" />0056
-</div>
-<div v-if="SearchPhoneCode('0086')" v-on:click="SelectPhoneCode('0086', 'cn')">
-<img src="../Content/images/blank.gif" class="flag flag-cn" />0086
-</div>
-<div v-if="SearchPhoneCode('0061')" v-on:click="SelectPhoneCode('0061', 'cx')">
-<img src="../Content/images/blank.gif" class="flag flag-cx" />0061
-</div>
-<div v-if="SearchPhoneCode('0061')" v-on:click="SelectPhoneCode('0061', 'cc')">
-<img src="../Content/images/blank.gif" class="flag flag-cc" />0061
-</div>
-<div v-if="SearchPhoneCode('0057')" v-on:click="SelectPhoneCode('0057', 'co')">
-<img src="../Content/images/blank.gif" class="flag flag-co" />0057
-</div>
-<div v-if="SearchPhoneCode('00269')" v-on:click="SelectPhoneCode('00269', 'km')">
-<img src="../Content/images/blank.gif" class="flag flag-km" />00269
-</div>
-<div v-if="SearchPhoneCode('00682')" v-on:click="SelectPhoneCode('00682', 'ck')">
-<img src="../Content/images/blank.gif" class="flag flag-ck" />00682
-</div>
-<div v-if="SearchPhoneCode('00506')" v-on:click="SelectPhoneCode('00506', 'cr')">
-<img src="../Content/images/blank.gif" class="flag flag-cr" />00506
-</div>
-<div v-if="SearchPhoneCode('00385')" v-on:click="SelectPhoneCode('00385', 'hr')">
-<img src="../Content/images/blank.gif" class="flag flag-hr" />00385
-</div>
-<div v-if="SearchPhoneCode('0053')" v-on:click="SelectPhoneCode('0053', 'cu')">
-<img src="../Content/images/blank.gif" class="flag flag-cu" />0053
-</div>
-<div v-if="SearchPhoneCode('00357')" v-on:click="SelectPhoneCode('00357', 'cy')">
-<img src="../Content/images/blank.gif" class="flag flag-cy" />00357
-</div>
-<div v-if="SearchPhoneCode('00420')" v-on:click="SelectPhoneCode('00420', 'cz')">
-<img src="../Content/images/blank.gif" class="flag flag-cz" />00420
-</div>
-<div v-if="SearchPhoneCode('00225')" v-on:click="SelectPhoneCode('00225', 'ci')">
-<img src="../Content/images/blank.gif" class="flag flag-ci" />00225
-</div>
-<div v-if="SearchPhoneCode('0045')" v-on:click="SelectPhoneCode('0045', 'dk')">
-<img src="../Content/images/blank.gif" class="flag flag-dk" />0045
-</div>
-<div v-if="SearchPhoneCode('00253')" v-on:click="SelectPhoneCode('00253', 'dj')">
-<img src="../Content/images/blank.gif" class="flag flag-dj" />00253
- </div>
-<div v-if="SearchPhoneCode('001767')" v-on:click="SelectPhoneCode('001767', 'dm')">
-<img src="../Content/images/blank.gif" class="flag flag-dm" />001767
-</div>
-<div v-if="SearchPhoneCode('001809')" v-on:click="SelectPhoneCode('001809', 'do')">
-<img src="../Content/images/blank.gif" class="flag flag-do" />001809
-</div>
-<div v-if="SearchPhoneCode('00593')" v-on:click="SelectPhoneCode('00593', 'ec')">
-<img src="../Content/images/blank.gif" class="flag flag-ec" />00593
-</div>
-<div v-if="SearchPhoneCode('00503')" v-on:click="SelectPhoneCode('00503', 'sv')">
-<img src="../Content/images/blank.gif" class="flag flag-sv" />00503
-</div>
-<div v-if="SearchPhoneCode('00240')" v-on:click="SelectPhoneCode('00240', 'gq')">
-<img src="../Content/images/blank.gif" class="flag flag-gq" />00240
-</div>
-<div v-if="SearchPhoneCode('00372')" v-on:click="SelectPhoneCode('00372', 'ee')">
-<img src="../Content/images/blank.gif" class="flag flag-ee" />00372
-</div>
-<div v-if="SearchPhoneCode('00251')" v-on:click="SelectPhoneCode('00251', 'et')">
-<img src="../Content/images/blank.gif" class="flag flag-et" />00251
-</div>
-<div v-if="SearchPhoneCode('00500')" v-on:click="SelectPhoneCode('00500', 'fk')">
-<img src="../Content/images/blank.gif" class="flag flag-fk" />00500
-</div>
-<div v-if="SearchPhoneCode('00298')" v-on:click="SelectPhoneCode('00298', 'fo')">
-<img src="../Content/images/blank.gif" class="flag flag-fo" />00298
-</div>
-<div v-if="SearchPhoneCode('00679')" v-on:click="SelectPhoneCode('00679', 'fj')">
-<img src="../Content/images/blank.gif" class="flag flag-fj" />00679
-</div>
-<div v-if="SearchPhoneCode('00358')" v-on:click="SelectPhoneCode('00358', 'fi')">
-<img src="../Content/images/blank.gif" class="flag flag-fi" />00358
-</div>
-<div v-if="SearchPhoneCode('00594')" v-on:click="SelectPhoneCode('00594', 'gf')">
-<img src="../Content/images/blank.gif" class="flag flag-gf" />00594
-</div>
-<div v-if="SearchPhoneCode('00689')" v-on:click="SelectPhoneCode('00689', 'pf')">
-<img src="../Content/images/blank.gif" class="flag flag-pf" />00689
-</div>
-<div v-if="SearchPhoneCode('00262')" v-on:click="SelectPhoneCode('00262', 'tf')">
-<img src="../Content/images/blank.gif" class="flag flag-tf" />00262
-</div>
-<div v-if="SearchPhoneCode('00241')" v-on:click="SelectPhoneCode('00241', 'ga')">
-<img src="../Content/images/blank.gif" class="flag flag-ga" />00241
-</div>
-<div v-if="SearchPhoneCode('00220')" v-on:click="SelectPhoneCode('00220', 'gm')">
-<img src="../Content/images/blank.gif" class="flag flag-gm" />00220
-</div>
-<div v-if="SearchPhoneCode('00995')" v-on:click="SelectPhoneCode('00995', 'ge')">
-<img src="../Content/images/blank.gif" class="flag flag-ge" />00995
-</div>
-<div v-if="SearchPhoneCode('00233')" v-on:click="SelectPhoneCode('00233', 'gh')">
-<img src="../Content/images/blank.gif" class="flag flag-gh" />00233
-</div>
-<div v-if="SearchPhoneCode('00350')" v-on:click="SelectPhoneCode('00350', 'gi')">
-<img src="../Content/images/blank.gif" class="flag flag-gi" />00350
-</div>
-<div v-if="SearchPhoneCode('0030')" v-on:click="SelectPhoneCode('0030', 'gr')">
-<img src="../Content/images/blank.gif" class="flag flag-gr" />0030
-</div>
-<div v-if="SearchPhoneCode('00299')" v-on:click="SelectPhoneCode('00299', 'gl')">
-<img src="../Content/images/blank.gif" class="flag flag-gl" />00299
-</div>
-<div v-if="SearchPhoneCode('001473')" v-on:click="SelectPhoneCode('001473', 'gd')">
-<img src="../Content/images/blank.gif" class="flag flag-gd" />001473
-</div>
-<div v-if="SearchPhoneCode('00590')" v-on:click="SelectPhoneCode('00590', 'gp')">
-<img src="../Content/images/blank.gif" class="flag flag-gp" />00590
-</div>
-<div v-if="SearchPhoneCode('001671')" v-on:click="SelectPhoneCode('001671', 'gu')">
-<img src="../Content/images/blank.gif" class="flag flag-gu" />001671
-</div>
-<div v-if="SearchPhoneCode('00502')" v-on:click="SelectPhoneCode('00502', 'gt')">
-<img src="../Content/images/blank.gif" class="flag flag-gt" />00502
-</div>
-<div v-if="SearchPhoneCode('00245')" v-on:click="SelectPhoneCode('00245', 'gw')">
-<img src="../Content/images/blank.gif" class="flag flag-gw" />00245
-</div>
-<div v-if="SearchPhoneCode('00592')" v-on:click="SelectPhoneCode('00592', 'gy')">
-<img src="../Content/images/blank.gif" class="flag flag-gy" />00592
-</div>
-<div v-if="SearchPhoneCode('00509')" v-on:click="SelectPhoneCode('00509', 'ht')">
-<img src="../Content/images/blank.gif" class="flag flag-ht" />00509
-</div>
-<div v-if="SearchPhoneCode('00672')" v-on:click="SelectPhoneCode('00672', 'hm')">
-<img src="../Content/images/blank.gif" class="flag flag-hm" />00672
-</div>
-<div v-if="SearchPhoneCode('00504')" v-on:click="SelectPhoneCode('00504', 'hn')">
-<img src="../Content/images/blank.gif" class="flag flag-hn" />00504
-</div>
-<div v-if="SearchPhoneCode('00852')" v-on:click="SelectPhoneCode('00852', 'hk')">
-<img src="../Content/images/blank.gif" class="flag flag-hk" />00852
-</div>
-<div v-if="SearchPhoneCode('0036')" v-on:click="SelectPhoneCode('0036', 'hu')">
- <img src="../Content/images/blank.gif" class="flag flag-hu" />0036
-</div>
-<div v-if="SearchPhoneCode('00354')" v-on:click="SelectPhoneCode('00354', 'is')">
-<img src="../Content/images/blank.gif" class="flag flag-is" />00354
-</div>
-<div v-if="SearchPhoneCode('0091')" v-on:click="SelectPhoneCode('0091', 'in')">
-<img src="../Content/images/blank.gif" class="flag flag-in" />0091
-</div>
-<div v-if="SearchPhoneCode('0062')" v-on:click="SelectPhoneCode('0062', 'id')">
-<img src="../Content/images/blank.gif" class="flag flag-id" />0062
-</div>
-<div v-if="SearchPhoneCode('00353')" v-on:click="SelectPhoneCode('00353', 'ie')">
-<img src="../Content/images/blank.gif" class="flag flag-ie" />00353
-</div>
-<div v-if="SearchPhoneCode('00972')" v-on:click="SelectPhoneCode('00972', 'il')">
-<img src="../Content/images/blank.gif" class="flag flag-il" />00972
-</div>
-<div v-if="SearchPhoneCode('001876')" v-on:click="SelectPhoneCode('001876', 'jm')">
-<img src="../Content/images/blank.gif" class="flag flag-jm" />001876
-</div>
-<div v-if="SearchPhoneCode('00962')" v-on:click="SelectPhoneCode('00962', 'jo')">
-<img src="../Content/images/blank.gif" class="flag flag-jo" />00962
-</div>
-<div v-if="SearchPhoneCode('007')" v-on:click="SelectPhoneCode('007', 'kz')">
-<img src="../Content/images/blank.gif" class="flag flag-kz" />007
-</div>
-<div v-if="SearchPhoneCode('00254')" v-on:click="SelectPhoneCode('00254', 'ke')">
-<img src="../Content/images/blank.gif" class="flag flag-ke" />00254
-</div>
-<div v-if="SearchPhoneCode('00686')" v-on:click="SelectPhoneCode('00686', 'ki')">
-<img src="../Content/images/blank.gif" class="flag flag-ki" />00686
-</div>
-<div v-if="SearchPhoneCode('00965')" v-on:click="SelectPhoneCode('00965', 'kw')">
-<img src="../Content/images/blank.gif" class="flag flag-kw" />00965
-</div>
-<div v-if="SearchPhoneCode('00996')" v-on:click="SelectPhoneCode('00996', 'kg')">
-<img src="../Content/images/blank.gif" class="flag flag-kg" />00996
-</div>
-<div v-if="SearchPhoneCode('00856')" v-on:click="SelectPhoneCode('00856', 'la')">
-<img src="../Content/images/blank.gif" class="flag flag-la" />00856
-</div>
-<div v-if="SearchPhoneCode('00371')" v-on:click="SelectPhoneCode('00371', 'lv')">
-<img src="../Content/images/blank.gif" class="flag flag-lv" />00371
-</div>
-<div v-if="SearchPhoneCode('00266')" v-on:click="SelectPhoneCode('00266', 'ls')">
-<img src="../Content/images/blank.gif" class="flag flag-ls" />00266
-</div>
-<div v-if="SearchPhoneCode('00423')" v-on:click="SelectPhoneCode('00423', 'li')">
-<img src="../Content/images/blank.gif" class="flag flag-li" />00423
-</div>
-<div v-if="SearchPhoneCode('00370')" v-on:click="SelectPhoneCode('00370', 'lt')">
-<img src="../Content/images/blank.gif" class="flag flag-lt" />00370
-</div>
-<div v-if="SearchPhoneCode('00352')" v-on:click="SelectPhoneCode('00352', 'lu')">
-<img src="../Content/images/blank.gif" class="flag flag-lu" />00352
-</div>
-<div v-if="SearchPhoneCode('00853')" v-on:click="SelectPhoneCode('00853', 'mo')">
-<img src="../Content/images/blank.gif" class="flag flag-mo" />00853
-</div>
-<div v-if="SearchPhoneCode('00389')" v-on:click="SelectPhoneCode('00389', 'mk')">
-<img src="../Content/images/blank.gif" class="flag flag-mk" />00389
-</div>
-<div v-if="SearchPhoneCode('00261')" v-on:click="SelectPhoneCode('00261', 'mg')">
-<img src="../Content/images/blank.gif" class="flag flag-mg" />00261
-</div>
-<div v-if="SearchPhoneCode('00265')" v-on:click="SelectPhoneCode('00265', 'mw')">
-<img src="../Content/images/blank.gif" class="flag flag-mw" />00265
-</div>
-<div v-if="SearchPhoneCode('0060')" v-on:click="SelectPhoneCode('0060', 'my')">
-<img src="../Content/images/blank.gif" class="flag flag-my" />0060
-</div>
-<div v-if="SearchPhoneCode('00960')" v-on:click="SelectPhoneCode('00960', 'mv')">
-<img src="../Content/images/blank.gif" class="flag flag-mv" />00960
-</div>
-<div v-if="SearchPhoneCode('00223')" v-on:click="SelectPhoneCode('00223', 'ml')">
-<img src="../Content/images/blank.gif" class="flag flag-ml" />00223
-</div>
-<div v-if="SearchPhoneCode('00356')" v-on:click="SelectPhoneCode('00356', 'mt')">
-<img src="../Content/images/blank.gif" class="flag flag-mt" />00356
-</div>
-<div v-if="SearchPhoneCode('00692')" v-on:click="SelectPhoneCode('00692', 'mh')">
-<img src="../Content/images/blank.gif" class="flag flag-mh" />00692
-</div>
-<div v-if="SearchPhoneCode('00596')" v-on:click="SelectPhoneCode('00596', 'mq')">
-<img src="../Content/images/blank.gif" class="flag flag-mq" />00596
-</div>
-<div v-if="SearchPhoneCode('00222')" v-on:click="SelectPhoneCode('00222', 'mr')">
-<img src="../Content/images/blank.gif" class="flag flag-mr" />00222
-</div>
-<div v-if="SearchPhoneCode('00230')" v-on:click="SelectPhoneCode('00230', 'mu')">
-<img src="../Content/images/blank.gif" class="flag flag-mu" />00230
-</div>
-<div v-if="SearchPhoneCode('00262')" v-on:click="SelectPhoneCode('00262', 'yt')">
-<img src="../Content/images/blank.gif" class="flag flag-yt" />00262
-</div>
-<div v-if="SearchPhoneCode('0052')" v-on:click="SelectPhoneCode('0052', 'mx')">
-<img src="../Content/images/blank.gif" class="flag flag-mx" />0052
-</div>
-<div v-if="SearchPhoneCode('00691')" v-on:click="SelectPhoneCode('00691', 'fm')">
-<img src="../Content/images/blank.gif" class="flag flag-fm" />00691
-</div>
-<div v-if="SearchPhoneCode('00373')" v-on:click="SelectPhoneCode('00373', 'md')">
-<img src="../Content/images/blank.gif" class="flag flag-md" />00373
-</div>
-<div v-if="SearchPhoneCode('00377')" v-on:click="SelectPhoneCode('00377', 'mc')">
-<img src="../Content/images/blank.gif" class="flag flag-mc" />00377
-</div>
-<div v-if="SearchPhoneCode('00976')" v-on:click="SelectPhoneCode('00976', 'mn')">
-<img src="../Content/images/blank.gif" class="flag flag-mn" />00976
-</div>
-<div v-if="SearchPhoneCode('001664')" v-on:click="SelectPhoneCode('001664', 'ms')">
-<img src="../Content/images/blank.gif" class="flag flag-ms" />001664
-</div>
-<div v-if="SearchPhoneCode('00212')" v-on:click="SelectPhoneCode('00212', 'ma')">
-<img src="../Content/images/blank.gif" class="flag flag-ma" />00212
-</div>
-<div v-if="SearchPhoneCode('00258')" v-on:click="SelectPhoneCode('00258', 'mz')">
-<img src="../Content/images/blank.gif" class="flag flag-mz" />00258
-</div>
-<div v-if="SearchPhoneCode('00264')" v-on:click="SelectPhoneCode('00264', 'na')">
-<img src="../Content/images/blank.gif" class="flag flag-na" />00264
-</div>
-<div v-if="SearchPhoneCode('00674')" v-on:click="SelectPhoneCode('00674', 'nr')">
-<img src="../Content/images/blank.gif" class="flag flag-nr" />00674
-</div>
-<div v-if="SearchPhoneCode('00977')" v-on:click="SelectPhoneCode('00977', 'np')">
-<img src="../Content/images/blank.gif" class="flag flag-np" />00977
-</div>
-<div v-if="SearchPhoneCode('0031')" v-on:click="SelectPhoneCode('0031', 'nl')">
-<img src="../Content/images/blank.gif" class="flag flag-nl" />0031
-</div>
-<div v-if="SearchPhoneCode('00599')" v-on:click="SelectPhoneCode('00599', 'an')">
-<img src="../Content/images/blank.gif" class="flag flag-an" />00599
-</div>
-<div v-if="SearchPhoneCode('00687')" v-on:click="SelectPhoneCode('00687', 'nc')">
-<img src="../Content/images/blank.gif" class="flag flag-nc" />00687
-</div>
-<div v-if="SearchPhoneCode('0064')" v-on:click="SelectPhoneCode('0064', 'nz')">
-<img src="../Content/images/blank.gif" class="flag flag-nz" />0064
-</div>
-<div v-if="SearchPhoneCode('00505')" v-on:click="SelectPhoneCode('00505', 'ni')">
-<img src="../Content/images/blank.gif" class="flag flag-ni" />00505
-</div>
- <div v-if="SearchPhoneCode('00227')" v-on:click="SelectPhoneCode('00227', 'ne')">
-<img src="../Content/images/blank.gif" class="flag flag-ne" />00227
-</div>
-<div v-if="SearchPhoneCode('00683')" v-on:click="SelectPhoneCode('00683', 'nu')">
-<img src="../Content/images/blank.gif" class="flag flag-nu" />00683
-</div>
-<div v-if="SearchPhoneCode('00672')" v-on:click="SelectPhoneCode('00672', 'nf')">
-<img src="../Content/images/blank.gif" class="flag flag-nf" />00672
-</div>
-<div v-if="SearchPhoneCode('001670')" v-on:click="SelectPhoneCode('001670', 'mp')">
-<img src="../Content/images/blank.gif" class="flag flag-mp" />001670
-</div>
-<div v-if="SearchPhoneCode('0047')" v-on:click="SelectPhoneCode('0047', 'no')">
-<img src="../Content/images/blank.gif" class="flag flag-no" />0047
-</div>
-<div v-if="SearchPhoneCode('00968')" v-on:click="SelectPhoneCode('00968', 'om')">
-<img src="../Content/images/blank.gif" class="flag flag-om" />00968
-</div>
-<div v-if="SearchPhoneCode('0092')" v-on:click="SelectPhoneCode('0092', 'pk')">
-<img src="../Content/images/blank.gif" class="flag flag-pk" />0092
-</div>
-<div v-if="SearchPhoneCode('00680')" v-on:click="SelectPhoneCode('00680', 'pw')">
-<img src="../Content/images/blank.gif" class="flag flag-pw" />00680
-</div>
-<div v-if="SearchPhoneCode('00507')" v-on:click="SelectPhoneCode('00507', 'pa')">
-<img src="../Content/images/blank.gif" class="flag flag-pa" />00507
-</div>
-<div v-if="SearchPhoneCode('00675')" v-on:click="SelectPhoneCode('00675', 'pg')">
-<img src="../Content/images/blank.gif" class="flag flag-pg" />00675
-</div>
-<div v-if="SearchPhoneCode('00595')" v-on:click="SelectPhoneCode('00595', 'py')">
-<img src="../Content/images/blank.gif" class="flag flag-py" />00595
-</div>
-<div v-if="SearchPhoneCode('0051')" v-on:click="SelectPhoneCode('0051', 'pe')">
-<img src="../Content/images/blank.gif" class="flag flag-pe" />0051
-</div>
-<div v-if="SearchPhoneCode('0063')" v-on:click="SelectPhoneCode('0063', 'ph')">
-<img src="../Content/images/blank.gif" class="flag flag-ph" />0063
-</div>
-<div v-if="SearchPhoneCode('0064')" v-on:click="SelectPhoneCode('0064', 'pn')">
-<img src="../Content/images/blank.gif" class="flag flag-pn" />0064
-</div>
-<div v-if="SearchPhoneCode('0048')" v-on:click="SelectPhoneCode('0048', 'pl')">
-<img src="../Content/images/blank.gif" class="flag flag-pl" />0048
-</div>
-<div v-if="SearchPhoneCode('001787')" v-on:click="SelectPhoneCode('001787', 'pr')">
-<img src="../Content/images/blank.gif" class="flag flag-pr" />001787
- </div>
-<div v-if="SearchPhoneCode('00974')" v-on:click="SelectPhoneCode('00974', 'qa')">
-<img src="../Content/images/blank.gif" class="flag flag-qa" />00974
-</div>
-<div v-if="SearchPhoneCode('0040')" v-on:click="SelectPhoneCode('0040', 'ro')">
-<img src="../Content/images/blank.gif" class="flag flag-ro" />0040
-</div>
-<div v-if="SearchPhoneCode('007')" v-on:click="SelectPhoneCode('007', 'ru')">
-<img src="../Content/images/blank.gif" class="flag flag-ru" />007
-</div>
-<div v-if="SearchPhoneCode('00250')" v-on:click="SelectPhoneCode('00250', 'rw')">
-<img src="../Content/images/blank.gif" class="flag flag-rw" />00250
-</div>
-<div v-if="SearchPhoneCode('00262')" v-on:click="SelectPhoneCode('00262', 're')">
-<img src="../Content/images/blank.gif" class="flag flag-re" />00262
-</div>
-<div v-if="SearchPhoneCode('00290')" v-on:click="SelectPhoneCode('00290', 'sh')">
-<img src="../Content/images/blank.gif" class="flag flag-sh" />00290
-</div>
-<div v-if="SearchPhoneCode('001869')" v-on:click="SelectPhoneCode('001869', 'kn')">
-<img src="../Content/images/blank.gif" class="flag flag-kn" />001869
-</div>
-<div v-if="SearchPhoneCode('001758')" v-on:click="SelectPhoneCode('001758', 'lc')">
-<img src="../Content/images/blank.gif" class="flag flag-lc" />001758
-</div>
-<div v-if="SearchPhoneCode('00508')" v-on:click="SelectPhoneCode('00508', 'pm')">
-<img src="../Content/images/blank.gif" class="flag flag-pm" />00508
-</div>
-<div v-if="SearchPhoneCode('001784')" v-on:click="SelectPhoneCode('001784', 'vc')">
-<img src="../Content/images/blank.gif" class="flag flag-vc" />001784
-</div>
-<div v-if="SearchPhoneCode('00685')" v-on:click="SelectPhoneCode('00685', 'ws')">
-<img src="../Content/images/blank.gif" class="flag flag-ws" />00685
-</div>
-<div v-if="SearchPhoneCode('00378')" v-on:click="SelectPhoneCode('00378', 'sm')">
-<img src="../Content/images/blank.gif" class="flag flag-sm" />00378
-</div>
-<div v-if="SearchPhoneCode('00239')" v-on:click="SelectPhoneCode('00239', 'st')">
-<img src="../Content/images/blank.gif" class="flag flag-st" />00239
-</div>
-<div v-if="SearchPhoneCode('00966')" v-on:click="SelectPhoneCode('00966', 'sa')">
-<img src="../Content/images/blank.gif" class="flag flag-sa" />00966
-</div>
-<div v-if="SearchPhoneCode('00221')" v-on:click="SelectPhoneCode('00221', 'sn')">
-<img src="../Content/images/blank.gif" class="flag flag-sn" />00221
-</div>
-<div v-if="SearchPhoneCode('00248')" v-on:click="SelectPhoneCode('00248', 'sc')">
-<img src="../Content/images/blank.gif" class="flag flag-sc" />00248
-</div>
-<div v-if="SearchPhoneCode('00232')" v-on:click="SelectPhoneCode('00232', 'sl')">
-<img src="../Content/images/blank.gif" class="flag flag-sl" />00232
-</div>
-<div v-if="SearchPhoneCode('0065')" v-on:click="SelectPhoneCode('0065', 'sg')">
-<img src="../Content/images/blank.gif" class="flag flag-sg" />0065
-</div>
-<div v-if="SearchPhoneCode('00421')" v-on:click="SelectPhoneCode('00421', 'sk')">
-<img src="../Content/images/blank.gif" class="flag flag-sk" />00421
-</div>
-<div v-if="SearchPhoneCode('00386')" v-on:click="SelectPhoneCode('00386', 'si')">
-<img src="../Content/images/blank.gif" class="flag flag-si" />00386
-</div>
-<div v-if="SearchPhoneCode('00677')" v-on:click="SelectPhoneCode('00677', 'sb')">
-<img src="../Content/images/blank.gif" class="flag flag-sb" />00677
-</div>
-<div v-if="SearchPhoneCode('0027')" v-on:click="SelectPhoneCode('0027', 'za')">
-<img src="../Content/images/blank.gif" class="flag flag-za" />0027
-</div>
-<div v-if="SearchPhoneCode('00500')" v-on:click="SelectPhoneCode('00500', 'gs')">
-<img src="../Content/images/blank.gif" class="flag flag-gs" />00500
-</div>
-<div v-if="SearchPhoneCode('0082')" v-on:click="SelectPhoneCode('0082', 'kr')">
-<img src="../Content/images/blank.gif" class="flag flag-kr" />0082
-</div>
-<div v-if="SearchPhoneCode('0094')" v-on:click="SelectPhoneCode('0094', 'lk')">
-<img src="../Content/images/blank.gif" class="flag flag-lk" />0094
-</div>
-<div v-if="SearchPhoneCode('00597')" v-on:click="SelectPhoneCode('00597', 'sr')">
-<img src="../Content/images/blank.gif" class="flag flag-sr" />00597
-</div>
-<div v-if="SearchPhoneCode('0047')" v-on:click="SelectPhoneCode('0047', 'sj')">
-<img src="../Content/images/blank.gif" class="flag flag-sj" />0047
-</div>
-<div v-if="SearchPhoneCode('00268')" v-on:click="SelectPhoneCode('00268', 'sz')">
-<img src="../Content/images/blank.gif" class="flag flag-sz" />00268
-</div>
-<div v-if="SearchPhoneCode('0046')" v-on:click="SelectPhoneCode('0046', 'se')">
-<img src="../Content/images/blank.gif" class="flag flag-se" />0046
-</div>
-<div v-if="SearchPhoneCode('0041')" v-on:click="SelectPhoneCode('0041', 'ch')">
-<img src="../Content/images/blank.gif" class="flag flag-ch" />0041
-</div>
-<div v-if="SearchPhoneCode('00886')" v-on:click="SelectPhoneCode('00886', 'tw')">
-<img src="../Content/images/blank.gif" class="flag flag-tw" />00886
-</div>
-<div v-if="SearchPhoneCode('00992')" v-on:click="SelectPhoneCode('00992', 'tj')">
-<img src="../Content/images/blank.gif" class="flag flag-tj" />00992
-</div>
-<div v-if="SearchPhoneCode('00255')" v-on:click="SelectPhoneCode('00255', 'tz')">
-<img src="../Content/images/blank.gif" class="flag flag-tz" />00255
-</div>
-<div v-if="SearchPhoneCode('0066')" v-on:click="SelectPhoneCode('0066', 'th')">
-<img src="../Content/images/blank.gif" class="flag flag-th" />0066
-</div>
-<div v-if="SearchPhoneCode('00670')" v-on:click="SelectPhoneCode('00670', 'tl')">
-<img src="../Content/images/blank.gif" class="flag flag-tl" />00670
-</div>
-<div v-if="SearchPhoneCode('00228')" v-on:click="SelectPhoneCode('00228', 'tg')">
-<img src="../Content/images/blank.gif" class="flag flag-tg" />00228
-</div>
-<div v-if="SearchPhoneCode('00690')" v-on:click="SelectPhoneCode('00690', 'tk')">
-<img src="../Content/images/blank.gif" class="flag flag-tk" />00690
-</div>
-<div v-if="SearchPhoneCode('00676')" v-on:click="SelectPhoneCode('00676', 'to')">
-<img src="../Content/images/blank.gif" class="flag flag-to" />00676
-</div>
-<div v-if="SearchPhoneCode('001868')" v-on:click="SelectPhoneCode('001868', 'tt')">
-<img src="../Content/images/blank.gif" class="flag flag-tt" />001868
-</div>
-<div v-if="SearchPhoneCode('0090')" v-on:click="SelectPhoneCode('0090', 'tr')">
-<img src="../Content/images/blank.gif" class="flag flag-tr" />0090
-</div>
-<div v-if="SearchPhoneCode('00993')" v-on:click="SelectPhoneCode('00993', 'tm')">
-<img src="../Content/images/blank.gif" class="flag flag-tm" />00993
-</div>
-<div v-if="SearchPhoneCode('001649')" v-on:click="SelectPhoneCode('001649', 'tc')">
-<img src="../Content/images/blank.gif" class="flag flag-tc" />001649
-</div>
-<div v-if="SearchPhoneCode('00688')" v-on:click="SelectPhoneCode('00688', 'tv')">
-<img src="../Content/images/blank.gif" class="flag flag-tv" />00688
-</div>
-<div v-if="SearchPhoneCode('001340')" v-on:click="SelectPhoneCode('001340', 'vi')">
-<img src="../Content/images/blank.gif" class="flag flag-vi" />001340
-</div>
-<div v-if="SearchPhoneCode('00256')" v-on:click="SelectPhoneCode('00256', 'ug')">
-<img src="../Content/images/blank.gif" class="flag flag-ug" />00256
-</div>
-<div v-if="SearchPhoneCode('00380')" v-on:click="SelectPhoneCode('00380', 'ua')">
-<img src="../Content/images/blank.gif" class="flag flag-ua" />00380
-</div>
-<div v-if="SearchPhoneCode('00971')" v-on:click="SelectPhoneCode('00971', 'ae')">
-<img src="../Content/images/blank.gif" class="flag flag-ae" />00971
-</div>
-<div v-if="SearchPhoneCode('00598')" v-on:click="SelectPhoneCode('00598', 'uy')">
-<img src="../Content/images/blank.gif" class="flag flag-uy" />00598
-</div>
-<div v-if="SearchPhoneCode('00998')" v-on:click="SelectPhoneCode('00998', 'uz')">
-<img src="../Content/images/blank.gif" class="flag flag-uz" />00998
-</div>
-<div v-if="SearchPhoneCode('00678')" v-on:click="SelectPhoneCode('00678', 'vu')">
-<img src="../Content/images/blank.gif" class="flag flag-vu" />00678
-</div>
-<div v-if="SearchPhoneCode('0058')" v-on:click="SelectPhoneCode('0058', 've')">
-<img src="../Content/images/blank.gif" class="flag flag-ve" />0058
-</div>
-<div v-if="SearchPhoneCode('0084')" v-on:click="SelectPhoneCode('0084', 'vn')">
-<img src="../Content/images/blank.gif" class="flag flag-vn" />0084
-</div>
-<div v-if="SearchPhoneCode('00681')" v-on:click="SelectPhoneCode('00681', 'wf')">
-<img src="../Content/images/blank.gif" class="flag flag-wf" />00681
-</div>
-<div v-if="SearchPhoneCode('00212')" v-on:click="SelectPhoneCode('00212', 'eh')">
-<img src="../Content/images/blank.gif" class="flag flag-eh" />00212
-</div>
-<div v-if="SearchPhoneCode('00967')" v-on:click="SelectPhoneCode('00967', 'ye')">
-<img src="../Content/images/blank.gif" class="flag flag-ye" />00967
-</div>
-<div v-if="SearchPhoneCode('00260')" v-on:click="SelectPhoneCode('00260', 'zm')">
-<img src="../Content/images/blank.gif" class="flag flag-zm" />00260
-</div>
-<div v-if="SearchPhoneCode('001')" v-on:click="SelectPhoneCode('001', 'us')">
-<img src="../Content/images/blank.gif" class="flag flag-us" />001
-</div>
-<div v-if="SearchPhoneCode('0020')" v-on:click="SelectPhoneCode('0020', 'eg')">
-<img src="../Content/images/blank.gif" class="flag flag-eg" />0020
-</div>
-<div v-if="SearchPhoneCode('00961')" v-on:click="SelectPhoneCode('00961', 'lb')">
-<img src="../Content/images/blank.gif" class="flag flag-lb" />00961
-</div>
-<div v-if="SearchPhoneCode('00218')" v-on:click="SelectPhoneCode('00218', 'ly')">
-<img src="../Content/images/blank.gif" class="flag flag-ly" />00218
-</div>
-<div v-if="SearchPhoneCode('00216')" v-on:click="SelectPhoneCode('00216', 'tn')">
-<img src="../Content/images/blank.gif" class="flag flag-tn" />00216
-</div>
-<div v-if="SearchPhoneCode('00970')" v-on:click="SelectPhoneCode('00970', 'ps')">
-<img src="../Content/images/blank.gif" class="flag flag-ps" />00970
-</div>
-<div v-if="SearchPhoneCode('00382')" v-on:click="SelectPhoneCode('00382', 'me')">
-<img src="../Content/images/blank.gif" class="flag flag-me" />00382
-</div>
-<div v-if="SearchPhoneCode('0093')" v-on:click="SelectPhoneCode('0093', 'af')">
-<img src="../Content/images/blank.gif" class="flag flag-af" />0093
-</div>
-<div v-if="SearchPhoneCode('00375')" v-on:click="SelectPhoneCode('00375', 'by')">
-<img src="../Content/images/blank.gif" class="flag flag-by" />00375
-</div>
-<div v-if="SearchPhoneCode('00242')" v-on:click="SelectPhoneCode('00242', 'cg')">
-<img src="../Content/images/blank.gif" class="flag flag-cg" />00242
-</div>
-<div v-if="SearchPhoneCode('00243')" v-on:click="SelectPhoneCode('00243', 'cd')">
-<img src="../Content/images/blank.gif" class="flag flag-cd" />00243
-</div>
-<div v-if="SearchPhoneCode('00291')" v-on:click="SelectPhoneCode('00291', 'er')">
-<img src="../Content/images/blank.gif" class="flag flag-er" />00291
-</div>
-<div v-if="SearchPhoneCode('00224')" v-on:click="SelectPhoneCode('00224', 'gn')">
-<img src="../Content/images/blank.gif" class="flag flag-gn" />00224
-</div>
-<div v-if="SearchPhoneCode('0098')" v-on:click="SelectPhoneCode('0098', 'ir')">
-<img src="../Content/images/blank.gif" class="flag flag-ir" />0098
-</div>
-<div v-if="SearchPhoneCode('00964')" v-on:click="SelectPhoneCode('00964', 'iq')">
-<img src="../Content/images/blank.gif" class="flag flag-iq" />00964
-</div>
-<div v-if="SearchPhoneCode('00231')" v-on:click="SelectPhoneCode('00231', 'lr')">
-<img src="../Content/images/blank.gif" class="flag flag-lr" />00231
-</div>
-<div v-if="SearchPhoneCode('0095')" v-on:click="SelectPhoneCode('0095', 'mm')">
-<img src="../Content/images/blank.gif" class="flag flag-mm" />0095
-</div>
-<div v-if="SearchPhoneCode('00850')" v-on:click="SelectPhoneCode('00850', 'kp')">
-<img src="../Content/images/blank.gif" class="flag flag-kp" />00850
-</div>
-<div v-if="SearchPhoneCode('00252')" v-on:click="SelectPhoneCode('00252', 'so')">
-<img src="../Content/images/blank.gif" class="flag flag-so" />00252
-</div>
-<div v-if="SearchPhoneCode('00249')" v-on:click="SelectPhoneCode('00249', 'sd')">
-<img src="../Content/images/blank.gif" class="flag flag-sd" />00249
-</div>
-<div v-if="SearchPhoneCode('00963')" v-on:click="SelectPhoneCode('00963', 'sy')">
-<img src="../Content/images/blank.gif" class="flag flag-sy" />00963
-</div>
-<div v-if="SearchPhoneCode('00381')" v-on:click="SelectPhoneCode('00381', 'rs')">
-<img src="../Content/images/blank.gif" class="flag flag-rs" />00381
-</div>
-<div v-if="SearchPhoneCode('0081')" v-on:click="SelectPhoneCode('0081', 'jp')">
-<img src="../Content/images/blank.gif" class="flag flag-jp" />0081
-</div>
-<div v-if="SearchPhoneCode('00263')" v-on:click="SelectPhoneCode('00263', 'zw')">
-<img src="../Content/images/blank.gif" class="flag flag-zw" />00263
-</div>
-<div v-if="SearchPhoneCode('00234')" v-on:click="SelectPhoneCode('00234', 'ng')">
-<img src="../Content/images/blank.gif" class="flag flag-ng" />00234
-</div>
-<div v-if="SearchPhoneCode('00358')" v-on:click="SelectPhoneCode('00358', 'ax')">
-<img src="../Content/images/blank.gif" class="flag flag-ax" />00358
-</div>
-<div v-if="SearchPhoneCode('005997')" v-on:click="SelectPhoneCode('005997', 'bq')">
-<img src="../Content/images/blank.gif" class="flag flag-bq" />005997
-</div>
-<div v-if="SearchPhoneCode('00599')" v-on:click="SelectPhoneCode('00599', 'cw')">
-<img src="../Content/images/blank.gif" class="flag flag-cw" />00599
-</div>
-<div v-if="SearchPhoneCode('0044')" v-on:click="SelectPhoneCode('0044', 'gg')">
-<img src="../Content/images/blank.gif" class="flag flag-gg" />0044
-</div>
-<div v-if="SearchPhoneCode('00379')" v-on:click="SelectPhoneCode('00379', 'va')">
-<img src="../Content/images/blank.gif" class="flag flag-va" />00379
-</div>
-<div v-if="SearchPhoneCode('0044')" v-on:click="SelectPhoneCode('0044', 'im')">
-<img src="../Content/images/blank.gif" class="flag flag-im" />0044
-</div>
-<div v-if="SearchPhoneCode('0044')" v-on:click="SelectPhoneCode('0044', 'je')">
-<img src="../Content/images/blank.gif" class="flag flag-je" />0044
-</div>
-<div v-if="SearchPhoneCode('00590')" v-on:click="SelectPhoneCode('00590', 'bl')">
-<img src="../Content/images/blank.gif" class="flag flag-bl" />00590
-</div>
-<div v-if="SearchPhoneCode('00590')" v-on:click="SelectPhoneCode('00590', 'mf')">
-<img src="../Content/images/blank.gif" class="flag flag-mf" />00590
-</div>
-<div v-if="SearchPhoneCode('001721')" v-on:click="SelectPhoneCode('001721', 'sx')">
-<img src="../Content/images/blank.gif" class="flag flag-sx" />001721
-</div>
-<div v-if="SearchPhoneCode('00211')" v-on:click="SelectPhoneCode('00211', 'ss')">
-<img src="../Content/images/blank.gif" class="flag flag-ss" />00211
-</div>
-<div v-if="SearchPhoneCode('001')" v-on:click="SelectPhoneCode('001', 'um')">
-<img src="../Content/images/blank.gif" class="flag flag-um" />001
-</div>
-<div v-if="SearchPhoneCode('00383')" v-on:click="SelectPhoneCode('00383', 'xk')">
-<img src="../Content/images/blank.gif" class="flag flag-xk" />00383
-</div>
-</div>
+
 <label></label>
 </div>
 </div>
-<div class="width-2-3 no-left-border" style="display:flex">
-    <select style="width:30%" id="phoneCodeSelectID">
+<div class="width-2-3 no-left-border" style="display:flex;width:100%;" >
+    <select style="width:30%" id="phoneCodeSelectID" class="form-control">
         <option value="+33">+33</option>
     </select>
-    <input type="number" style="width:70%">
+    <input type="number" style="width:70%" class="form-control">
 </div>
 <!-- <div class="width-2-3 no-left-border" style>
 <select>
@@ -1521,7 +755,7 @@ Forgot password?
 <p>I hereby consent to the collection, storage and processing of my personal data by PREMIUM MILL in accordance with the our terms. My data might be used by PREMIUM MILL to contact me to assist me with the account opening process. I can request to delete my personal data at any time. In case my application was not successful PREMIUM MILL will delete my personal data without further notice after 2 years of inactivity.</p>
 </div>
 <div v-if="SelectedCountry.RiskGroup != 'BlackListed' && CustomerStatus != 'LiveUser' && !IsBahamasBlacklisted() && !AvailablePlcRegistration()">
-<input type="submit" value="Accept &amp; continue" class="btn btn-green full-width next-step" v-bind:disabled="IsSubmitButtonDisabled">
+<input type="submit" value="Accept &amp; continue" class="btn btn-green full-width next-step" >
 </div>
 <div class="clearer"></div>
 <div class="text-center" v-if="CustomerStatus == 'DemoUserWithOa'">
@@ -1533,7 +767,7 @@ All previously entered information will be lost!
 </div>
 </form>
 </div>
-<div class="step0-side-banner">
+<div class="step0-side-banner marko-step0-side-banner">
 <h3 class="title-subsection">Why choose PREMIUM MILL?</h3>
 <p>
 Maximising your trading through a unique mix of superior value proposition, diverse product offering, competitive spreads and stellar customer service.
@@ -1982,261 +1216,7 @@ Country of Residence
 </label>
 <div class="col-md-7">
 <div class="dropdown-holder">
-<select class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-number="The field CountryId must be a number." data-val-requiredinvalidvalues="" data-val-requiredinvalidvalues-invalidvalues="0" data-val-requiredinvalidvalues-separator=";" id="CountryId" name="CountryId">
-<option selected="selected" value="0">--</option>
-<option value="20">Austria</option>
-<option value="26">Belgium</option>
-<option value="35">Brazil</option>
-<option value="39">Bulgaria</option>
-<option value="50">China</option>
-<option value="1">France</option>
-<option value="2">Germany</option>
-<option value="95">Hungary</option>
-<option value="3">Italy</option>
-<option value="138">Netherlands</option>
-<option value="4">Portugal</option>
-<option value="161">Russia</option>
-<option value="172">Saudi Arabia</option>
-<option value="5">Spain</option>
-<option value="188">Switzerland</option>
-<option value="6">United Kingdom</option>
-<option value="159">Qatar</option>
-<option value="205">United Arab Emirates</option>
-<option selected="selected" value="0">--</option>
-<option value="273">Afghanistan</option>
-<option value="308">&#197;land Islands</option>
-<option value="8">Albania</option>
-<option value="9">Algeria</option>
-<option value="10">American Samoa</option>
-<option value="11">Andorra</option>
-<option value="12">Angola</option>
-<option value="13">Anguilla</option>
-<option value="14">Antarctica</option>
-<option value="15">Antigua and Barbuda</option>
-<option value="16">Argentina</option>
-<option value="17">Armenia</option>
-<option value="18">Aruba</option>
-<option value="19">Australia</option>
-<option value="21">Azerbaijan</option>
-<option value="22">Bahamas</option>
-<option value="23">Bahrain</option>
-<option value="24">Bangladesh</option>
-<option value="25">Barbados</option>
-<option value="274">Belarus</option>
-<option value="27">Belize</option>
-<option value="28">Benin</option>
-<option value="29">Bermuda</option>
-<option value="30">Bhutan</option>
-<option value="31">Bolivia</option>
-<option value="309">Bonaire</option>
-<option value="32">Bosnia and Herzegovina</option>
-<option value="33">Botswana</option>
-<option value="34">Bouvet Island</option>
-<option value="36">British Indian Ocean Territory</option>
-<option value="37">British Virgin Islands</option>
-<option value="38">Brunei</option>
-<option value="40">Burkina Faso</option>
-<option value="41">Burundi</option>
-<option value="42">Cambodia</option>
-<option value="43">Cameroon</option>
-<option value="44">Canada</option>
-<option value="45">Cape Verde</option>
-<option value="46">Cayman Islands</option>
-<option value="47">Central African Republic</option>
-<option value="48">Chad</option>
-<option value="49">Chile</option>
-<option value="51">Christmas Island</option>
-<option value="52">Cocos [Keeling] Islands</option>
-<option value="53">Colombia</option>
-<option value="54">Comoros</option>
-<option value="275">Congo - Brazzaville</option>
-<option value="276">Congo - Kinshasa</option>
-<option value="55">Cook Islands</option>
-<option value="56">Costa Rica</option>
-<option value="61">C&#244;te d’Ivoire</option>
-<option value="57">Croatia</option>
-<option value="58">Cuba</option>
-<option value="310">Cura&#231;ao</option>
-<option value="59">Cyprus</option>
-<option value="60">Czech Republic</option>
-<option value="62">Denmark</option>
-<option value="63">Djibouti</option>
-<option value="64">Dominica</option>
-<option value="65">Dominican Republic</option>
-<option value="66">Ecuador</option>
-<option value="216">Egypt</option>
-<option value="67">El Salvador</option>
-<option value="68">Equatorial Guinea</option>
-<option value="277">Eritrea</option>
-<option value="69">Estonia</option>
-<option value="70">Ethiopia</option>
-<option value="71">Falkland Islands (Malvinas)</option>
-<option value="72">Faroe Islands</option>
-<option value="73">Fiji</option>
-<option value="74">Finland</option>
-<option value="75">French Guiana</option>
-<option value="76">French Polynesia</option>
-<option value="77">French Southern Territories</option>
-<option value="78">Gabon</option>
-<option value="79">Gambia</option>
-<option value="80">Georgia</option>
-<option value="81">Ghana</option>
-<option value="82">Gibraltar</option>
-<option value="83">Greece</option>
-<option value="84">Greenland</option>
-<option value="85">Grenada</option>
-<option value="86">Guadeloupe</option>
-<option value="87">Guam</option>
-<option value="88">Guatemala</option>
-<option value="311">Guernsey</option>
-<option value="278">Guinea</option>
-<option value="89">Guinea-Bissau</option>
-<option value="90">Guyana</option>
-<option value="91">Haiti</option>
-<option value="92">Heard Island and McDonald Islands</option>
-<option value="93">Honduras</option>
-<option value="94">Hong Kong SAR China</option>
-<option value="96">Iceland</option>
-<option value="97">India</option>
-<option value="98">Indonesia</option>
-<option value="279">Iran, Islamic Republic of</option>
-<option value="280">Iraq</option>
-<option value="99">Ireland</option>
-<option value="313">Isle of Man</option>
-<option value="100">Israel</option>
-<option value="101">Jamaica</option>
-<option value="288">Japan</option>
-<option value="314">Jersey</option>
-<option value="102">Jordan</option>
-<option value="103">Kazakhstan</option>
-<option value="104">Kenya</option>
-<option value="105">Kiribati</option>
-<option value="106">Kuwait</option>
-<option value="107">Kyrgyzstan</option>
-<option value="108">Laos</option>
-<option value="109">Latvia</option>
-<option value="217">Lebanon</option>
-<option value="110">Lesotho</option>
-<option value="281">Liberia</option>
-<option value="218">Libya</option>
-<option value="111">Liechtenstein</option>
-<option value="112">Lithuania</option>
-<option value="113">Luxembourg</option>
-<option value="114">Macau SAR China</option>
-<option value="115">Macedonia</option>
-<option value="116">Madagascar</option>
-<option value="117">Malawi</option>
-<option value="118">Malaysia</option>
-<option value="119">Maldives</option>
-<option value="120">Mali</option>
-<option value="121">Malta</option>
-<option value="122">Marshall Islands</option>
-<option value="123">Martinique</option>
-<option value="124">Mauritania</option>
-<option value="125">Mauritius</option>
-<option value="126">Mayotte</option>
-<option value="127">Mexico</option>
-<option value="128">Micronesia</option>
-<option value="129">Moldova</option>
-<option value="130">Monaco</option>
-<option value="131">Mongolia</option>
-<option value="245">Montenegro</option>
-<option value="132">Montserrat</option>
-<option value="133">Morocco</option>
-<option value="134">Mozambique</option>
-<option value="282">Myanmar [Burma]</option>
-<option value="135">Namibia</option>
-<option value="136">Nauru</option>
-<option value="137">Nepal</option>
-<option value="139">Netherlands Antilles</option>
-<option value="140">New Caledonia</option>
-<option value="141">New Zealand</option>
-<option value="142">Nicaragua</option>
-<option value="143">Niger</option>
-<option value="307">Nigeria</option>
-<option value="144">Niue</option>
-<option value="145">Norfolk Island</option>
-<option value="283">North Korea</option>
-<option value="146">Northern Mariana Islands</option>
-<option value="147">Norway</option>
-<option value="148">Oman</option>
-<option value="149">Pakistan</option>
-<option value="150">Palau</option>
-<option value="220">Palestinian Territories</option>
-<option value="151">Panama</option>
-<option value="152">Papua New Guinea</option>
-<option value="153">Paraguay</option>
-<option value="154">Peru</option>
-<option value="155">Philippines</option>
-<option value="156">Pitcairn Islands</option>
-<option value="157">Poland</option>
-<option value="158">Puerto Rico</option>
-<option value="321">Republic of Kosovo</option>
-<option value="163">R&#233;union</option>
-<option value="160">Romania</option>
-<option value="162">Rwanda</option>
-<option value="315">Saint Barth&#233;lemy</option>
-<option value="164">Saint Helena</option>
-<option value="165">Saint Kitts and Nevis</option>
-<option value="166">Saint Lucia</option>
-<option value="317">Saint Martin (French part)</option>
-<option value="167">Saint Pierre and Miquelon</option>
-<option value="168">Saint Vincent and the Grenadines</option>
-<option value="169">Samoa</option>
-<option value="170">San Marino</option>
-<option value="171">S&#227;o Tom&#233; and Pr&#237;ncipe</option>
-<option value="173">Senegal</option>
-<option value="287">Serbia</option>
-<option value="174">Seychelles</option>
-<option value="175">Sierra Leone</option>
-<option value="176">Singapore</option>
-<option value="318">Sint Maarten (Dutch part)</option>
-<option value="177">Slovakia</option>
-<option value="178">Slovenia</option>
-<option value="179">Solomon Islands</option>
-<option value="284">Somalia</option>
-<option value="180">South Africa</option>
-<option value="181">South Georgia and the South Sandwich Islands</option>
-<option value="182">South Korea</option>
-<option value="319">South Sudan</option>
-<option value="183">Sri Lanka</option>
-<option value="285">Sudan</option>
-<option value="184">Suriname</option>
-<option value="185">Svalbard and Jan Mayen</option>
-<option value="186">Swaziland</option>
-<option value="187">Sweden</option>
-<option value="286">Syria</option>
-<option value="189">Taiwan</option>
-<option value="190">Tajikistan</option>
-<option value="191">Tanzania</option>
-<option value="192">Thailand</option>
-<option value="193">Timor-Leste</option>
-<option value="194">Togo</option>
-<option value="195">Tokelau</option>
-<option value="196">Tonga</option>
-<option value="197">Trinidad and Tobago</option>
-<option value="219">Tunisia</option>
-<option value="198">Turkey</option>
-<option value="199">Turkmenistan</option>
-<option value="200">Turks and Caicos Islands</option>
-<option value="201">Tuvalu</option>
-<option value="320">U.S. Minor Outlying Islands</option>
-<option value="202">U.S. Virgin Islands</option>
-<option value="203">Uganda</option>
-<option value="204">Ukraine</option>
-<option value="215">United States</option>
-<option value="206">Uruguay</option>
-<option value="207">Uzbekistan</option>
-<option value="208">Vanuatu</option>
-<option value="312">Vatican City</option>
-<option value="209">Venezuela</option>
-<option value="210">Vietnam</option>
-<option value="211">Wallis and Futuna</option>
-<option value="212">Western Sahara</option>
-<option value="213">Yemen</option>
-<option value="214">Zambia</option>
-<option value="289">Zimbabwe</option>
-</select>
+
 <label></label>
 <span class="field-validation-valid" data-valmsg-for="CountryId" data-valmsg-replace="true"></span>
 </div>
