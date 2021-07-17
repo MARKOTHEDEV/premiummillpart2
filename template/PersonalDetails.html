@@ -1,9 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
-<!--[if IE 9]><html class="no-js lt-ie10"> <![endif]-->
+
 <html lang="en" dir="ltr">
 
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -14,9 +11,6 @@
 <title>Premium Mill - Online Application - Personal Details</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex" />
-<!-- <link href="https://secure.activtrades.com/personalarea/Content/CSS/flags?v=cuuZkRKlK1-WUsvBzBveNRLJEFR28Z9zEFCLsYk28r81" rel="stylesheet" />
-<link href="https://secure.activtrades.com/personalarea/Content/CSS/thirdParty/vueComponents/dropzone?v=eJQKTejX8sqfBH2XyTSTvsNBt9FtG3I4IR3jvofH2Uw1" rel="stylesheet" />
-<link href="https://secure.activtrades.com/personalarea/Content/CSS/default/style?v=R6mex4fQOKMjd37mZzdc2rmGhNXyI73vHGdlKrXl3lI1" rel="stylesheet" /> -->
 <link href="{% static 'signupAndSignInCss/flags.css' %}" rel="stylesheet" />
 <link href="{% static 'signupAndSignInCss/dropzone.css' %}" rel="stylesheet" />
 <link href="{% static 'signupAndSignInCss/style.css' %}" rel="stylesheet" />
@@ -28,7 +22,6 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 <link href="https://secure.activtrades.com/personalarea/Content/CSS/VueTransitions?v=IVANb8eFaPZJS-55CX13zlGfq8TXXRMdoyEs4EeY4cg1" rel="stylesheet" />
 <link href="https://secure.activtrades.com/personalarea/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-<script src="https://secure.activtrades.com/personalarea/bundles/modernizr?v=_crq2QUT7I_NAMAaEv7T-Hgr0jkqYYHmaNBKKo2em_Q1"></script>
 </head>
 <body class="ltr oa ">
 <div class="hidden">
@@ -610,7 +603,7 @@ Complete our effortless online form and start trading with real money today.
 	<div class="oa-step-loader step0"></div>
 <div id="PersonalDetails" class="step0-form marko-personal-details">
 <form action="" class="oa-form" method="post" ref="currentElement" v-bind:data-vv-scope="Scope" v-bind:id="Scope" v-on:submit.prevent="SubmitForm();" valid="false"><input name="__RequestVerificationToken" type="hidden" value="ctmMsOcV4Xh-MN1PjQD8P57Qx2xQjvsit7ZbGVCnoM1nY6P3bHHmO0DoDhyD4j6uWoSZ8_kWi_dxYScchGwcLrChOMo1" /> <h2 class="title-subsection text-center">Start your application now</h2>
-
+ {% csrf_token %}
 <input Name="UtmParameters.UtmSource" id="UtmParameters.UtmSource" name="UtmSource" type="hidden" value="" />
 <input Name="UtmParameters.UtmMedium" id="UtmParameters.UtmMedium" name="UtmMedium" type="hidden" value="" />
 <input Name="UtmParameters.UtmContent" id="UtmParameters.UtmContent" name="UtmContent" type="hidden" value="" />
@@ -875,7 +868,7 @@ Maximising your trading through a unique mix of superior value proposition, dive
 <div class="content-section light-grey-section right">
 <div class="form-group">
 <div class="col-md-12">
-<p class="not-registered intro-text">New to ActivTrades?</p>
+<p class="not-registered intro-text">New to Premium Mill?</p>
 <a href="#" title="" class="sign-up" id="request_form" data-request-enquery-text="Request form" data-request-call-text="Call me back">Request form</a>
 </div>
 </div>
@@ -1077,14 +1070,14 @@ Attach file (optional)
 <div class="footer-wrapper pa-css">
 <div class="row">
 <div class="col-xs-12 col-sm-8 col-md-9" data-paat="footer-text">
-<p>The information on this website is of a general nature only and does not consider your objectives, financial situation or needs. Every effort is made to provide information that is accurate. However, information is subject to change at any time without notice. Premium Mill cannot guarantee, and assumes no legal liability or responsibility for, the relevance, accuracy, currency or completeness of the information.</p>
-<p>Information on this site is not directed at residents in any country or jurisdiction where such distribution or use would be contrary to local law or regulation. Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated by the Financial Conduct Authority, registration number 434413. Premium Mill PLC is a company registered in England & Wales, registration number 05367727 </p>
-<p>ActivTrades Corp is a subsidiary of <a href="" target="_blank" rel="noopener">ActivTrades PLC</a>, authorised and regulated by the Financial Conduct Authority, registration number 434413. ActivTrades PLC is a company registered in England &amp; Wales, registration number 05367727. For our FCA regulated UK headquarters please <a href="" target="_blank" rel="noopener">click here</a>. ActivTrades PLC is responsible for card payment processing.</p>
-<p>Android is a trademark of Google Inc. Windows Mobile is a trademark of Microsoft Corporation in the United States and other countries. iPhone, iPad and iPod Touch are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
-<p>This website is owned and operated by Premium Mill. All contents – 2021 GO Markets Pty Ltd. All rights reserved. </p>
+	<p>The information on this website is of a general nature only and does not consider your objectives, financial situation or needs. Every effort is made to provide information that is accurate. However, information is subject to change at any time without notice. Premium Mill cannot guarantee, and assumes no legal liability or responsibility for, the relevance, accuracy, currency or completeness of the information. </p>
+	<p>Information on this site is not directed at residents in any country or jurisdiction where such distribution or use would be contrary to local law or regulation. Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated by the Financial Conduct Authority, registration number 434413. Premium Mill PLC is a company registered in England & Wales, registration number 05367727 </p>
+	<p>Android is a trademark of Google Inc. Windows Mobile is a trademark of Microsoft Corporation in the United States and other countries. iPhone, iPad and iPod Touch are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. </p>
+	<p>This website is owned and operated by Premium Mill. All contents &#8211; 2021 GO Markets Pty Ltd. All rights reserved. </p>
+	
 </div>
 <div class="col-xs-12 col-sm-4 col-md-3 footer-last-col">
-<p><a href="contact.html">CONTACT US</a></p>
+<p><a href="{% url 'contact' %}">CONTACT US</a></p>
 <p><a href="tel:+15182413251">+15182413251</a><br />
 <a href="mailto:support@premiumill.com">support@premiumill.com</a><br />
 <p>
@@ -1173,139 +1166,7 @@ Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated 
 </div>
 <div class="modal-body content">
 <div class="content-in content-section form-horizontal clearfix" id="call_me_now_popup_content">
-<div id="CallMeNowBox">
-<form id="call_me_now_form" method="post" action="">
-<dl class="popup-oa">
-<dd class="form-group desktop-flex">
-<label class="control-label col-md-5">
-Forename
-</label>
-<div class="col-md-7">
-<input class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-regex="Only Latin letters and dashes are accepted" data-val-regex-pattern="^[^0-9&lt;>%]*$" data-val-stringlength="The maximum length for this field is 65 characters" data-val-stringlength-maxlength="65" id="ClientFirstName" name="ClientFirstName" type="text" value="" />
-<span class="hidden" id="first_name_error">Required</span>
-<span class="field-validation-valid" data-valmsg-for="ClientFirstName" data-valmsg-replace="true"></span>
-</div>
-</dd>
-<dd class="form-group desktop-flex">
-<label class="control-label col-md-5" for="ClientLastName">
-Surname
-</label>
-<div class="col-md-7">
-<input class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-regex="Only Latin letters and dashes are accepted" data-val-regex-pattern="^[^0-9&lt;>%]*$" data-val-stringlength="The maximum length for this field is 65 characters" data-val-stringlength-maxlength="65" id="ClientLastName" name="ClientLastName" type="text" value="" />
-<span class="field-validation-valid" data-valmsg-for="ClientLastName" data-valmsg-replace="true"></span>
-<span class="color-red hidden" id="last_name_error">Required</span>
-</div>
-</dd>
-<dd class="form-group">
-<div class="desktop-flex">
-<label class="control-label col-md-5">
-Telephone number
-</label>
-<div class="col-md-7">
-<input Value="" class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-regex="Please include the country code and area code before the phone number (00442071234567 or +442071234567)" data-val-regex-pattern="^([0]{2}|\+[0-9]{2,3})[0-9]{6,15}$" id="DayTimePhoneNumberPrint" name="DayTimePhoneNumberPrint" type="text" value="" />
-</div>
-</div>
-<div class="col-md-7 col-md-offset-5">
-<span class="field-validation-valid" data-valmsg-for="DayTimePhoneNumberPrint" data-valmsg-replace="true"></span>
-<span class="color-red hidden" id="phone_error">Required</span>
-</div>
-</dd>
-<dd id="country_wrapper" class="form-group desktop-flex">
-<label class="control-label col-md-5">
-Country of Residence
-</label>
-<div class="col-md-7">
-<div class="dropdown-holder">
 
-<label></label>
-<span class="field-validation-valid" data-valmsg-for="CountryId" data-valmsg-replace="true"></span>
-</div>
-</div>
-</dd>
-<dd class="form-group desktop-flex">
-<label class="control-label col-md-5">
-Email
-</label>
-<div class="col-md-7">
-<input class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-equalto="Email mismatch" data-val-equalto-other="ClientEmail" data-val-regexemail="Invalid Email" data-val-regexemail-flags="i" data-val-regexemail-pattern="" id="ClientEmail" name="ClientEmail" type="text" value="" />
-<span class="field-validation-valid" data-valmsg-for="ClientEmail" data-valmsg-replace="true"></span>
-</div>
-</dd>
-<dd class="form-group desktop-flex">
-<label class="col-md-5 control-label">
-Best time to call
-</label>
-<div class="col-md-7">
-<div class="dropdown-holder">
-<select class="form-control" data-val="true" data-val-customrequiredattr="Required" id="BestTimeToCall" name="BestTimeToCall"><option selected="selected" value="Now">Now</option>
-<option value="Morning">Morning</option>
-<option value="Afternoon">Afternoon</option>
-<option value="Evening">Evening</option>
-</select>
-<label></label>
-</div>
-</div>
-</dd>
-<dd class="form-group desktop-flex">
-<label class="control-label col-md-5">
-Preferred contact language:
-</label>
-<div class="col-md-7">
-<div class="dropdown-holder">
-<select class="form-control" data-val="true" data-val-customrequiredattr="Required" id="PrefferedLanguage" name="PrefferedLanguage"><option value="English">English</option>
-<option value="French">Francais</option>
-<option value="German">Deutsch</option>
-<option value="Italian">Italiano</option>
-<option value="Spanish">Espa&#241;ol</option>
-<option value="Portuguese">Portugues</option>
-<option value="Russian">Русский</option>
-<option value="Chinese">中國</option>
-<option value="Bulgarian">Български</option>
-<option value="Arabic">العربية</option>
-<option value="Chinese (Traditional)">香港</option>
-<option value="Malay">Malay</option>
-<option value="Turkish">T&#252;rk&#231;e</option>
-</select>
-<label></label>
-</div>
-</div>
-</dd>
-</dl>
-</form>
-
-<div id="CallMeNowError" class="hidden clearfix">
-<h1 class="title-subsection">
-Error!
-</h1>
-<p>
-An error has occured while processing your request! Please try again later or contact our support desk.<br /><br />
-</p>
-<div>
-<button onclick="validate_all(); return false;" class="btn btn-blue pull-right">
-Try Again
-</button>
-<button class="btn btn-grey pull-left" data-dismiss="modal">
-Close
-</button>
-</div>
-</div>
-
-
-<div id="CallMeNowThanksMessage" class="hidden clearfix">
-<h3 class="title-subsection">
-Thank You
-</h3>
-<p class="margin-bottom-20">
-We have successfully received your enquiry. Our Account Representative will call you shortly.<br />
-</p>
-<div>
-<button data-dismiss="modal" class="btn btn-grey">
-Close
-</button>
-</div>
-</div>
-
-</div>
 </div>
 <div class="modal-footer buttons-placeholder">
 <div>

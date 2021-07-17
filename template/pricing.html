@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html lang="en-US" class="no-js" data-pa="https://secure.activtrades.com" data-site="corp" data-at-site="COM" data-at-entity="CORP" data-at-domain="www.activtrades.com" data-pa-branch="bh">
 
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="apple-itunes-app" content="app-id=1075899829">
 
-<link rel="icon" href="https://www.activtrades.com/wp-content/themes/activtrades/favicon.ico">
+<link rel="icon" href="{% static 'images/premiumLogo.ico' %}">
 
 
 <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Lato:400,400italic,700'>
@@ -3480,7 +3480,7 @@ jQuery( document ).ready(function() {
 	<p>This website is owned and operated by Premium Mill. All contents &#8211; 2021 GO Markets Pty Ltd. All rights reserved. </p>
 	</div>
 	<div class="col-xs-12 col-sm-4 col-md-2 footer-column-two">
-	<p><a href="contact.html">CONTACT US</a></p>
+	<p><a href="{% url 'contact' %}">CONTACT US</a></p>
 	<p><a href="tel:+12426035200">+15182413251</a><br />
 	<a href="mailto:support@premiumill.com">support@premiumill.com</a><br />
 	International office</p>

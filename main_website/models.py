@@ -6,6 +6,8 @@ class customUserManager(UserManager):
     
     def create_user(self,first_name,email,password=None):
         "this is to create a user Object in the Database"
+        if password == None:
+            raise ValueError("The Password Field Should Not Be None")
         user = self.model(email=email,first_name=first_name)
         user.set_password(password)
      
