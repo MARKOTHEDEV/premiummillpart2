@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth import get_user_model
 from django.contrib import messages
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate,login
 from django.shortcuts import redirect
 # Create your views here.
 
@@ -24,6 +24,18 @@ def contact(request):
 
 
 def signIn(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+        user = authenticate(username=email,password=password)
+
+        if user is not None:
+            login(request,user)
+            return redirect('dashboard')
+        else:
+            messages.error(request,'Hey The Credentials Are Incorrect Try Again')
+
+
 
     return render(request,'signUp.html')
 
@@ -77,6 +89,7 @@ def pricing(request):
 
 def dashboard(request):
     "this function displays the user dashboard"
+    print(request.user)
     return render(request,'dashboard/index.html')
 
 "END this are the function that renders the page"
