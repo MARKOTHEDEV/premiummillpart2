@@ -620,6 +620,23 @@ Enter your credentials and start trading with real money today.
 
 {% csrf_token %}
 
+ <!-- start django messaging area -->
+
+ <div >
+    <p >
+
+       {% if messages %}
+   <ul class="messages" style="background-color: #0e1d35;padding:1rem;border-radius:10px;text-align:center;color:white;">
+       {% for message in messages %}
+       <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+       {% endfor %}
+   </ul>
+   {% endif %} 
+    </p>
+       
+</div>
+<!-- end django messaging area -->
+
 <div class="full-width">
 <label for="Email">Email</label>
 <div class="relative-pos">
