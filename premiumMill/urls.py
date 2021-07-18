@@ -15,8 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('main_website.urls'))
 ]
+
+
+if settings.DEBUG == True:
+    """This Serve The Media And Static Files In Development\
+        If Debug == False
+            The Media Files Will Be Handle By amazon S3 Bucket -> IN Production 
+            The Static Files Will Be Handle By WhiteNoise -> IN Production 
+    """
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

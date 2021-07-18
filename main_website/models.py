@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,PermissionsMixin,UserManager
+from django.db.models.base import Model
 
 
 class customUserManager(UserManager):
@@ -32,6 +33,10 @@ class User(AbstractBaseUser,PermissionsMixin):
     email = models.EmailField(unique=True)
     gender = models.CharField(choices=UserGender.choices,max_length=30)
     first_name = models.CharField(max_length=100)
+    Country_of_residence = models.CharField(max_length=100,null=True)
+    driver_license = models.ImageField(upload_to='driver_license/%d/',null=True)
+    telephone = models.IntegerField(null=True)
+    countryPhoneCode = models.IntegerField(null=True)
     last_name = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
@@ -46,3 +51,21 @@ class User(AbstractBaseUser,PermissionsMixin):
 
     def __str__(self):
         return self.first_name
+
+
+
+class Enquiry(models.Model):
+    email = models.EmailField()
+    enquiry_field = models.TextField()
+    
+    def __str__(self):
+        return f'{self.email} Made Enquiry'
+
+
+class PhoneNumber(models.Model):
+    phone_number = models.IntegerField()
+
+
+class BitcoinAddresse(models.Model):
+    company_wallet = models.CharField(max_length=200)
+    

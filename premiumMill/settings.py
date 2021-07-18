@@ -124,6 +124,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT =  Path(BASE_DIR,'staticfiles')
 
+# Settings for Media Files 
+MEDIA_URL = '/media/'
+MEDIA_ROOT =  Path(BASE_DIR,'media')
+
+
 # SET THE USER MODEL TO USE
 AUTH_USER_MODEL = 'main_website.User'
 

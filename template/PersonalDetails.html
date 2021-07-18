@@ -601,9 +601,28 @@ Complete our effortless online form and start trading with real money today.
 <div class="main-wrapper marko-responsive-main-wrapper">
 
 	<div class="oa-step-loader step0"></div>
-<div id="PersonalDetails" class="step0-form marko-personal-details">
-<form action="" class="oa-form" method="post" ref="currentElement" v-bind:data-vv-scope="Scope" v-bind:id="Scope" v-on:submit.prevent="SubmitForm();" valid="false"><input name="__RequestVerificationToken" type="hidden" value="ctmMsOcV4Xh-MN1PjQD8P57Qx2xQjvsit7ZbGVCnoM1nY6P3bHHmO0DoDhyD4j6uWoSZ8_kWi_dxYScchGwcLrChOMo1" /> <h2 class="title-subsection text-center">Start your application now</h2>
+<div id="PersonalDetails" class="step0-form marko-personal-details" >
+<form  action="{% url 'signUp' %}"  enctype="multipart/form-data" class="oa-form" method="POST" ref="currentElement" v-bind:data-vv-scope="Scope" v-bind:id="Scope" v-on:submit.prevent="SubmitForm();" valid="false"><input name="__RequestVerificationToken" type="hidden" value="ctmMsOcV4Xh-MN1PjQD8P57Qx2xQjvsit7ZbGVCnoM1nY6P3bHHmO0DoDhyD4j6uWoSZ8_kWi_dxYScchGwcLrChOMo1" /> <h2 class="title-subsection text-center">Start your application now</h2>
  {% csrf_token %}
+
+ <!-- start django messaging area -->
+
+ <div >
+	 <p >
+
+		{% if messages %}
+	<ul class="messages" style="background-color: #0e1d35;padding:1rem;border-radius:10px;text-align:center;color:white;">
+		{% for message in messages %}
+		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+		{% endfor %}
+	</ul>
+	{% endif %} 
+	 </p>
+		
+ </div>
+ <!-- end django messaging area -->
+
+
 <input Name="UtmParameters.UtmSource" id="UtmParameters.UtmSource" name="UtmSource" type="hidden" value="" />
 <input Name="UtmParameters.UtmMedium" id="UtmParameters.UtmMedium" name="UtmMedium" type="hidden" value="" />
 <input Name="UtmParameters.UtmContent" id="UtmParameters.UtmContent" name="UtmContent" type="hidden" value="" />
@@ -618,7 +637,7 @@ Complete our effortless online form and start trading with real money today.
 <label for="CountryId">Country of Residence</label>
 <div class="dropdown-holder relative-pos">
     <!-- <input type="text"> -->
-    <select id="countrySelectID" class='form-control'>
+    <select id="countrySelectID" name="countrySelectValue" class='form-control' required>
         <option value="France">France</option>
     </select>
 <div>
@@ -641,14 +660,16 @@ Complete our effortless online form and start trading with real money today.
 <div class="full-width"><br>
 <label for="FirstName">Given name(s) as shown in your passport</label>
 <div class="relative-pos">
-<input class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-regex="Only Latin letters and dashes are accepted" data-val-regex-pattern="^[^0-9&lt;>%]*$" data-val-stringlength="The maximum length for this field is 40 characters" data-val-stringlength-maxlength="40" id="FirstName" name="FirstName" type="text" v-on:click="HideSwitchBranchNotification();" v-validate="GetRules(&#39;FirstName&#39;)" value="" />
+	<!-- this is the FirstName Input -->
+<input class="form-control"  id="FirstName" name="FirstName"  placeholder="John" type="text" required/>
 <at-field-validation name="FirstName" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
 </div>
 </div>
 <div class="full-width"><br>
 <label for="LastName">Last name(s) as shown in your passport</label>
 <div class="relative-pos">
-<input class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-regex="Only Latin letters and dashes are accepted" data-val-regex-pattern="^[^0-9&lt;>%]*$" data-val-stringlength="The maximum length for this field is 40 characters" data-val-stringlength-maxlength="40" id="LastName" name="LastName" type="text" v-on:click="HideSwitchBranchNotification();" v-validate="GetRules(&#39;LastName&#39;)" value="" />
+	<!-- this is the LastName Input -->
+<input class="form-control"  id="LastName" name="LastName" placeholder="Doe" type="text" required />
 <span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span>
 <at-field-validation name="LastName" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
 </div>
@@ -657,10 +678,12 @@ Complete our effortless online form and start trading with real money today.
 <div class="full-width">
 <label for="Email">Email</label>
 <div class="relative-pos">
-<input autocomplete="off" class="form-control ignore" data-val="true" data-val-customrequiredattr="Required" data-val-regexemail="Invalid Email" data-val-regexemail-flags="i" data-val-regexemail-pattern="" id="Email" name="Email" type="text" v-bind:readonly="Data.IsDemoUserLoggedInPA" v-model="Data.Email" v-on:blur="CheckUserStatus();" v-on:click="HideSwitchBranchNotification();" v-validate="&#39;email|required&#39;" value="" />
+<input class="form-control ignore"  id="Email" name="Email" type="text"  placeholder="JohnDoe@gmail.com" required />
 <at-field-validation name="Email" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
 <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
-<div v-if="CheckUserStatusLoader" class="ajax-loader-checkmark"><img src="../Content/images/ajax-loader.gif" class="" /></div>
+<div v-if="CheckUserStatusLoader" class="ajax-loader-checkmark">
+	<!-- <img src="../Content/images/ajax-loader.gif" class="" /> -->
+</div>
 </div>
 </div>
 <div class="clearer"></div>
@@ -680,27 +703,27 @@ It looks like you already have an application in progress. Please provide your p
 
 <br>
 <div >
-	<label for="">Driver Lincence Or any Identification</label>
-	<input type="file" name="" id="" class="form-control">
+	<label for="">Driver License Or any Identification</label>
+	<input type="file" name="driver_License" id="" class="form-control" required>
 </div>
 <br>
 <div >
     <label for="Password">Password </label>
     <i class="far fa-eye" id="change"></i>
-    <input id="password1" type="password" class="form-control ignore" />
+    <input id="password1" type="password" name="password1" class="form-control ignore" required/>
 </div>
 <br>
 <div >
     <label for="Password">Confirm Password </label>
 
-    <input id="off" class="form-control ignore" />
+    <input id="off" class="form-control ignore" name="password2" type="password" required />
 </div>
 
 <div class="relative-pos at-password-field">
 <div class="toggle-password-visibility"></div>
 <div class="small-gray-text">Use at least one lowercase letter, one uppercase and one number.</div>
 <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
-<at-field-validation name="Password" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
+<!-- <at-field-validation name="Password" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation> -->
 </div>
 </div>
 </div>
@@ -716,17 +739,17 @@ Forgot password?
 <div class="dropdown-holder" v-at-click-outside="HideCountryDropdown" style="display:none;">
 <div class="flags-input" v-on:click="ToggleCountriesDropdown();">
 <img src="../Content/images/blank.gif" class="flag" v-bind:class="Data.CountryCodeFlagClass" />
-<span>{{ Data.PhoneCode }}</span>
+<!-- <span>{{ Data.PhoneCode }}</span> -->
 </div>
 
 <label></label>
 </div>
 </div>
 <div class="width-2-3 no-left-border" style="display:flex;width:100%;" >
-    <select style="width:30%" id="phoneCodeSelectID" class="form-control">
+    <select style="width:30%" id="phoneCodeSelectID" name="phoneCodeSelectValue" class="form-control">
         <option value="+33">+33</option>
     </select>
-    <input type="number" style="width:70%" class="form-control">
+    <input type="number" name="MarkoPhoneNumber" style="width:70%" class="form-control" required>
 </div>
 <!-- <div class="width-2-3 no-left-border" style>
 <select>

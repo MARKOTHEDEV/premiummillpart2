@@ -1,0 +1,17 @@
+
+
+Model
+    Enquiry
+            email field.Enquires-textfield
+
+    PhoneNumber Table
+        Phone Number->phone Number
+
+
+Save Bitcoin Addresse
+
+
+
+After U test Sign Up
+Create A messages in SignIn Template(Just Copy The One In Sign Up) 
+Still getting Media Pictures Error -- try to map it like ('driver_license/%d/'+file_name)
