@@ -12,6 +12,18 @@ Save Bitcoin Addresse
 
 
 
-After U test Sign Up
-Create A messages in SignIn Template(Just Copy The One In Sign Up) --done
-Still getting Media Pictures Error -- done
+Todo--
+        Show Dashboard If User Is Login --done
+        Filter THe Nav Bar Based On Logged In User --done
+        Write Data In Dashboard By creating (Dashboard Model) -- done
+        Create Purchase Model
+
+
+chnage phone Number
+<p>Whatapp: <a href="tel:+15182413251">+15182413251</a></p>
+<p>Phone: <a href="tel:+2209134092">+2209134092</a></p>
+
+
+click a plan
+enter the amount 
+show them a page telling them that they should make payment to the company Btc Addresse

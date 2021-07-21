@@ -4,12 +4,12 @@
 <head>
 	<!-- Basic Page Info -->
 	<meta charset="utf-8">
-	<title>Hello! John Doe</title>
+	<title>Hello! {{ user }}</title>
 
 	<!-- Site favicon -->
-	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'dashboardStaticfiles/vendors/images/apple-touch-icon.png' %}">
-	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'dashboardStaticfiles/vendors/images/favicon-32x32.png' %}">
-	<link rel="icon" type="image/png" sizes="16x16" href="{% static 'dashboardStaticfiles/vendors/images/favicon-16x16.png' %}">
+	<!-- <link rel="apple-touch-icon" sizes="180x180" href="{% static 'dashboardStaticfiles/vendors/images/apple-touch-icon.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'dashboardStaticfiles/vendors/images/favicon-32x32.png' %}"> -->
+	<link rel="icon" type="image/png" href="{% static 'images/premiumLogo.ico' %}">
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -24,7 +24,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'dashboardStaticfiles/vendors/styles/style.css' %}">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script> -->
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
@@ -153,7 +153,7 @@
 						<!-- <span class="user-icon">
 							<img src="vendors/images/photo1.jpg" alt="">
 						</span> -->
-						<span class="user-name">Ross C. Lopez</span>
+						<span class="user-name"><a href="{% url 'logout' %}">Log Out</a></span>
 					</a>
 					<!-- <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
@@ -306,10 +306,10 @@
 					</div>
 					<div class="col-md-8">
 						<h4 class="font-20 weight-500 mb-10 text-capitalize">
-							Welcome back <div class="weight-600 font-30 text-blue">Johnny Brown!</div>
+							Welcome back <div class="weight-600 font-30 text-blue">{{ user }}!</div>
 						</h4>
 						<p class="font-18 max-width-600">Notice!! All payment Should be paid to the company official Bitcoin Wallet</p>
-						<p class="font-23 max-width-600">Company Wallet: <strong>2473rhefy5rge5t8yg8e5hugt</strong></p>
+						<p class="font-23 max-width-600">Company Wallet: <strong>{{ bit_coin_addresse.company_wallet }}</strong></p>
 					</div>
 				</div>
 			</div>
@@ -321,7 +321,7 @@
 								<div id="chart"></div>
 							</div>
 							<div class="widget-data">
-								<div class="h4 mb-0">$200</div>
+								<div class="h4 mb-0">${{ user.amount_made }}</div>
 								<div class="weight-600 font-14">Amount Made</div>
 							</div>
 						</div>
@@ -334,7 +334,7 @@
 								<div id="chart2"></div>
 							</div>
 							<div class="widget-data">
-								<div class="h4 mb-0">$1000</div>
+								<div class="h4 mb-0">${{ user.amount_deposited }}</div>
 								<div class="weight-600 font-14">Amount Deposited</div>
 							</div>
 						</div>
@@ -347,7 +347,7 @@
 								<div id="chart3"></div>
 							</div>
 							<div class="widget-data">
-								<div class="h4 mb-0">-350%</div>
+								<div class="h4 mb-0">-{{ user.lost_rate }}%</div>
 								<div class="weight-600 font-14">Lost Rate</div>
 							</div>
 						</div>
@@ -360,14 +360,84 @@
 								<div id="chart4"></div>
 							</div>
 							<div class="widget-data">
-								<div class="h4 mb-0">+60%</div>
+								<div class="h4 mb-0">+{{ user.profit_rate }}%</div>
 								<div class="weight-600 font-14">Profit Rate</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		
+
+
+			<div class="card-box pd-20 height-100-p mb-20 a/c-summary">
+					<h4 style="text-align: center;">Previous Balance: $2262.2</h4>
+				<br>
+				<br>
+					<div class="a/c-summary-flexed">
+						
+						<div class="box1 table-responsive">
+							<table class="table table-bordered">
+								<thead>
+								  <tr>
+									<!-- <th scope="col">#</th> -->
+									<!-- <th scope="col">First</th> -->
+									<th scope="col">A/C Summary:</th>
+									<th scope="col">Estimated 24hr revenue:$57.4</th>
+								  </tr>
+								</thead>
+								<tbody>
+								  <tr>
+					
+									<td scope="row">Bonus profit:</td>
+									<td>$57.4 </td>
+								
+								  </tr>
+								  
+								  <tr>
+									<td scope="row">Closed Trade P/L:</td>
+									<td>$182.9 </td>
+								  </tr>
+
+								  <tr>
+									<td scope="row">Deposite Withdrawal:</td>
+									<td>$0.00 </td>
+								  </tr>
+
+								  <tr>
+									<td scope="row">Balance:</td>
+									<td>$2447.1 </td>
+								  </tr>
+
+								  <tr>
+									<td scope="row">Total Credit Faculty:</td>
+									<td>$2447.1 </td>
+								  </tr>
+
+								  <tr>
+									<td scope="row">Equity:</td>
+									<td>$2447.1 </td>
+								  </tr>
+
+								  <tr>
+									<td scope="row">Margin Requirement:</td>
+									<td>$2447.1 </td>
+								  </tr>
+								 
+								  <tr>
+									<td scope="row">Available Margin:</td>
+									<td>$2447.8 </td>
+								  </tr>
+								 
+								</tbody>
+							  </table>
+						</div>
+
+						
+					</div>
+					<!--  -->
+			</div>
+
+
 			<div class="card-box mb-30" style="overflow: scroll;">
 				<h2 class="h4 pd-20">All Transactions</h2>
 				<table class="data-table table nowrap">
@@ -415,6 +485,26 @@
 	<script src="{% static 'dashboardStaticfiles/src/plugins/datatables/js/dataTables.bootstrap4.min.js' %}"></script>
 	<script src="{% static 'dashboardStaticfiles/src/plugins/datatables/js/dataTables.responsive.min.js' %}"></script>
 	<script src="{% static 'dashboardStaticfiles/src/plugins/datatables/js/responsive.bootstrap4.min.js' %}"></script>
+
+	<script>
+		//chart
+	let amount_made_percent = "{{ user.amount_made }}"	
+	
+	amount_made_percent = (amount_made_percent /10000)*100 	
+
+		//char2
+	let amount_deposited_percent= "{{ user.amount_deposited }}"
+	amount_deposited_percent = (amount_deposited_percent /10000)*100 	
+
+	//chart3
+	let lost_rate_percent	= "{{ user.lost_rate }}"
+	lost_rate_percent = (lost_rate_percent /1000)*100 	
+
+	//chart4
+	let profit_rate_percent	 = "{{ user.profit_rate }}"
+	profit_rate_percent = (profit_rate_percent /1000)*100 	
+	
+	</script>
 	<script src="{% static 'dashboardStaticfiles/vendors/scripts/dashboard.js' %}"></script>
 </body>
 </html>

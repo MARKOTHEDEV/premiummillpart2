@@ -776,9 +776,9 @@ Forgot password?
 <div class="clearer"></div>
 <div class="text-center" v-if="CustomerStatus == 'DemoUserWithOa'">
 <br />
-<a href="javascript:void(0);" v-on:click="StartNewOa()">Start a new application</a>
+<a href="{%  url 'signIn' %}" >Already Have An Account ?</a>
 <br />
-All previously entered information will be lost!
+<!-- All previously entered information will be lost! -->
 </div>
 </div>
 </form>

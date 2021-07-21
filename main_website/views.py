@@ -3,6 +3,8 @@ from django.contrib.auth import get_user_model
 from django.contrib import messages
 from django.contrib.auth import authenticate,login
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
+from . import models
 # Create your views here.
 
 
@@ -83,13 +85,21 @@ def signUp(request):
 
 
 def pricing(request):
+    context = {
+        'bit_coin_addresse':models.BitcoinAddresse.objects.first()
+    }
+    return render(request,'pricing.html',context)
 
-    return render(request,'pricing.html')
-
-
+@login_required
 def dashboard(request):
     "this function displays the user dashboard"
-    print(request.user)
-    return render(request,'dashboard/index.html')
+
+    # print()
+    context = {
+        'bit_coin_addresse':models.BitcoinAddresse.objects.first(),
+    
+    
+    }
+    return render(request,'dashboard/index.html',context)
 
 "END this are the function that renders the page"

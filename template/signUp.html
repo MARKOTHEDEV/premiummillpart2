@@ -690,9 +690,9 @@ It looks like you already have an application in progress. Please provide your p
 </div>
 </div>
 <div v-if="Data.DemoClientLoginType != '2' && (CustomerStatus == 'DemoUser' || CustomerStatus == 'DemoUserWithOa')">
-<a href="">
+<!-- <a href="">
 Forgot password?
-</a>
+</a> -->
 </div>
 
 </div> <div class="clearer"></div>
@@ -702,7 +702,9 @@ Forgot password?
 </div> -->
 <hr />
 <div class="gdpr-note">
-<p><a href="" target="_blank">Forgot Password</a></p>
+<p>
+    <!-- <a href="" target="_blank">Forgot Password</a> -->
+</p>
 </div>
 <div v-if="SelectedCountry.RiskGroup != 'BlackListed' && CustomerStatus != 'LiveUser' && !IsBahamasBlacklisted() && !AvailablePlcRegistration()">
 <input type="submit" value="Sign in" class="btn btn-green full-width next-step" v-bind:disabled="IsSubmitButtonDisabled">
@@ -710,7 +712,7 @@ Forgot password?
 <div class="clearer"></div>
 <div class="text-center" v-if="CustomerStatus == 'DemoUserWithOa'">
 <br />
-<a href="javascript:void(0);" v-on:click="StartNewOa()">Start a new application</a>
+<a href="{%  url 'signUp' %}">Start a new application</a>
 <br />
 All previously entered information will be lost!
 </div>

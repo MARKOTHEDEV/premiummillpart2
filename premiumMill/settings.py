@@ -132,4 +132,7 @@ MEDIA_ROOT =  Path(BASE_DIR,'media')
 # SET THE USER MODEL TO USE
 AUTH_USER_MODEL = 'main_website.User'
 
+LOGIN_REDIRECT_URL = 'signIn'
+LOGIN_URL = 'signIn'
+
 django_heroku.settings(locals())

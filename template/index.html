@@ -2739,26 +2739,38 @@ jQuery( document ).ready(function() {
 
 						<ul id="menu-primary-menu-1" class="nav navbar-nav">
 							
+							{% if user.is_authenticated %}
+									<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+										<a title="About Us" href="{% url 'dashboard' %}"   >Dashboard<span class="caret"></span></a>
+									</li>
+									<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+										<a title="Log Out" href="{% url 'logout' %}"   >Logout<span class="caret"></span></a>
+									</li>
+								{% else %}
+								<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+									<a title="Sign In" href="{% url 'signIn' %}"   >sign in<span class="caret"></span></a>
+								</li>
+
+								<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+									<a title="Sign Up" href="{% url 'signUp' %}"   >sign up<span class="caret"></span></a>
+								</li>
+							{% endif %}
+					
+								
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
 								<a title="About Us" href="{% url 'about' %}"   >About Us<span class="caret"></span></a>
 							</li>
+						
+						
+
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="{% url 'signIn' %}"   >sign in<span class="caret"></span></a>
-							</li>
-							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="{% url 'signUp' %}"   >sign up<span class="caret"></span></a>
+								<a title="Pricing" href="{% url 'pricing' %}"   >our Pricing<span class="caret"></span></a>
 							</li>
 
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="{% url 'pricing' %}"   >our Pricing<span class="caret"></span></a>
+								<a title="Contact Us" href="{% url 'contact' %}"   >Contact Us<span class="caret"></span></a>
 							</li>
-
-							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="{% url 'contact' %}"   >Contact Us<span class="caret"></span></a>
-							</li>
-							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="{% url 'dashboard' %}"   >Dashboard<span class="caret"></span></a>
-							</li>
+							
 						</ul>
 
 				</div></div>
@@ -3315,7 +3327,11 @@ your charts.</p>
 	</div>
 	<div class="col-xs-12 col-sm-4 col-md-2 footer-column-two">
 	<p><a href="{% url 'contact' %}">CONTACT US</a></p>
-	<p><a href="tel:+12426035200">+15182413251</a><br />
+	<p>Whatapp: <a href="tel:+15182413251">+15182413251</a></p>
+<p>Phone: <a href="tel:+2209134092">+2209134092</a></p>
+
+	<p>
+		<!-- <a href="tel:+12426035200">+15182413251</a><br /> -->
 	<a href="mailto:support@premiumill.com">support@premiumill.com</a><br />
 	International office</p>
 	<br>

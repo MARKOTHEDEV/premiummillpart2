@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser,PermissionsMixin,UserManager
 from django.db.models.base import Model
+# from django.contrib.auth import get_user_model
 
 
 class customUserManager(UserManager):
@@ -42,6 +43,12 @@ class User(AbstractBaseUser,PermissionsMixin):
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     
+#   extra colomn
+    amount_made = models.IntegerField(blank=True,null=True,default=0.00)
+    amount_deposited = models.IntegerField(blank=True,null=True,default=0.00)
+    lost_rate = models.IntegerField(blank=True,null=True,default=0)
+    profit_rate = models.IntegerField(blank=True,null=True,default=0)
+
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS=['first_name']
@@ -69,3 +76,12 @@ class PhoneNumber(models.Model):
 class BitcoinAddresse(models.Model):
     company_wallet = models.CharField(max_length=200)
     
+
+class Purchase(models.Model):
+    plan = models.CharField(max_length=100)
+    btc_amount_purchased = models.CharField(max_length=100)
+    price = models.IntegerField()
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.user} purchased {self.btc_amount_purchased}'

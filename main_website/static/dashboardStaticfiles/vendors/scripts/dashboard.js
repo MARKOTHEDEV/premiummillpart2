@@ -1,5 +1,5 @@
 var options = {
-	series: [80],
+	series: [amount_made_percent],
 	grid: {
 		padding: {
 			top: 0,
@@ -69,7 +69,7 @@ var options = {
 };
 
 var options2 = {
-	series: [70],
+	series: [amount_deposited_percent],
 	grid: {
 		padding: {
 			top: 0,
@@ -139,7 +139,7 @@ var options2 = {
 };
 
 var options3 = {
-	series: [75],
+	series: [lost_rate_percent],
 	grid: {
 		padding: {
 			top: 0,
@@ -209,7 +209,7 @@ var options3 = {
 };
 
 var options4 = {
-	series: [85],
+	series: [profit_rate_percent],
 	grid: {
 		padding: {
 			top: 0,

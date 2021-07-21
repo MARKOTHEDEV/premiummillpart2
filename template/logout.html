@@ -2885,38 +2885,22 @@ jQuery( document ).ready(function() {
 
 						<ul id="menu-primary-menu-1" class="nav navbar-nav">
 							
-							{% if user.is_authenticated %}
-									<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-										<a title="About Us" href="{% url 'dashboard' %}"   >Dashboard<span class="caret"></span></a>
-									</li>
-									<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-										<a title="Log Out" href="{% url 'logout' %}"   >Logout<span class="caret"></span></a>
-									</li>
-								{% else %}
-								<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-									<a title="Sign In" href="{% url 'signIn' %}"   >sign in<span class="caret"></span></a>
-								</li>
-
-								<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-									<a title="Sign Up" href="{% url 'signUp' %}"   >sign up<span class="caret"></span></a>
-								</li>
-							{% endif %}
-					
-								
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
 								<a title="About Us" href="{% url 'about' %}"   >About Us<span class="caret"></span></a>
 							</li>
-						
-						
-
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="Pricing" href="{% url 'pricing' %}"   >our Pricing<span class="caret"></span></a>
+								<a title="About Us" href="{% url 'signIn' %}"   >sign in<span class="caret"></span></a>
+							</li>
+							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+								<a title="About Us" href="{% url 'signUp' %}"   >sign up<span class="caret"></span></a>
 							</li>
 
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="Contact Us" href="{% url 'contact' %}"   >Contact Us<span class="caret"></span></a>
+								<a title="About Us" href="{% url 'contact' %}"   >Contact Us<span class="caret"></span></a>
 							</li>
-							
+							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+								<a title="About Us" href="{% url 'dashboard' %}"   >Dashboard<span class="caret"></span></a>
+							</li>
 						</ul>
 
 				</div></div>
@@ -3213,277 +3197,10 @@ jQuery( document ).ready(function() {
     }
     </style>
 <br><br><br><br><br><br><br>
-<h3 style="text-align: center;">our wallet: <strong>{{ bit_coin_addresse.company_wallet }}</strong></h3>
-            <div class="container-fluid page-content" style="">
-                <section class="card container grid">
-                    <div class="card__container grid">
-                      <!--==================== CARD 1 ====================-->
-                      <article class="card__content grid">
-                        <div class="card__pricing">
-                          <div class="card__pricing-number">
-                            <span class="card__pricing-symbol">min: $</span>500 <br>
-                            <span class="card__pricing-symbol">max: $</span>4999
-                          </div>
-                          <span class="card__pricing-month"></span>
-                        </div>
-                  
-                        <header class="card__header">
-                          <div class="card__header-circle grid">
-                            <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/free-coin.png" alt="" class="card__header-img">
-                          </div>
-                  
-                          <span class="card__header-subtitle"></span>
-                          <h1 class="card__header-title">REGULAR</h1>
-                        </header>
-                  
-                        <ul class="card__list grid">
-							<li class="card__list-item">
-								<i class="uil uil-check card__list-icon"></i>
-								<p class="card__list-description" style="text-align: center;">Mininmum Price: <strong>$500 </strong></p>
-								
-							</li>
-                      
-							  <li class="card__list-item">
-								<i class="uil uil-check card__list-icon"></i>
-								
-								<p class="card__list-description">Maximum Price: <strong>$4999 </strong></p>
-							  </li>
-                      	
-							  <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">15% weekly </p>
-                          </li>
-
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">Low trade frequency</p>
-                          </li>
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">Low trade rate </p>
-                          </li>
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">Low risk management</p>
-                          </li>
-            
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">5% referral bonus </p>
-                          </li>
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">Automatic trading robot </p>
-                          </li>
-            
-                        </ul>
-                  
-                        <button class="card__button" style="font-size: 1.5rem;" >Choose this plan</button>
-                      </article>
-                  
-                      <!--==================== CARD 2 ====================-->
-                      <article class="card__content grid">
-                        <div class="card__pricing">
-                          <div class="card__pricing-number">
-                            <span class="card__pricing-symbol">min: $</span>5000
-							<br>
-                            <span class="card__pricing-symbol">max: $</span>19999
-
-						</div>
-                          <span class="card__pricing-month"></span>
-                        </div>
-                  
-                        <header class="card__header">
-                          <div class="card__header-circle grid">
-                            <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/pro-coin.png" alt="" class="card__header-img">
-                          </div>
-                  
-                          <!-- <span class="card__header-subtitle"></span> -->
-                          <h1 class="card__header-title">STANDARD</h1>
-                        </header>
-                  
-                        <ul class="card__list grid">
-
-							<li class="card__list-item">
-								<i class="uil uil-check card__list-icon"></i>
-								<p class="card__list-description" style="text-align: center;">Mininmum Price: <strong>$5000  </strong></p>
-								
-							</li>
-                      
-							  <li class="card__list-item">
-								<i class="uil uil-check card__list-icon"></i>
-								
-								<p class="card__list-description">Maximum Price: <strong>$19999 </strong></p>
-							  </li>
-
-
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">20% weekly </p>
-                          </li>
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">Medium trade frequency </p>
-                          </li>
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">Medium trade rate </p>
-                          </li>
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">Low risk management </p>
-                          </li>
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">7% referral bonus </p>
-                          </li>
-            
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">Free Automated trading robot</p>
-                          </li>
-            
-                        </ul>
-                  
-                        <button class="card__button" style="font-size: 1.5rem;">Choose this plan</button>
-                      </article>
-                  
-                      <!--==================== CARD 3 ====================-->
-                      <article class="card__content grid">
-                        <div class="card__pricing">
-                          <div class="card__pricing-number">
-                            <span class="card__pricing-symbol">min: $</span>20,000
-							<br>
-                            <span class="card__pricing-symbol">max: $</span>99,999
-						</div>
-                          <!-- <span class="card__pricing-month">/month</span> -->
-                        </div>
-                  
-                        <header class="card__header">
-                          <div class="card__header-circle grid">
-                            <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/enterprise-coin.png" alt="" class="card__header-img">
-                          </div>
-                  
-                          <!-- <span class="card__header-subtitle">For agencies</span> -->
-                          <h1 class="card__header-title">CLASSIC</h1>
-                        </header>
-                  
-                        <ul class="card__list grid">
-							<li class="card__list-item">
-								<i class="uil uil-check card__list-icon"></i>
-								<p class="card__list-description" style="text-align: center;">Mininmum Price: <strong>$20,000  </strong></p>
-								
-							</li>
-                      
-							<li class="card__list-item">
-							<i class="uil uil-check card__list-icon"></i>
-							
-							<p class="card__list-description">Maximum Price: <strong>$99,999</strong></p>
-							</li>
-							
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">25% weekly </p>
-                          </li>
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">High trade frequency </p>
-                          </li>
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">Medium trade rate </p>
-                          </li>
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">Medium risk management </p>
-                          </li>
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">10% referral bonus </p>
-                          </li>
-            
-                          <li class="card__list-item">
-                            <i class="uil uil-check card__list-icon"></i>
-                            <p class="card__list-description">Free Automated trading robot</p>
-                          </li>
-            
-                        </ul>
-                         
-                  
-                        <button class="card__button" style="font-size: 1.5rem;">Choose this plan</button>
-                      </article>
-            
-            
-                      <!--==================== CARD 4 ====================-->
-                        <article class="card__content grid">
-                            <div class="card__pricing">
-                            <div class="card__pricing-number">
-                                <span class="card__pricing-symbol">min: $</span>100,000
-                                <span class="card__pricing-symbol">max: $</span>Above
-                            </div>
-                            <!-- <span class="card__pricing-month">/month</span> -->
-                            </div>
-                    
-                            <header class="card__header">
-                            <div class="card__header-circle grid">
-                                <img src="https://fadzrinmadu.github.io/hosted-assets/responsive-pricing-card-using-html-and-css/enterprise-coin.png" alt="" class="card__header-img">
-                            </div>
-                    
-                            <!-- <span class="card__header-subtitle">For agencies</span> -->
-                            <h1 class="card__header-title">PREMIUM</h1>
-                            </header>
-                    
-                            <ul class="card__list grid">
-
-								<li class="card__list-item">
-									<i class="uil uil-check card__list-icon"></i>
-									<p class="card__list-description" style="text-align: center;">Mininmum Price: <strong>$100,000  </strong></p>
-									
-								</li>
-						  
-								<li class="card__list-item">
-								<i class="uil uil-check card__list-icon"></i>
-								
-								<p class="card__list-description">Maximum Price: <strong>above </strong></p>
-								</li>
-
-                            <li class="card__list-item">
-                                <i class="uil uil-check card__list-icon"></i>
-                                <p class="card__list-description">30% weekly </p>
-                            </li>
-                            <li class="card__list-item">
-                                <i class="uil uil-check card__list-icon"></i>
-                                <p class="card__list-description">High trade frequency </p>
-                            </li>
-                            <li class="card__list-item">
-                                <i class="uil uil-check card__list-icon"></i>
-                                <p class="card__list-description">Medium trade rate </p>
-                            </li>
-                            <li class="card__list-item">
-                                <i class="uil uil-check card__list-icon"></i>
-                                <p class="card__list-description">Medium risk management </p>
-                            </li>
-                            <li class="card__list-item">
-                                <i class="uil uil-check card__list-icon"></i>
-                                <p class="card__list-description">15% referral bonus </p>
-                            </li>
-            
-                            <li class="card__list-item">
-                                <i class="uil uil-check card__list-icon"></i>
-                                <p class="card__list-description">Free Automated trading robot++</p>
-                            </li>
-            
-                            </ul>
-                            
-                    
-                            <button class="card__button" style="font-size: 1.5rem;">Choose this plan</button>
-                        </article>
-            
-                    </div>
-                  </section>
-            <script src="{% static 'wp-content/themes/activtrades/assets-bin/footer-9338dfd251e013ac8174b0cda48bc371.js' %}"></script>
-            </div>
-            <br><br><br><br>
+<h3 style="text-align: center;">
+    Hey You Have Logged Out From Our Website ..<a href="{% url 'home' %}" style="color: gray;">Login</a>
+</h3>
+       
 </div>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -3497,11 +3214,7 @@ jQuery( document ).ready(function() {
 	</div>
 	<div class="col-xs-12 col-sm-4 col-md-2 footer-column-two">
 	<p><a href="{% url 'contact' %}">CONTACT US</a></p>
-	<p>Whatapp: <a href="tel:+15182413251">+15182413251</a></p>
-<p>Phone: <a href="tel:+2209134092">+2209134092</a></p>
-
-	<p>
-		<!-- <a href="tel:+12426035200">+15182413251</a><br /> -->
+	<p><a href="tel:+12426035200">+15182413251</a><br />
 	<a href="mailto:support@premiumill.com">support@premiumill.com</a><br />
 	International office</p>
 	<br>
