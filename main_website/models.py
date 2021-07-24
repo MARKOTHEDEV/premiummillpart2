@@ -36,18 +36,18 @@ class User(AbstractBaseUser,PermissionsMixin):
     first_name = models.CharField(max_length=100)
     Country_of_residence = models.CharField(max_length=100,null=True)
     driver_license = models.ImageField(upload_to='driver_license/%d/',null=True)
-    telephone = models.IntegerField(null=True)
-    countryPhoneCode = models.IntegerField(null=True)
+    telephone = models.CharField(max_length=200,null=True)
+    countryPhoneCode = models.CharField(max_length=200,null=True)
     last_name = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     
 #   extra colomn
-    amount_made = models.IntegerField(blank=True,null=True,default=0.00)
-    amount_deposited = models.IntegerField(blank=True,null=True,default=0.00)
-    lost_rate = models.IntegerField(blank=True,null=True,default=0)
-    profit_rate = models.IntegerField(blank=True,null=True,default=0)
+    amount_made = models.CharField(max_length=200,blank=True,null=True,default=0.00)
+    amount_deposited = models.CharField(max_length=200,blank=True,null=True,default=0.00)
+    lost_rate = models.CharField(max_length=200,blank=True,null=True,default=0)
+    profit_rate = models.CharField(max_length=200,blank=True,null=True,default=0)
 
 
     USERNAME_FIELD = 'email'

@@ -156,6 +156,7 @@ def handle_payment(request,plan_name):
 @login_required
 def dashboard(request):
     "this function displays the user dashboard"
+    # user_editble,created = models.User_Editable_Balance.objects.get_or_create(user=request.user)
     models.User_Editable_Balance.objects.values()
     # print()
     context = {
