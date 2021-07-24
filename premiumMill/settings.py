@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'c$%w$$4^d%2k592ph5jjpxhw93$y-03h!+w*xin(c(25fwo^y8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = "False"
 
 ALLOWED_HOSTS = ['marko-premiummill.herokuapp.com']
 
@@ -46,13 +46,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'premiumMill.urls'
@@ -123,8 +123,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
 STATIC_ROOT =  Path(BASE_DIR,'staticfiles')
+STATIC_URL = '/static/'
 
 # Settings for Media Files 
 MEDIA_URL = '/media/'
@@ -137,7 +137,7 @@ AUTH_USER_MODEL = 'main_website.User'
 LOGIN_REDIRECT_URL = 'signIn'
 LOGIN_URL = 'signIn'
 
-print(os.environ.get('AWS_ACCESS_KEY_ID'))
+
 # aws access
 AWS_ACCESS_KEY_ID= os.environ['AWS_ACCESS_KEY_ID']
 AWS_SECRET_ACCESS_KEY= os.environ['AWS_SECRET_ACCESS_KEY']
