@@ -11,17 +11,21 @@
 <title>Premium Mill - Online Application - Personal Details</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex" />
+
 <link href="{% static 'signupAndSignInCss/flags.css' %}" rel="stylesheet" />
 <link href="{% static 'signupAndSignInCss/dropzone.css' %}" rel="stylesheet" />
 <link href="{% static 'signupAndSignInCss/style.css' %}" rel="stylesheet" />
+
 
 <link rel="stylesheet" href="../Content/CSS/fonts3860.css?v=1" />
 <link rel="stylesheet" href="../Content/CSS/print3860.css?v=1" />
 <link rel="stylesheet" href="../Content/CSS/ie93860.css?v=1" />
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
 <link href="https://secure.activtrades.com/personalarea/Content/CSS/VueTransitions?v=IVANb8eFaPZJS-55CX13zlGfq8TXXRMdoyEs4EeY4cg1" rel="stylesheet" />
 <link href="https://secure.activtrades.com/personalarea/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<script src="https://secure.activtrades.com/personalarea/bundles/modernizr?v=_crq2QUT7I_NAMAaEv7T-Hgr0jkqYYHmaNBKKo2em_Q1"></script>
 </head>
 <body class="ltr oa ">
 <div class="hidden">
@@ -424,8 +428,19 @@
 English
 </a> -->
 <ul id="lang_nav" class="dropdown-menu">
-
-
+<li><a href="PersonalDetails9ed2.html?lang=en" data-paat="lang_option_en">English</a></li>
+<li><a href="PersonalDetailse68f.html?lang=fr" data-paat="lang_option_fr">Francais</a></li>
+<li><a href="PersonalDetails3322.html?lang=de" data-paat="lang_option_de">Deutsch</a></li>
+<li><a href="PersonalDetailscf53.html?lang=it" data-paat="lang_option_it">Italiano</a></li>
+<li><a href="PersonalDetailsc69a.html?lang=es" data-paat="lang_option_es">Espa&#241;ol</a></li>
+<li><a href="PersonalDetails923c.html?lang=pt" data-paat="lang_option_pt">Portugues</a></li>
+<li><a href="PersonalDetails2139.html?lang=ru" data-paat="lang_option_ru">Русский</a></li>
+<li><a href="PersonalDetailsdb38.html?lang=cn" data-paat="lang_option_cn">中國</a></li>
+<li><a href="PersonalDetails1f03.html?lang=bg" data-paat="lang_option_bg">Български</a></li>
+<li><a href="PersonalDetailse0cd.html?lang=ae" data-paat="lang_option_ae">العربية</a></li>
+<li><a href="PersonalDetails2d30.html?lang=hk" data-paat="lang_option_hk">香港</a></li>
+<li><a href="PersonalDetails99dc.html?lang=ms" data-paat="lang_option_ms">Malay</a></li>
+<li><a href="PersonalDetails0dfe.html?lang=tw" data-paat="lang_option_tw">臺灣</a></li>
 </ul>
 </div>
 <ul class="contacts-menu">
@@ -511,7 +526,7 @@ Portugues
 </div>
 </div>
 <div class="activ-logo">
-<a href="/" data-paat="at-logo">
+<!-- <a href="https://www.activtrades.com/en" data-paat="at-logo"> -->
 <!-- <svg>
 <switch>
 <use xlink:href="#activ-logo"></use>
@@ -520,6 +535,7 @@ Portugues
 </foreignObject>
 </switch>
 </svg> -->
+
 <style>
    
     h1.premium-mill-logo{
@@ -533,23 +549,24 @@ Portugues
 </style>
 <h1 class="premium-mill-logo" style="font-family:cursive;color:white;text-decoration:none;text-align:center;"><i>Premium Mill</i></h1>
 
+
 </a>
-<span id="ctl03_i_broker_since" class="logo-slogan-broker-since">The Best Online Broker</span>
+<span id="ctl03_i_broker_since" class="logo-slogan-broker-since">The Best Online Broker </span>
 </div>
 </div>
 </section>
-<!-- <br><br><br> -->
-<div class="oa-landing-header" style="padding-top:4rem;">
+<div class="oa-landing-header">
 <div class="main-wrapper clearfix pa-css">
-<div class="oa-application-form-wrapper">
-<h1>Open a real trading account</h1>
-<h2>
-Complete our effortless online form and start trading with real money today.
+<div class="oa-application-form-wrapper" style="width: 100%;">
+    <br>
+<!-- <h1>process Payment..</h1> -->
+<h2 style=border:1px solid red;">
+Company Wallet: 
 </h2>
+<p style="color: white;">{{ bit_coin_addresse.company_wallet }}</p>
 </div>
 <div class="oa-landing-banner">
-    <img src="{% static 'Content/images/onlineApplication/Devices-mt4.png' %}" />
-
+<img src="{% static 'Content/images/onlineApplication/Devices-mt4.png' %}" />
 </div>
 </div>
 </div>
@@ -560,139 +577,90 @@ Complete our effortless online form and start trading with real money today.
 <div class="clearer"></div>
 <div id="body">
 <section id="liveSignUpSection">
-<article class="before-init">
-	<style>
-		.oa-landing-banner{
-			display: none;
-		}
-		.marko-responsive-main-wrapper{
-			display: flex;
-			flex-direction: column;
+<article class="
+                            before-init">
+                            <style>
+                                .oa-landing-banner{
+                                    display: none;
+                                }
+                                .marko-responsive-main-wrapper{
+                                    display: flex;
+                                    flex-direction: column;
+                        
+                                }
+                        
+                                .step0-form.marko-personal-details{
+                                    width: 100%;
+                                }
+                                .step0-side-banner.marko-step0-side-banner{
+                                    width: 100%;
+                                    display: none;
 
-		}
-
-		.step0-form.marko-personal-details{
-			width: 100%;
-		}
-		.step0-side-banner.marko-step0-side-banner{
-			width: 100%;
-			display: none;
-
-		}
-		@media screen and (min-width:500px) {
-			.oa-landing-banner{
-				display: block;
-			}
-			.marko-responsive-main-wrapper{
-			flex-direction: row;
-				
-			}	
-			.step0-form.marko-personal-details{
-				width: 58%;
-			}
-			.step0-side-banner.marko-step0-side-banner{
-				width: 42%;
-			display: block;
-
-
-			}
-		}
-	</style>
+                                }
+                                @media screen and (min-width:500px) {
+                                    .oa-landing-banner{
+                                        display: block;
+                                    }
+                                    .marko-responsive-main-wrapper{
+                                    flex-direction: row;
+                                        
+                                    }	
+                                    .step0-form.marko-personal-details{
+                                        width: 58%;
+                                    }
+                                    .step0-side-banner.marko-step0-side-banner{
+                                        width: 42%;
+    
+                                    }
+                                }
+                            </style>
 <div class="main-wrapper marko-responsive-main-wrapper">
+<div class="oa-step-loader step0"></div>
+<div id="PersonalDetails" class="step0-form marko-personal-details">
+<form action="/handle_pricing/{{ plan_name }}/" class="oa-form" method="POST">
+    <!-- <input name="__RequestVerificationToken" type="hidden" value="ctmMsOcV4Xh-MN1PjQD8P57Qx2xQjvsit7ZbGVCnoM1nY6P3bHHmO0DoDhyD4j6uWoSZ8_kWi_dxYScchGwcLrChOMo1" />  -->
+    <h2 class="title-subsection text-center">Payment For {{ plan_name }} </h2>
+<br>
 
-	<div class="oa-step-loader step0"></div>
-<div id="PersonalDetails" class="step0-form marko-personal-details" >
-<form  action="{% url 'signUp' %}"  enctype="multipart/form-data" class="oa-form" method="POST" ref="currentElement" v-bind:data-vv-scope="Scope" v-bind:id="Scope" v-on:submit.prevent="SubmitForm();" valid="false"><input name="__RequestVerificationToken" type="hidden" value="ctmMsOcV4Xh-MN1PjQD8P57Qx2xQjvsit7ZbGVCnoM1nY6P3bHHmO0DoDhyD4j6uWoSZ8_kWi_dxYScchGwcLrChOMo1" /> <h2 class="title-subsection text-center">Start your application now</h2>
- {% csrf_token %}
+{% csrf_token %}
 
  <!-- start django messaging area -->
 
  <div >
-	 <p >
+    <p >
 
-		{% if messages %}
-	<ul class="messages" style="background-color: #0e1d35;padding:1rem;border-radius:10px;text-align:center;color:white;">
-		{% for message in messages %}
-		<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-		{% endfor %}
-	</ul>
-	{% endif %} 
-	 </p>
-		
- </div>
- <!-- end django messaging area -->
+       {% if messages %}
+   <ul class="messages" style="background-color: #0e1d35;padding:1rem;border-radius:10px;text-align:center;color:white;">
+       {% for message in messages %}
+       <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+       {% endfor %}
+   </ul>
+   {% endif %} 
+    </p>
+       
+</div>
+<!-- end django messaging area -->
 
 
-<input Name="UtmParameters.UtmSource" id="UtmParameters.UtmSource" name="UtmSource" type="hidden" value="" />
-<input Name="UtmParameters.UtmMedium" id="UtmParameters.UtmMedium" name="UtmMedium" type="hidden" value="" />
-<input Name="UtmParameters.UtmContent" id="UtmParameters.UtmContent" name="UtmContent" type="hidden" value="" />
-<input Name="UtmParameters.UtmCampaign" id="UtmParameters.UtmCampaign" name="UtmCampaign" type="hidden" value="" />
-<input Name="UtmParameters.UtmTerm" id="UtmParameters.UtmTerm" name="UtmTerm" type="hidden" value="" />
-<input data-val="true" data-val-regex="Please enter a valid phone code" data-val-regex-pattern="^00[0-9]{1,4}$" data-val-requiredifcondition="Required" data-val-requiredifcondition-condition="!=" data-val-requiredifcondition-field="CustomerStatus" data-val-requiredifcondition-value="DemoUserWithOa" id="PhoneCode" name="PhoneCode" type="hidden" v-model="Data.PhoneCode" value="00234" />
-<input data-val="true" data-val-regex="Please include the country code and area code before the phone number (00442071234567 or +442071234567)" data-val-regex-pattern="^[0-9]{6,15}$" data-val-requiredifcondition="Required" data-val-requiredifcondition-condition="!=" data-val-requiredifcondition-field="CustomerStatus" data-val-requiredifcondition-value="DemoUserWithOa" id="PhoneNumber" name="PhoneNumber" type="hidden" v-model="Data.PhoneNumber" value="" />
-<input data-val="true" data-val-required="The TerminateOnlineApplication field is required." id="TerminateOnlineApplication" name="TerminateOnlineApplication" type="hidden" v-model="Data.TerminateOnlineApplication" value="False" />
-<input data-val="true" data-val-required="The CustomerStatus field is required." id="CustomerStatus" name="CustomerStatus" type="hidden" v-model="Data.CustomerStatus" value="LiveUser" />
-<input data-val="true" data-val-required="The IsDemoUserLoggedInPA field is required." id="IsDemoUserLoggedInPA" name="IsDemoUserLoggedInPA" type="hidden" v-model="Data.IsDemoUserLoggedInPA" value="False" />
-<div>
-<label for="CountryId">Country of Residence</label>
-<div class="dropdown-holder relative-pos">
-    <!-- <input type="text"> -->
-    <select id="countrySelectID" name="countrySelectValue" class='form-control' required>
-        <option value="France">France</option>
-    </select>
-<div>
-<input data-val="true" data-val-customrequiredattr="Required" data-val-number="The field CountryId must be a number." data-val-range="Please select country" data-val-range-max="1.79769313486232E+308" data-val-range-min="1" id="CountryId" name="CountryId" type="hidden" v-model="Data.CountryId" v-validate="GetRules(&#39;CountryId&#39;)" value="307" />
-<at-country v-bind:countries="Countries" countryId="307" placeholder="Nigeria" languageid="1" v-on:change="SelectCountry">
-</at-country>
-</div>
-<at-field-validation name="CountryId" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
-<label></label>
-</div>
-<span class="field-validation-valid" data-valmsg-for="CountryId" data-valmsg-replace="true"></span>
-</div>
-<div v-if="AvailablePlcRegistration()">
-<!-- <div class="notification notification-info switch-regulated-entity">
-<a href="https://www.activtrades.co.uk/en" target="_blank" class="btn btn-blue">Switch to ActivTrades PLC (London)</a>
-</div> -->
-</div>
-
-<div class="relative-pos clearfix">
-<div class="full-width"><br>
-<label for="FirstName">Given name(s) as shown in your passport</label>
-<div class="relative-pos">
-	<!-- this is the FirstName Input -->
-<input class="form-control"  id="FirstName" name="FirstName"  placeholder="John" type="text" required/>
-<at-field-validation name="FirstName" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
-</div>
-</div>
-<div class="full-width"><br>
-<label for="LastName">Last name(s) as shown in your passport</label>
-<div class="relative-pos">
-	<!-- this is the LastName Input -->
-<input class="form-control"  id="LastName" name="LastName" placeholder="Doe" type="text" required />
-<span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span>
-<at-field-validation name="LastName" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
-</div>
-</div>
-</div><br>
-<div class="full-width">
-<label for="Email">Email</label>
-<div class="relative-pos">
-<input class="form-control ignore"  id="Email" name="Email" type="text"  placeholder="JohnDoe@gmail.com" required />
-<at-field-validation name="Email" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
-<span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
-<div v-if="CheckUserStatusLoader" class="ajax-loader-checkmark">
-	<!-- <img src="../Content/images/ajax-loader.gif" class="" /> -->
-</div>
-</div>
-</div>
 <div class="clearer"></div>
 
 <div v-if="!Data.IsDemoUserLoggedInPA && CustomerStatus == 'DemoUser'">
-<!-- <div class="notification notification-info">
-You have already registered with this email. Please enter your current password to login
-</div> -->
 
+<div class="oa-radio-btns relative-pos clearfix">
+<div class="half-width">
+<div class="radio-holder">
+<!-- <label for="loginTypeSignIn">
+<div class="controls">
+<input class="ignore" data-val="true" data-val-required="The DemoClientLoginType field is required." id="loginTypeSignIn" name="DemoClientLoginType" type="radio" v-model="Data.DemoClientLoginType" v-on:click="MxMakeFieldDirty(Scope, fields, &#39;DemoClientLoginType&#39;); HideSwitchBranchNotification();" v-validate="&#39;required|included:1,2&#39;" value="1" />
+<label></label>
+</div>
+<span>Current Password</span>
+</label> -->
+</div>
+</div>
+
+<span class="field-validation-valid" data-valmsg-for="DemoClientLoginType" data-valmsg-replace="true"></span>
+</div>
 </div>
 <div v-if="CustomerStatus != 'LiveUser' && CustomerStatus != 'ApplicationAlreadySubmitted'">
 <div class="full-width">
@@ -701,29 +669,21 @@ It looks like you already have an application in progress. Please provide your p
 </div> -->
 <div v-if="!Data.IsDemoUserLoggedInPA">
 
-<br>
-<div >
-	<label for="">Driver License Or any Identification</label>
-	<input type="file" name="driver_License" id="" class="form-control" required>
-</div>
-<br>
-<div >
-    <label for="Password">Password </label>
-    <i class="far fa-eye" id="change"></i>
-    <input id="password1" type="password" name="password1" class="form-control ignore" required/>
-</div>
-<br>
-<div >
-    <label for="Password">Confirm Password </label>
+<div>
+<label for="Password">Amount  </label>
 
-    <input id="off" class="form-control ignore" name="password2" type="password" required />
+<br>
+<input id="" name="amount" class="form-control ignore" type="number" min="{{ current_pricing_range.min }}" max="{{ current_pricing_range.max }}"/>
 </div>
-
 <div class="relative-pos at-password-field">
 <div class="toggle-password-visibility"></div>
-<div class="small-gray-text">Use at least one lowercase letter, one uppercase and one number.</div>
+<div class="small-gray-text">
+
+    <span>Minimum amount:{{ current_pricing_range.min }}</span> <br>
+    <span>maximum amount:{{ current_pricing_range.max }}</span>
+</div>
 <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
-<!-- <at-field-validation name="Password" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation> -->
+<at-field-validation name="Password" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
 </div>
 </div>
 </div>
@@ -731,36 +691,8 @@ It looks like you already have an application in progress. Please provide your p
 <!-- <a href="">
 Forgot password?
 </a> -->
-</div><br>
-<div class="phone-with-code" v-if="CustomerStatus != 'DemoUserWithOa'">
-<label>Telephone number</label>
-<div class="relative-pos clearfix">
-<div class="width-1-3 relative-pos">
-<div class="dropdown-holder" v-at-click-outside="HideCountryDropdown" style="display:none;">
-<div class="flags-input" v-on:click="ToggleCountriesDropdown();">
-<img src="../Content/images/blank.gif" class="flag" v-bind:class="Data.CountryCodeFlagClass" />
-<!-- <span>{{ Data.PhoneCode }}</span> -->
 </div>
 
-<label></label>
-</div>
-</div>
-<div class="width-2-3 no-left-border" style="display:flex;width:100%;" >
-    <select style="width:30%" id="phoneCodeSelectID" name="phoneCodeSelectValue" class="form-control">
-        <option value="+33">+33</option>
-    </select>
-    <input type="number" name="MarkoPhoneNumber" style="width:70%" class="form-control" required>
-</div>
-<!-- <div class="width-2-3 no-left-border" style>
-<select>
-<option>Hello worl</option>
-</select>
-<input autocomplete="off" class="form-control ignore" id="PhoneNumber" name="PhoneNumber" type="text" v-model="Data.PhoneNumber" v-on:click="HideSwitchBranchNotification();" v-validate="{required: true, numeric: true, min: 6, max: 15}" value="" />
-<span class="field-validation-valid" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span>
-<at-field-validation name="PhoneNumber" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
-</div> -->
-</div>
-</div>
 </div> <div class="clearer"></div>
 <div v-if="CustomerStatus != 'LiveUser' && CustomerStatus != 'ApplicationAlreadySubmitted'">
 <!-- <div class="notification notification-warning" v-if="SelectedCountry.Profiles != null && SelectedCountry.Profiles.ProfileName.indexOf('PolishRegulations') >= 0">
@@ -768,17 +700,19 @@ Forgot password?
 </div> -->
 <hr />
 <div class="gdpr-note">
-<p>I hereby consent to the collection, storage and processing of my personal data by PREMIUM MILL in accordance with the our terms. My data might be used by PREMIUM MILL to contact me to assist me with the account opening process. I can request to delete my personal data at any time. In case my application was not successful PREMIUM MILL will delete my personal data without further notice after 2 years of inactivity.</p>
+<p>
+    <!-- <a href="" target="_blank">Forgot Password</a> -->
+</p>
 </div>
 <div v-if="SelectedCountry.RiskGroup != 'BlackListed' && CustomerStatus != 'LiveUser' && !IsBahamasBlacklisted() && !AvailablePlcRegistration()">
-<input type="submit" value="Accept &amp; continue" class="btn btn-green full-width next-step" >
+<input type="submit" value="Proceed..." class="btn btn-green full-width next-step" v-bind:disabled="IsSubmitButtonDisabled">
 </div>
 <div class="clearer"></div>
 <div class="text-center" v-if="CustomerStatus == 'DemoUserWithOa'">
 <br />
-<a href="{%  url 'signIn' %}" >Already Have An Account ?</a>
+<a href="{%  url 'signUp' %}">Start a new application</a>
 <br />
-<!-- All previously entered information will be lost! -->
+All previously entered information will be lost!
 </div>
 </div>
 </form>
@@ -845,20 +779,19 @@ Maximising your trading through a unique mix of superior value proposition, dive
 <div class="tab-pane" id="callme_login" data-suggest-login="true">
 <form action="https://secure.activtrades.com/personalarea/Popup/LoginPopup" class="login form-horizontal content-section light-grey-section left" id="popuploginform" method="post"> <div class="validation-summary">
 <!-- <span class="notification notification-error error-login-msg-popup field-validation-valid">
-
 </span> -->
 </div>
 <div class="">
 <input name="__RequestVerificationToken" type="hidden" value="BOJ_4MkAEOjDZzSZKj0q-5Gqh-hzZ33LCX2jsrySLn12GSTmGj-qSj_vYmxjqFhesh-AecohK9e1lluC-JJOBLRZXW01" />
 <input id="LoginPopupCustomPage" name="CustomPage" type="hidden" value="" />
-<input id="LoginPopupBackPage" name="BackPage" type="hidden" value="https://www.activtrades.co.uk/" />
-<input data-default-url="https://secure.activtrades.com/personalarea/Home" id="LoginPopupReturnURL" name="ReturnURL" type="hidden" value="https://secure.activtrades.com/personalarea/Home" />
+<input id="LoginPopupBackPage" name="BackPage" type="hidden" value="" />
+<input data-default-url="" id="LoginPopupReturnURL" name="ReturnURL" type="hidden" value="" />
 <p class="not-registered intro-text margin-bottom-20">Existing Customer?</p>
 <div class="form-group">
 <div class="desktop-flex">
 <label for="Login" class="col-md-3 col-sm-4 col-xs-12 control-label">Email</label>
 <div class="email col-md-9 col-sm-8 col-xs-12">
-<input class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-regexemail="Invalid email address" data-val-regexemail-flags="i" data-val-regexemail-pattern="" id="LoginPopupLogin" name="Login" type="text" value="" />
+<input class="form-control" />
 </div>
 </div>
 <div class="col-md-9 col-sm-8 col-md-offset-3 col-sm-offset-4"><span class="field-validation-valid" data-valmsg-for="Login" data-valmsg-replace="true"></span></div>
@@ -874,8 +807,8 @@ Maximising your trading through a unique mix of superior value proposition, dive
 <div class="second-column">
 <div class="form-group">
 <div class="col-md-offset-3 col-sm-offset-4 col-md-8">
-<a class="forgot-password hidden" href="" id="forgotten_password_popup">Forgot password?</a>
-<a class="forgot-password hidden" href="">Forgot password?</a>
+<a class="forgot-password hidden" href="https://secure.activtrades.com/personalarea/Account/PasswordRecoveryRequest?backpage=https%3A%2F%2Fwww.activtrades.co.uk" id="forgotten_password_popup">Forgot password?</a>
+<a class="forgot-password hidden" href="https://secure.activtrades.com/personalarea/Popup/PasswordRecoveryRequestPopup?backpage=https%3A%2F%2Fwww.activtrades.co.uk" id="forgotten_password_iframe">Forgot password?</a>
 </div>
 </div>
 <div class="form-group">
@@ -891,14 +824,14 @@ Maximising your trading through a unique mix of superior value proposition, dive
 <div class="content-section light-grey-section right">
 <div class="form-group">
 <div class="col-md-12">
-<p class="not-registered intro-text">New to Premium Mill?</p>
+<p class="not-registered intro-text">New to ActivTrades?</p>
 <a href="#" title="" class="sign-up" id="request_form" data-request-enquery-text="Request form" data-request-call-text="Call me back">Request form</a>
 </div>
 </div>
 </div>
 </div>
 <div class="tab-pane" id="callme_form">
-<form action="" data-ajax="true" data-ajax-begin="$(&#39;#contacts_popup .content&#39;).addClass(&#39;show-loader&#39;);if($(&#39;#contacts_popup .content&#39;).length == 0) loader.show()" data-ajax-complete="$(&#39;#contacts_popup .content&#39;).removeClass(&#39;show-loader&#39;);if($(&#39;#contacts_popup .content&#39;).length == 0) loader.hide()" data-ajax-mode="replace" data-ajax-success="$(&#39;#callme_popup_content_default&#39;).hide();$(&#39;#callMeOaGdprConsentConfirmation&#39;).hide();$(&#39;#callme_popup_content_success&#39;).show();$(&#39;#contacts_popup&#39;).find(&#39;h4&#39;).text($(&#39;#callme_popup_content_success&#39;).data(&#39;title-success&#39;));$(&#39;#iframe_contact_title&#39;).text($(&#39;#callme_popup_content_success&#39;).data(&#39;title-success&#39;));$(&#39;#callme_popup_close_button&#39;).removeClass(&#39;hidden&#39;)" data-ajax-update="#callme_popup_content_success" id="form0" method="post"> <div id="callme_popup_content_success" class="no-padding" data-title-success="Success"></div>
+<form action="https://secure.activtrades.com/personalarea/Contacts/CallMe" data-ajax="true" data-ajax-begin="$(&#39;#contacts_popup .content&#39;).addClass(&#39;show-loader&#39;);if($(&#39;#contacts_popup .content&#39;).length == 0) loader.show()" data-ajax-complete="$(&#39;#contacts_popup .content&#39;).removeClass(&#39;show-loader&#39;);if($(&#39;#contacts_popup .content&#39;).length == 0) loader.hide()" data-ajax-mode="replace" data-ajax-success="$(&#39;#callme_popup_content_default&#39;).hide();$(&#39;#callMeOaGdprConsentConfirmation&#39;).hide();$(&#39;#callme_popup_content_success&#39;).show();$(&#39;#contacts_popup&#39;).find(&#39;h4&#39;).text($(&#39;#callme_popup_content_success&#39;).data(&#39;title-success&#39;));$(&#39;#iframe_contact_title&#39;).text($(&#39;#callme_popup_content_success&#39;).data(&#39;title-success&#39;));$(&#39;#callme_popup_close_button&#39;).removeClass(&#39;hidden&#39;)" data-ajax-update="#callme_popup_content_success" id="form0" method="post"> <div id="callme_popup_content_success" class="no-padding" data-title-success="Success"></div>
 <div id="callme_popup_content_default">
 <input name="__RequestVerificationToken" type="hidden" value="ABDiHroBZDuX7veQUm3wV845DA8s_Yyv48z92HcR-2kSm6BTdY1dxgl-yxG9hB7qWcTLjK-rhuNjh_2aO4YorF69piY1" />
 <div class="form-horizontal">
@@ -986,7 +919,7 @@ or call <strong>+44 (0) 207 6500 500</strong> to talk now
 </form>
 </div>
 <div class="tab-pane" id="enquiry_form">
-<form action="" id="enquiry_ajax_form" method="post"> <div id="enquiries_popup_content_success" class="no-padding" data-title-success="Success"></div>
+<form action="https://secure.activtrades.com/personalarea/Contacts/Enquery" id="enquiry_ajax_form" method="post"> <div id="enquiries_popup_content_success" class="no-padding" data-title-success="Success"></div>
 <div id="enquiries_popup_content_default">
 <input name="__RequestVerificationToken" type="hidden" value="yXoMqQKZ0S7aud_HRLO0D9Vlt47kbVl6EExi2s0VS2QAykf2iVhanKyqXI4BB3CmOwJA25KRflozUZ25vmztlrMb6Ds1" />
 <div class="form-horizontal">
@@ -1068,7 +1001,7 @@ Attach file (optional)
 <div class="gdpr-fix">
 <div id="enquirisConsentConfirmation" class="content-section dark-grey-section clearfix">
 <label>
-<strong>I hereby consent to the collection, storage and processing of my personal data by ActivTrades in accordance with the terms specified in its <a href="" target="_blank">Privacy Policy</a>.</strong>
+<strong>I hereby consent to the collection, storage and processing of my personal data by ActivTrades in accordance with the terms specified in its <a href="https://www.activtrades.com/en/legal/privacy-policy" target="_blank">Privacy Policy</a>.</strong>
 </label>
 <div class="margin-btn">
 <input type="submit" value="Accept and continue" id="btn_submit_enquery" class="btn btn-blue" tabindex="14" />
@@ -1097,12 +1030,11 @@ Attach file (optional)
 	<p>Information on this site is not directed at residents in any country or jurisdiction where such distribution or use would be contrary to local law or regulation. Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated by the Financial Conduct Authority, registration number 434413. Premium Mill PLC is a company registered in England & Wales, registration number 05367727 </p>
 	<p>Android is a trademark of Google Inc. Windows Mobile is a trademark of Microsoft Corporation in the United States and other countries. iPhone, iPad and iPod Touch are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. </p>
 	<p>This website is owned and operated by Premium Mill. All contents &#8211; 2021 GO Markets Pty Ltd. All rights reserved. </p>
-	
 </div>
 <div class="col-xs-12 col-sm-4 col-md-3 footer-last-col">
-	<p>Whatapp: <a href="tel: +14242408758"> +14242408758</a></p>
-	<p>Phone: <a href="tel: +15182413251"> +15182413251</a>
-<br>
+<p><a href="{% url 'contact' %}">CONTACT US</a></p>
+<p>Whatapp: <a href="tel: +14242408758"> +14242408758</a></p>
+<p>Phone: <a href="tel: +15182413251"> +15182413251</a></p>
 <a href="mailto:support@premiumill.com">support@premiumill.com</a><br />
 <p>
     
@@ -1190,7 +1122,42 @@ Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated 
 </div>
 <div class="modal-body content">
 <div class="content-in content-section form-horizontal clearfix" id="call_me_now_popup_content">
+<div id="CallMeNowBox">
 
+
+<div id="CallMeNowError" class="hidden clearfix">
+<h1 class="title-subsection">
+Error!
+</h1>
+<p>
+An error has occured while processing your request! Please try again later or contact our support desk.<br /><br />
+</p>
+<div>
+<button onclick="validate_all(); return false;" class="btn btn-blue pull-right">
+Try Again
+</button>
+<button class="btn btn-grey pull-left" data-dismiss="modal">
+Close
+</button>
+</div>
+</div>
+
+
+<div id="CallMeNowThanksMessage" class="hidden clearfix">
+<h3 class="title-subsection">
+Thank You
+</h3>
+<p class="margin-bottom-20">
+We have successfully received your enquiry. Our Account Representative will call you shortly.<br />
+</p>
+<div>
+<button data-dismiss="modal" class="btn btn-grey">
+Close
+</button>
+</div>
+</div>
+
+</div>
 </div>
 <div class="modal-footer buttons-placeholder">
 <div>
@@ -1211,7 +1178,39 @@ Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated 
 </div></div>
 <div id="overlay"></div>
 <img id="loader" src="../Content/images/verticalLoader.gif" />
+<script src="https://secure.activtrades.com/personalarea/bundles/jquery?v=AgvjFB6FyPf7nFb2J6_AVPV5HQfaOclqDYxGLETa0UM1"></script>
+<script src="https://secure.activtrades.com/personalarea/bundles/jqueryval?v=S-gaB5RTzP0pDG_q25DnFaMtZ73i27jP4FT6X6TPlQE1"></script>
+<script src="https://secure.activtrades.com/personalarea/bundles/contact?v=aaQuZItSE5n20c6u4AGntVCQpb5QRl8qRg_Ag0ezZng1"></script>
+<script src="https://secure.activtrades.com/personalarea/bundles/sessionexpired?v=iN9wUT0bX5vW_RY8KNDR0RbXGkWVxBN3sOsk_OKhf7Y1"></script>
+<script src="https://secure.activtrades.com/personalarea/bundles/enquiries?v=OYwVNJ61SUXUGSTwWw_yOWjB9ORFTh4rO_AIUrkJW0w1"></script>
+<script src="../routejs.axd/27054a86bf4e105d07a747527b835ea06e38f696/router.min.js"></script>
+<script src="https://secure.activtrades.com/personalarea/bundles/vuejs?v=qzOb7cDFvt7Yn063JhiYWVCjIaaxLdgUYq2wQ1ZFHgQ1"></script>
+<script type="text/javascript">
+        window.ValidationRules = '{"CustomerStatus":{"data-val-required":"The CustomerStatus field is required.","data-val":"true"},"CountryId":{"data-val-range":"Please select country","data-val-range-min":"1","data-val-range-max":"1.79769313486232E+308","data-val-customrequiredattr":"Required","data-val-number":"The field CountryId must be a number.","data-val":"true"},"FirstName":{"data-val-stringlength":"The maximum length for this field is 40 characters","data-val-stringlength-maxlength":"40","data-val-customrequiredattr":"Required","data-val-regex":"Only Latin letters and dashes are accepted","data-val-regex-pattern":"^[^0-9<>%]*$","data-val":"true"},"LastName":{"data-val-stringlength":"The maximum length for this field is 40 characters","data-val-stringlength-maxlength":"40","data-val-customrequiredattr":"Required","data-val-regex":"Only Latin letters and dashes are accepted","data-val-regex-pattern":"^[^0-9<>%]*$","data-val":"true"},"Email":{"data-val-customrequiredattr":"Required","data-val-regexemail":"Invalid Email","data-val-regexemail-pattern":"","data-val-regexemail-flags":"i","data-val":"true"},"Password":{"data-val-conditionalrequired":"","data-val-conditionalrequired-property":"IsDemoUserLoggedInPA","data-val-conditionalrequired-value":"false","data-val-regex":"","data-val-regex-pattern":"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$","data-val":"true"},"IsRiskLimitedCountry":{"data-val-required":"The IsRiskLimitedCountry field is required.","data-val":"true"},"PhoneCode":{"data-val-requiredifcondition":"Required","data-val-requiredifcondition-field":"CustomerStatus","data-val-requiredifcondition-condition":"!=","data-val-requiredifcondition-value":"DemoUserWithOa","data-val-regex":"Please enter a valid phone code","data-val-regex-pattern":"^00[0-9]{1,4}$","data-val":"true"},"PhoneNumber":{"data-val-requiredifcondition":"Required","data-val-requiredifcondition-field":"CustomerStatus","data-val-requiredifcondition-condition":"!=","data-val-requiredifcondition-value":"DemoUserWithOa","data-val-regex":"Please include the country code and area code before the phone number (00442071234567 or +442071234567)","data-val-regex-pattern":"^[0-9]{6,15}$","data-val":"true"},"EmailUsed":{"data-val-required":"The EmailUsed field is required.","data-val":"true"},"GdprConsentConfirmation":{"data-val-required":"The GdprConsentConfirmation field is required.","data-val":"true"},"DemoClientLoginType":{"data-val-required":"The DemoClientLoginType field is required.","data-val":"true"},"IsDormantAccount":{"data-val-required":"The IsDormantAccount field is required.","data-val":"true"},"TerminateOnlineApplication":{"data-val-required":"The TerminateOnlineApplication field is required.","data-val":"true"},"IsDemoUserLoggedInPA":{"data-val-required":"The IsDemoUserLoggedInPA field is required.","data-val":"true"},"RafCodeFirstTimeUsed":{"data-val-required":"The RafCodeFirstTimeUsed field is required.","data-val":"true"},"IncomingSourceBranch":{"data-val-required":"The IncomingSourceBranch field is required.","data-val":"true"},"AssignToCashback":{"data-val-required":"The AssignToCashback field is required.","data-val":"true"}}';
+    </script>
+<script src="https://secure.activtrades.com/personalarea/bundles/vuePersonalDetails?v=QAhg-zcxn-wQhifffki-WYyAmF2IuVls-Vw7mmo8VKs1"></script>
+<script type="text/javascript">
 
+            var personalDetails = new vuePersonalDetails({
+                CountryId: 307,
+                LanguageId: 1,
+                Data: {"CustomerStatus":0,"CountryId":307,"CountryIso3Code":"NGA","Title":0,"FirstName":null,"LastName":null,"FirstNameLastNameCombined":" ","Email":null,"Password":null,"IsRiskLimitedCountry":false,"PhoneCode":"00234","PhoneNumber":null,"Phone":"00234","EmailUsed":false,"GdprConsentConfirmation":true,"DemoClientLoginType":0,"IsDormantAccount":false,"TerminateOnlineApplication":false,"IsDemoUserLoggedInPA":false,"LuBranchCountries":["FR","DE","IT","PT","ES","AT","BE","BG","HR","CY","CZ","DK","EE","FI","GR","HU","IS","IE","LV","LI","LT","LU","MT","NL","NO","PL","RO","SK","SI","SE"],"UtmParameters":{"UtmSource":null,"UtmMedium":null,"UtmTerm":null,"UtmContent":null,"UtmCampaign":null},"RafCodeFirstTimeUsed":false,"IncomingSourceBranch":0,"AssignToCashback":false},
+                LastStepFinished: 'Unspecified',
+                CompanyBranch: 'bh',
+                LuBranchCountries: ["FR","DE","IT","PT","ES","AT","BE","BG","HR","CY","CZ","DK","EE","FI","GR","HU","IS","IE","LV","LI","LT","LU","MT","NL","NO","PL","RO","SK","SI","SE"],
+                SwitchBranchCountries: 'Bahamas',
+        });
+
+
+    </script>
+<script type="text/javascript">
+        function getUrl(relativePath) {
+            return relativePath.replace("_/index.html", "https://secure.activtrades.com/personalarea/");
+        }
+
+        var baseUrl = "https://secure.activtrades.com/personalarea/";
+        var logErrorUrl = 'https://secure.activtrades.com/personalarea/Error/LogJavaScriptError';
+    </script>
 <div class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" id="uploadDocumentsSessionExpired">
 <div class="modal-dialog confirm-small">
 <div class="modal-content">
@@ -1231,6 +1230,28 @@ Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated 
 </div>
 </div>
 
+<script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-2943915-35', 'auto');
+        ga('send', 'pageview');
+    </script>
+<script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../../www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-2943915-44', 'auto');
+        ga('send', 'pageview');
+    </script>
 
 <style>
     #bc-chat-container {
@@ -1240,80 +1261,123 @@ Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated 
         display: none!important;
     }
 </style>
+<script type="text/javascript">
+        window._bcvma = window._bcvma || [];
+        _bcvma.push(["setAccountID", "3426580264338971474"]);
+        _bcvma.push(["setParameter", "WebsiteID", "2038172373809064491"]);
+        _bcvma.push(["setParameter", "InvitationID", "4206314844991401358"]);
+        _bcvma.push(["setParameter", "VisitName", " "]);
+        _bcvma.push(["setParameter", "VisitPhone", ""]);
+        _bcvma.push(["setParameter", "VisitEmail", ""]);
+        _bcvma.push(["setParameter", "VisitRef", ""]);
+        _bcvma.push(["setParameter", "VisitInfo", ""]);
+        _bcvma.push(["setParameter", "CustomUrl", ""]);
+        _bcvma.push(["setParameter", "WindowParameters", ""]);
+        _bcvma.push(["addFloat", { type: "chat", id: "4068535016627919347" }]);
+        _bcvma.push(["pageViewed"]);
 
+        var bcAfterLoad = function() {
+
+            window._bcvm.setCookie = function(cookieName, cookieValue, exp) {
+                var expDate = exp && new Date(new Date().getTime() + exp),
+                    hostname = document.location.hostname,
+                    n = hostname.indexOf(".");
+                hostname = n == -1
+                    ? hostname
+                    : n == hostname.lastIndexOf(".")
+                        ? "." + hostname
+                        : hostname.substring(n);
+                document.cookie = cookieName + "=" + cookieValue + (exp ? ";expires=" + expDate.toUTCString() : "") + ";domain=" + (window._bcvm.domain || hostname) + ";path=" + (window._bcvm.path || "/");
+            }
+            
+            var oldFloatButton = window._bcvmf.floatButton;
+
+            var newFloatButton = function(arg) {
+                return new Promise(function(resolve, reject) {
+                    oldFloatButton(arg);
+
+                    var scrallTimeout = undefined;
+
+                    var img = $("div.bcFloat").find('img')[0];
+                    var oldOnLoad = img.onload;
+
+                    img.onload = function() {
+                        oldOnLoad();
+
+                        var btnTop = $("div.bcFloat").css("top").replace('px', '') * 1;
+                        $("div.bcFloat").hide().css("zIndex", 1).css('top', btnTop + 52 + 'px');
+
+                        window.onscroll = function() {
+
+                            if (scrallTimeout)
+                                clearTimeout(scrallTimeout);
+
+                            scrallTimeout = setTimeout(function() {
+                                var btnTop = $("div.bcFloat").css("top").replace('px', '') * 1;
+                                $("div.bcFloat").hide().css("zIndex", 1).css('top', btnTop + 52 + 'px');
+                            }, 100);
+
+                        };
+                    }
+
+                    setTimeout(function() {
+
+                        $("div.bcFloat").show();
+
+                        window.onscroll = null;
+                        if (scrallTimeout)
+                            clearTimeout(scrallTimeout);
+
+                        $("div.bcFloat").animate({ top: "-=52px" }, 'slow');
+
+                        resolve();
+                    }, 2000);
+                }).then(function(result) {
+                    window._bcvmf.floatButton = oldFloatButton;
+                });
+            };
+
+            window._bcvmf.floatButton = newFloatButton;
+        };
+
+        var bcLoad = function () {
+            if (window.bcLoaded) return;
+            window.bcLoaded = true;
+            var vms = document.createElement("script");
+            vms.type = "text/javascript";
+
+            if (vms.readyState) {  //IE
+                vms.onreadystatechange = function () {
+                    if (vms.readyState === "loaded" || vms.readyState === "complete") {
+                        vms.onreadystatechange = null;
+                        bcAfterLoad();
+                    }
+                };
+            } else {  //Others
+                vms.onload = function () {
+                    bcAfterLoad();
+                };
+            }
+
+
+            vms.async = true;
+            vms.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + "vmss.boldchat.com/aid/3426580264338971474/bc.vms4/vms.js";
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(vms, s);
+        };
+        if (window.pageViewer && pageViewer.load) pageViewer.load();
+        else if (document.readyState == "complete") bcLoad();
+        else if (window.addEventListener) window.addEventListener('load', bcLoad, false);
+        else window.attachEvent('onload', bcLoad);
+</script>
 <noscript>
     <a href="http://www.boldchat.com/" title="Live Chat" target="_blank"> <img alt="Live Chat" src="https://vms.boldchat.com/aid/3426580264338971474/bc.vmi?wdid=1681708032234073474&amp;vr=&amp;vn=&amp;vi=&amp;ve=&amp;vp=&amp;curl=" border="0" width="1" height="1" /> </a>
 </noscript>
-
-
+ <script type="text/javascript" src="../../../script.crazyegg.com/pages/scripts/0067/3737.js" async="async"></script>
+<script defer src="../../../static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"rayId":"65ad62505af9c4e8","token":"7f30903ae15c4a6586d4a4803d123e47","version":"2021.5.2","si":10}'></script>
 
 <script>
-					
-
-	class MarkoForm{
-		constructor(countrySelectID,phoneCodeSelectID){
-			this.countrySelectInput = document.querySelector(countrySelectID);
-			this.phoneCodeSelectInput = document.querySelector(phoneCodeSelectID);
-			// this will be filled by json data
-			this.ListOfCountryInfo = null;
-			
-		}
-		async  get_Json_dataToUI(){
-			const resp = await  fetch("{% static 'countrycode.json' %}")
-			const respData = resp.json()
-
-
-			return respData
-			
-		}
-
-
-		checkRequiredFields(){
-
-		}
-
-		JsonDataToForm(countries){
-			let countryNames = '';
-			countries.forEach(countryData=>{
-			
-				this.countrySelectInput.innerHTML += `<option value="${countryData.name}" >${countryData.name}</option>`
-				this.phoneCodeSelectInput.innerHTML+=`<option value="${countryData.dialCode}" >${countryData.dialCode}</option>`
-			})
-	
-		}
-
-	}
-
-
-
-	const markoform  = new MarkoForm('#countrySelectID','#phoneCodeSelectID')
-	console.log(markoform)
-	markoform.get_Json_dataToUI()
-	.then(data=>{
-
-		console.log("start doing....")
-		console.log(data)
-		markoform.JsonDataToForm(data)
-		markoform.ListOfCountryInfo =data
-	})
-
-	//this is to change the Dial code to the correct country Value
-	markoform.countrySelectInput.addEventListener('change',e=>{
-	
-		const selectedCountry = e.target.value;
-		markoform.ListOfCountryInfo.forEach(countryData=>{
-			if(selectedCountry === countryData.name ){
-				markoform.phoneCodeSelectInput.options[0].innerText=countryData.dialCode 
-				markoform.phoneCodeSelectInput.options[0].value=countryData.dialCode 
-
-			}
-		})
-		
-	})
-
-
-
-	const Markobutton_submit = document.querySelector('#change')
+    const Markobutton_submit = document.querySelector('#change')
 
 	Markobutton_submit.addEventListener('click',e=>{
 		if(e.target.parentElement.querySelector('#password1').type === 'password'){
@@ -1323,9 +1387,8 @@ Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated 
 		e.target.parentElement.querySelector('#password1').type='password'
 		}
 	})
-
-
 </script>
+
 </body>
 
 <!-- Mirrored from secure.activtrades.com/personalarea/OnlineApplication/PersonalDetails by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 05 Jun 2021 05:05:30 GMT -->

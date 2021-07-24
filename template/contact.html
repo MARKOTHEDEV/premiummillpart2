@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html lang="en-US" class="no-js" data-pa="" data-site="corp" data-at-site="COM" data-at-entity="CORP" data-at-domain="" data-pa-branch="bh">
 
-<!-- Mirrored from www.activtrades.com/en/contact by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 05 Jun 2021 03:30:21 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -519,6 +518,13 @@ html[data-at-entity="CORP"] ul.related_topics li:first-child{
 		<button style="margin: 1rem 0;" class="btn btn-flat btn-primary " id="removeRiskBtn">Remove I understand</button>
 
 </div>
+{% if messages %}
+		<ul class="messages" style="color:white;width:100%;z-index:1000;background-color: rgba(45, 153, 45, 0.835);position:absolute;top:0;left:0;padding:1rem .8rem;text-align:center;">
+			{% for message in messages %}
+			<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %} 
 <style id="rw-dynamic-height"></style>
 <style id="mobile-nav-open"></style>
 <style>
@@ -670,17 +676,23 @@ html[data-at-entity="CORP"] ul.related_topics li:first-child{
            
         </div>
     
-        <form action="">
+        <form action="{% url 'contact' %}" method="POST">
             <!-- <p>Existing Customer</p> -->
     
-            <div class="form_box">
-                <label for="contactModal__email">Email</label>
-                <input type="text" name="email" id="contactModal__email" placeholder="Enter a valid Email">
-            </div>
-    
+                {% csrf_token %}
+            {% if not user.is_authenticated %}
+
+          
+                <div class="form_box">
+                    <label for="contactModal__email">Email</label>
+                    <input type="text" name="email" id="contactModal__email" placeholder="Enter a valid Email" required>
+                </div>
+            {% endif %}
+                
+            <input type="hidden" name="enquiry_form" value="True">
             <div class="form_box">
                 <label for="contactModal__enquiries">Enquiries</label>
-                <textarea name="enquires" id="contactModal__enquiries" cols="30" rows="10"></textarea>
+                <textarea name="enquires" id="contactModal__enquiries" cols="30" rows="10" required></textarea>
             </div>
     
             <button class="submit_modal">Submit</button>
@@ -700,12 +712,12 @@ html[data-at-entity="CORP"] ul.related_topics li:first-child{
            
         </div>
     
-        <form action="">
+        <form action="{% url 'contact' %}" method="POST">
             <!-- <p>Existing Customer</p> -->
-    
+            {% csrf_token %}
             <div class="form_box">
                 <label for="contactModal__phone">Phone No.</label>
-                <input type="number" name="email" id="contactModal__phone" >
+                <input type="number" name="phone_number" id="contactModal__phone" required>
             </div>
     
      
@@ -967,29 +979,40 @@ html[data-at-entity="CORP"] ul.related_topics li:first-child{
                     <div id="navbar-wrapper">
                         <div id="navbar" class="collapse navbar-collapse">
     
-                            <ul id="menu-primary-menu-1" class="nav navbar-nav">
-                                
+                        	<ul id="menu-primary-menu-1" class="nav navbar-nav">
+							
+                                {% if user.is_authenticated %}
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+                                            <a title="About Us" href="{% url 'dashboard' %}"   >Dashboard<span class="caret"></span></a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+                                            <a title="Log Out" href="{% url 'logout' %}"   >Logout<span class="caret"></span></a>
+                                        </li>
+                                    {% else %}
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+                                        <a title="Sign In" href="{% url 'signIn' %}"   >sign in<span class="caret"></span></a>
+                                    </li>
+    
+                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+                                        <a title="Sign Up" href="{% url 'signUp' %}"   >sign up<span class="caret"></span></a>
+                                    </li>
+                                {% endif %}
+                        
+                                    
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
                                     <a title="About Us" href="{% url 'about' %}"   >About Us<span class="caret"></span></a>
                                 </li>
+                            
+                            
+    
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-                                    <a title="About Us" href="{% url 'signIn' %}"   >sign in<span class="caret"></span></a>
+                                    <a title="Pricing" href="{% url 'pricing' %}"   >our Pricing<span class="caret"></span></a>
                                 </li>
+    
                                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-                                    <a title="About Us" href="{% url 'signUp' %}"   >sign up<span class="caret"></span></a>
+                                    <a title="Contact Us" href="{% url 'contact' %}"   >Contact Us<span class="caret"></span></a>
                                 </li>
-    						
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-                                    <a title="About Us" href="{% url 'pricing' %}"   >our Pricing<span class="caret"></span></a>
-                                </li>
-
                                 
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-                                    <a title="About Us" href="{% url 'contact' %}"   >Contact Us<span class="caret"></span></a>
-                                </li>
-                                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-                                    <a title="About Us" href="{% url 'dashboard' %}"   >Dashboard<span class="caret"></span></a>
-                                </li>
                             </ul>
     
                     </div></div>
@@ -1049,7 +1072,9 @@ html[data-at-entity="CORP"] ul.related_topics li:first-child{
 <div class="col-xs-12 col-sm-6 col-md-3 overview-block-stackable">
 <h5>English Desk:</h5>
 <p>
-<p><a href="tel:+15182413251">+15182413251</a></p>
+
+<p>Phone: <a href="tel: +15182413251"> +15182413251</a></p>
+<p>Whatapp: <a href="tel: +14242408758"> +14242408758</a></p>
 </p>
 </div>
 </div>
@@ -1333,8 +1358,13 @@ Nassau, Bahamas</p>
 	<p>This website is owned and operated by Premium Mill. All contents &#8211; 2021 GO Markets Pty Ltd. All rights reserved. </p>
 	</div>
 	<div class="col-xs-12 col-sm-4 col-md-2 footer-column-two">
-	<p><a href="contact.html">CONTACT US</a></p>
-	<p><a href="tel:+12426035200">+15182413251</a><br />
+	<p><a href="{% url 'contact' %}">CONTACT US</a></p>
+	<p>Whatapp: <a href="tel: +14242408758"> +14242408758</a></p>
+	<p>Phone: <a href="tel: +15182413251"> +15182413251</a></p>
+
+	<p>
+        <!-- <a href="tel:+12426035200">+15182413251</a> -->
+        <br />
 	<a href="mailto:support@premiumill.com">support@premiumill.com</a><br />
 	International office</p>
 	<br>

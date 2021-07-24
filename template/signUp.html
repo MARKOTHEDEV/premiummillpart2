@@ -1,9 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
-<!--[if IE 9]><html class="no-js lt-ie10"> <![endif]-->
+
 <html lang="en" dir="ltr">
 
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -14,9 +11,6 @@
 <title>Premium Mill - Online Application - Personal Details</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex" />
-<!-- <link href="https://secure.activtrades.com/personalarea/Content/CSS/flags?v=cuuZkRKlK1-WUsvBzBveNRLJEFR28Z9zEFCLsYk28r81" rel="stylesheet" />
-<link href="https://secure.activtrades.com/personalarea/Content/CSS/thirdParty/vueComponents/dropzone?v=eJQKTejX8sqfBH2XyTSTvsNBt9FtG3I4IR3jvofH2Uw1" rel="stylesheet" />
-<link href="https://secure.activtrades.com/personalarea/Content/CSS/default/style?v=R6mex4fQOKMjd37mZzdc2rmGhNXyI73vHGdlKrXl3lI1" rel="stylesheet" /> -->
 
 <link href="{% static 'signupAndSignInCss/flags.css' %}" rel="stylesheet" />
 <link href="{% static 'signupAndSignInCss/dropzone.css' %}" rel="stylesheet" />
@@ -621,18 +615,38 @@ Enter your credentials and start trading with real money today.
 <div class="main-wrapper marko-responsive-main-wrapper">
 <div class="oa-step-loader step0"></div>
 <div id="PersonalDetails" class="step0-form marko-personal-details">
-<form action="" class="oa-form" method="post" ref="currentElement" v-bind:data-vv-scope="Scope" v-bind:id="Scope" v-on:submit.prevent="SubmitForm();" valid="false"><input name="__RequestVerificationToken" type="hidden" value="ctmMsOcV4Xh-MN1PjQD8P57Qx2xQjvsit7ZbGVCnoM1nY6P3bHHmO0DoDhyD4j6uWoSZ8_kWi_dxYScchGwcLrChOMo1" /> <h2 class="title-subsection text-center">Sign in</h2>
+<form action="{% url 'signIn' %}" class="oa-form" method="POST">
+    <!-- <input name="__RequestVerificationToken" type="hidden" value="ctmMsOcV4Xh-MN1PjQD8P57Qx2xQjvsit7ZbGVCnoM1nY6P3bHHmO0DoDhyD4j6uWoSZ8_kWi_dxYScchGwcLrChOMo1" />  -->
+    <h2 class="title-subsection text-center">Sign in</h2>
 
 
+{% csrf_token %}
 
+ <!-- start django messaging area -->
+
+ <div >
+    <p >
+
+       {% if messages %}
+   <ul class="messages" style="background-color: #0e1d35;padding:1rem;border-radius:10px;text-align:center;color:white;">
+       {% for message in messages %}
+       <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+       {% endfor %}
+   </ul>
+   {% endif %} 
+    </p>
+       
+</div>
+<!-- end django messaging area -->
 
 <div class="full-width">
 <label for="Email">Email</label>
 <div class="relative-pos">
-<input autocomplete="off" class="form-control ignore" data-val="true" data-val-customrequiredattr="Required" data-val-regexemail="Invalid Email" data-val-regexemail-flags="i" data-val-regexemail-pattern="" id="Email" name="Email" type="text" v-bind:readonly="Data.IsDemoUserLoggedInPA" v-model="Data.Email" v-on:blur="CheckUserStatus();" v-on:click="HideSwitchBranchNotification();" v-validate="&#39;email|required&#39;" value="" />
+<input  class="form-control ignore" name="email"  />
 <at-field-validation name="Email" vee-scope="step0" v-bind:vee-fields="fields" v-bind:vee-errors="errors"></at-field-validation>
 <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
-<div v-if="CheckUserStatusLoader" class="ajax-loader-checkmark"><img src="../Content/images/ajax-loader.gif" class="" /></div>
+<!-- <div v-if="CheckUserStatusLoader" class="ajax-loader-checkmark"><img src="../Content/images/ajax-loader.gif" class="" /></div> -->
+<br>
 </div>
 </div>
 <div class="clearer"></div>
@@ -665,7 +679,7 @@ It looks like you already have an application in progress. Please provide your p
 <div>
 <label for="Password">Password  </label>
 <i class="far fa-eye" id="change"></i>
-<input id="password1"  class="form-control ignore" type="password"/>
+<input id="password1" name="password" class="form-control ignore" type="password"/>
 </div>
 <div class="relative-pos at-password-field">
 <div class="toggle-password-visibility"></div>
@@ -675,9 +689,9 @@ It looks like you already have an application in progress. Please provide your p
 </div>
 </div>
 </div>
-<div v-if="Data.DemoClientLoginType != '2' && (CustomerStatus == 'DemoUser' || CustomerStatus == 'DemoUserWithOa')">
-<a href="">
-Forgot password?
+<div >
+<a href="{% url 'signUp' %}">
+    Dont have an account?
 </a>
 </div>
 
@@ -688,7 +702,9 @@ Forgot password?
 </div> -->
 <hr />
 <div class="gdpr-note">
-<p><a href="" target="_blank">Forgot Password</a></p>
+<p>
+    <!-- <a href="" target="_blank">Forgot Password</a> -->
+</p>
 </div>
 <div v-if="SelectedCountry.RiskGroup != 'BlackListed' && CustomerStatus != 'LiveUser' && !IsBahamasBlacklisted() && !AvailablePlcRegistration()">
 <input type="submit" value="Sign in" class="btn btn-green full-width next-step" v-bind:disabled="IsSubmitButtonDisabled">
@@ -696,7 +712,7 @@ Forgot password?
 <div class="clearer"></div>
 <div class="text-center" v-if="CustomerStatus == 'DemoUserWithOa'">
 <br />
-<a href="javascript:void(0);" v-on:click="StartNewOa()">Start a new application</a>
+<a href="{%  url 'signUp' %}">Start a new application</a>
 <br />
 All previously entered information will be lost!
 </div>
@@ -1012,15 +1028,16 @@ Attach file (optional)
 <div class="footer-wrapper pa-css">
 <div class="row">
 <div class="col-xs-12 col-sm-8 col-md-9" data-paat="footer-text">
-<p>The information on this website is of a general nature only and does not consider your objectives, financial situation or needs. Every effort is made to provide information that is accurate. However, information is subject to change at any time without notice. Premium Mill cannot guarantee, and assumes no legal liability or responsibility for, the relevance, accuracy, currency or completeness of the information.</p>
-<p>Information on this site is not directed at residents in any country or jurisdiction where such distribution or use would be contrary to local law or regulation. Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated by the Financial Conduct Authority, registration number 434413. Premium Mill PLC is a company registered in England & Wales, registration number 05367727 </p>
-<p>ActivTrades Corp is a subsidiary of <a href="https://www.activtrades.eu/en" target="_blank" rel="noopener">ActivTrades PLC</a>, authorised and regulated by the Financial Conduct Authority, registration number 434413. ActivTrades PLC is a company registered in England &amp; Wales, registration number 05367727. For our FCA regulated UK headquarters please <a href="https://www.activtrades.eu/en" target="_blank" rel="noopener">click here</a>. ActivTrades PLC is responsible for card payment processing.</p>
-<p>Android is a trademark of Google Inc. Windows Mobile is a trademark of Microsoft Corporation in the United States and other countries. iPhone, iPad and iPod Touch are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc.</p>
-<p>This website is owned and operated by Premium Mill. All contents – 2021 GO Markets Pty Ltd. All rights reserved. </p>
+	<p>The information on this website is of a general nature only and does not consider your objectives, financial situation or needs. Every effort is made to provide information that is accurate. However, information is subject to change at any time without notice. Premium Mill cannot guarantee, and assumes no legal liability or responsibility for, the relevance, accuracy, currency or completeness of the information. </p>
+	<p>Information on this site is not directed at residents in any country or jurisdiction where such distribution or use would be contrary to local law or regulation. Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated by the Financial Conduct Authority, registration number 434413. Premium Mill PLC is a company registered in England & Wales, registration number 05367727 </p>
+	<p>Android is a trademark of Google Inc. Windows Mobile is a trademark of Microsoft Corporation in the United States and other countries. iPhone, iPad and iPod Touch are trademarks of Apple Inc., registered in the U.S. and other countries. App Store is a service mark of Apple Inc. </p>
+	<p>This website is owned and operated by Premium Mill. All contents &#8211; 2021 GO Markets Pty Ltd. All rights reserved. </p>
 </div>
 <div class="col-xs-12 col-sm-4 col-md-3 footer-last-col">
-<p><a href="contact.html">CONTACT US</a></p>
-<p><a href="tel:+15182413251">+15182413251</a><br />
+<p><a href="{% url 'contact' %}">CONTACT US</a></p>
+<p>Whatapp: <a href="tel: +14242408758"> +14242408758</a></p>
+<p>Phone: <a href="tel: +15182413251"> +15182413251</a></p>
+<p>
 <a href="mailto:support@premiumill.com">support@premiumill.com</a><br />
 <p>
     
@@ -1109,357 +1126,7 @@ Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated 
 <div class="modal-body content">
 <div class="content-in content-section form-horizontal clearfix" id="call_me_now_popup_content">
 <div id="CallMeNowBox">
-<form id="call_me_now_form" method="post" action="https://secure.activtrades.com/personalarea/OnlineApplication/return false;">
-<dl class="popup-oa">
-<dd class="form-group desktop-flex">
-<label class="control-label col-md-5">
-Forename
-</label>
-<div class="col-md-7">
-<input class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-regex="Only Latin letters and dashes are accepted" data-val-regex-pattern="^[^0-9&lt;>%]*$" data-val-stringlength="The maximum length for this field is 65 characters" data-val-stringlength-maxlength="65" id="ClientFirstName" name="ClientFirstName" type="text" value="" />
-<span class="hidden" id="first_name_error">Required</span>
-<span class="field-validation-valid" data-valmsg-for="ClientFirstName" data-valmsg-replace="true"></span>
-</div>
-</dd>
-<dd class="form-group desktop-flex">
-<label class="control-label col-md-5" for="ClientLastName">
-Surname
-</label>
-<div class="col-md-7">
-<input class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-regex="Only Latin letters and dashes are accepted" data-val-regex-pattern="^[^0-9&lt;>%]*$" data-val-stringlength="The maximum length for this field is 65 characters" data-val-stringlength-maxlength="65" id="ClientLastName" name="ClientLastName" type="text" value="" />
-<span class="field-validation-valid" data-valmsg-for="ClientLastName" data-valmsg-replace="true"></span>
-<span class="color-red hidden" id="last_name_error">Required</span>
-</div>
-</dd>
-<dd class="form-group">
-<div class="desktop-flex">
-<label class="control-label col-md-5">
-Telephone number
-</label>
-<div class="col-md-7">
-<input Value="" class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-regex="Please include the country code and area code before the phone number (00442071234567 or +442071234567)" data-val-regex-pattern="^([0]{2}|\+[0-9]{2,3})[0-9]{6,15}$" id="DayTimePhoneNumberPrint" name="DayTimePhoneNumberPrint" type="text" value="" />
-</div>
-</div>
-<div class="col-md-7 col-md-offset-5">
-<span class="field-validation-valid" data-valmsg-for="DayTimePhoneNumberPrint" data-valmsg-replace="true"></span>
-<span class="color-red hidden" id="phone_error">Required</span>
-</div>
-</dd>
-<dd id="country_wrapper" class="form-group desktop-flex">
-<label class="control-label col-md-5">
-Country of Residence
-</label>
-<div class="col-md-7">
-<div class="dropdown-holder">
-<select class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-number="The field CountryId must be a number." data-val-requiredinvalidvalues="" data-val-requiredinvalidvalues-invalidvalues="0" data-val-requiredinvalidvalues-separator=";" id="CountryId" name="CountryId"><option selected="selected" value="0">--</option>
-<option value="20">Austria</option>
-<option value="26">Belgium</option>
-<option value="35">Brazil</option>
-<option value="39">Bulgaria</option>
-<option value="50">China</option>
-<option value="1">France</option>
-<option value="2">Germany</option>
-<option value="95">Hungary</option>
-<option value="3">Italy</option>
-<option value="138">Netherlands</option>
-<option value="4">Portugal</option>
-<option value="161">Russia</option>
-<option value="172">Saudi Arabia</option>
-<option value="5">Spain</option>
-<option value="188">Switzerland</option>
-<option value="6">United Kingdom</option>
-<option value="159">Qatar</option>
-<option value="205">United Arab Emirates</option>
-<option selected="selected" value="0">--</option>
-<option value="273">Afghanistan</option>
-<option value="308">&#197;land Islands</option>
-<option value="8">Albania</option>
-<option value="9">Algeria</option>
-<option value="10">American Samoa</option>
-<option value="11">Andorra</option>
-<option value="12">Angola</option>
-<option value="13">Anguilla</option>
-<option value="14">Antarctica</option>
-<option value="15">Antigua and Barbuda</option>
-<option value="16">Argentina</option>
-<option value="17">Armenia</option>
-<option value="18">Aruba</option>
-<option value="19">Australia</option>
-<option value="21">Azerbaijan</option>
-<option value="22">Bahamas</option>
-<option value="23">Bahrain</option>
-<option value="24">Bangladesh</option>
-<option value="25">Barbados</option>
-<option value="274">Belarus</option>
-<option value="27">Belize</option>
-<option value="28">Benin</option>
-<option value="29">Bermuda</option>
-<option value="30">Bhutan</option>
-<option value="31">Bolivia</option>
-<option value="309">Bonaire</option>
-<option value="32">Bosnia and Herzegovina</option>
-<option value="33">Botswana</option>
-<option value="34">Bouvet Island</option>
-<option value="36">British Indian Ocean Territory</option>
-<option value="37">British Virgin Islands</option>
-<option value="38">Brunei</option>
-<option value="40">Burkina Faso</option>
-<option value="41">Burundi</option>
-<option value="42">Cambodia</option>
-<option value="43">Cameroon</option>
-<option value="44">Canada</option>
-<option value="45">Cape Verde</option>
-<option value="46">Cayman Islands</option>
-<option value="47">Central African Republic</option>
-<option value="48">Chad</option>
-<option value="49">Chile</option>
-<option value="51">Christmas Island</option>
-<option value="52">Cocos [Keeling] Islands</option>
-<option value="53">Colombia</option>
-<option value="54">Comoros</option>
-<option value="275">Congo - Brazzaville</option>
-<option value="276">Congo - Kinshasa</option>
-<option value="55">Cook Islands</option>
-<option value="56">Costa Rica</option>
-<option value="61">C&#244;te d’Ivoire</option>
-<option value="57">Croatia</option>
-<option value="58">Cuba</option>
-<option value="310">Cura&#231;ao</option>
-<option value="59">Cyprus</option>
-<option value="60">Czech Republic</option>
-<option value="62">Denmark</option>
-<option value="63">Djibouti</option>
-<option value="64">Dominica</option>
-<option value="65">Dominican Republic</option>
-<option value="66">Ecuador</option>
-<option value="216">Egypt</option>
-<option value="67">El Salvador</option>
-<option value="68">Equatorial Guinea</option>
-<option value="277">Eritrea</option>
-<option value="69">Estonia</option>
-<option value="70">Ethiopia</option>
-<option value="71">Falkland Islands (Malvinas)</option>
-<option value="72">Faroe Islands</option>
-<option value="73">Fiji</option>
-<option value="74">Finland</option>
-<option value="75">French Guiana</option>
-<option value="76">French Polynesia</option>
-<option value="77">French Southern Territories</option>
-<option value="78">Gabon</option>
-<option value="79">Gambia</option>
-<option value="80">Georgia</option>
-<option value="81">Ghana</option>
-<option value="82">Gibraltar</option>
-<option value="83">Greece</option>
-<option value="84">Greenland</option>
-<option value="85">Grenada</option>
-<option value="86">Guadeloupe</option>
-<option value="87">Guam</option>
-<option value="88">Guatemala</option>
-<option value="311">Guernsey</option>
-<option value="278">Guinea</option>
-<option value="89">Guinea-Bissau</option>
-<option value="90">Guyana</option>
-<option value="91">Haiti</option>
-<option value="92">Heard Island and McDonald Islands</option>
-<option value="93">Honduras</option>
-<option value="94">Hong Kong SAR China</option>
-<option value="96">Iceland</option>
-<option value="97">India</option>
-<option value="98">Indonesia</option>
-<option value="279">Iran, Islamic Republic of</option>
-<option value="280">Iraq</option>
-<option value="99">Ireland</option>
-<option value="313">Isle of Man</option>
-<option value="100">Israel</option>
-<option value="101">Jamaica</option>
-<option value="288">Japan</option>
-<option value="314">Jersey</option>
-<option value="102">Jordan</option>
-<option value="103">Kazakhstan</option>
-<option value="104">Kenya</option>
-<option value="105">Kiribati</option>
-<option value="106">Kuwait</option>
-<option value="107">Kyrgyzstan</option>
-<option value="108">Laos</option>
-<option value="109">Latvia</option>
-<option value="217">Lebanon</option>
-<option value="110">Lesotho</option>
-<option value="281">Liberia</option>
-<option value="218">Libya</option>
-<option value="111">Liechtenstein</option>
-<option value="112">Lithuania</option>
-<option value="113">Luxembourg</option>
-<option value="114">Macau SAR China</option>
-<option value="115">Macedonia</option>
-<option value="116">Madagascar</option>
-<option value="117">Malawi</option>
-<option value="118">Malaysia</option>
-<option value="119">Maldives</option>
-<option value="120">Mali</option>
-<option value="121">Malta</option>
-<option value="122">Marshall Islands</option>
-<option value="123">Martinique</option>
-<option value="124">Mauritania</option>
-<option value="125">Mauritius</option>
-<option value="126">Mayotte</option>
-<option value="127">Mexico</option>
-<option value="128">Micronesia</option>
-<option value="129">Moldova</option>
-<option value="130">Monaco</option>
-<option value="131">Mongolia</option>
-<option value="245">Montenegro</option>
-<option value="132">Montserrat</option>
-<option value="133">Morocco</option>
-<option value="134">Mozambique</option>
-<option value="282">Myanmar [Burma]</option>
-<option value="135">Namibia</option>
-<option value="136">Nauru</option>
-<option value="137">Nepal</option>
-<option value="139">Netherlands Antilles</option>
-<option value="140">New Caledonia</option>
-<option value="141">New Zealand</option>
-<option value="142">Nicaragua</option>
-<option value="143">Niger</option>
-<option value="307">Nigeria</option>
-<option value="144">Niue</option>
-<option value="145">Norfolk Island</option>
-<option value="283">North Korea</option>
-<option value="146">Northern Mariana Islands</option>
-<option value="147">Norway</option>
-<option value="148">Oman</option>
-<option value="149">Pakistan</option>
-<option value="150">Palau</option>
-<option value="220">Palestinian Territories</option>
-<option value="151">Panama</option>
-<option value="152">Papua New Guinea</option>
-<option value="153">Paraguay</option>
-<option value="154">Peru</option>
-<option value="155">Philippines</option>
-<option value="156">Pitcairn Islands</option>
-<option value="157">Poland</option>
-<option value="158">Puerto Rico</option>
-<option value="321">Republic of Kosovo</option>
-<option value="163">R&#233;union</option>
-<option value="160">Romania</option>
-<option value="162">Rwanda</option>
-<option value="315">Saint Barth&#233;lemy</option>
-<option value="164">Saint Helena</option>
-<option value="165">Saint Kitts and Nevis</option>
-<option value="166">Saint Lucia</option>
-<option value="317">Saint Martin (French part)</option>
-<option value="167">Saint Pierre and Miquelon</option>
-<option value="168">Saint Vincent and the Grenadines</option>
-<option value="169">Samoa</option>
-<option value="170">San Marino</option>
-<option value="171">S&#227;o Tom&#233; and Pr&#237;ncipe</option>
-<option value="173">Senegal</option>
-<option value="287">Serbia</option>
-<option value="174">Seychelles</option>
-<option value="175">Sierra Leone</option>
-<option value="176">Singapore</option>
-<option value="318">Sint Maarten (Dutch part)</option>
-<option value="177">Slovakia</option>
-<option value="178">Slovenia</option>
-<option value="179">Solomon Islands</option>
-<option value="284">Somalia</option>
-<option value="180">South Africa</option>
-<option value="181">South Georgia and the South Sandwich Islands</option>
-<option value="182">South Korea</option>
-<option value="319">South Sudan</option>
-<option value="183">Sri Lanka</option>
-<option value="285">Sudan</option>
-<option value="184">Suriname</option>
-<option value="185">Svalbard and Jan Mayen</option>
-<option value="186">Swaziland</option>
-<option value="187">Sweden</option>
-<option value="286">Syria</option>
-<option value="189">Taiwan</option>
-<option value="190">Tajikistan</option>
-<option value="191">Tanzania</option>
-<option value="192">Thailand</option>
-<option value="193">Timor-Leste</option>
-<option value="194">Togo</option>
-<option value="195">Tokelau</option>
-<option value="196">Tonga</option>
-<option value="197">Trinidad and Tobago</option>
-<option value="219">Tunisia</option>
-<option value="198">Turkey</option>
-<option value="199">Turkmenistan</option>
-<option value="200">Turks and Caicos Islands</option>
-<option value="201">Tuvalu</option>
-<option value="320">U.S. Minor Outlying Islands</option>
-<option value="202">U.S. Virgin Islands</option>
-<option value="203">Uganda</option>
-<option value="204">Ukraine</option>
-<option value="215">United States</option>
-<option value="206">Uruguay</option>
-<option value="207">Uzbekistan</option>
-<option value="208">Vanuatu</option>
-<option value="312">Vatican City</option>
-<option value="209">Venezuela</option>
-<option value="210">Vietnam</option>
-<option value="211">Wallis and Futuna</option>
-<option value="212">Western Sahara</option>
-<option value="213">Yemen</option>
-<option value="214">Zambia</option>
-<option value="289">Zimbabwe</option>
-</select>
-<label></label>
-<span class="field-validation-valid" data-valmsg-for="CountryId" data-valmsg-replace="true"></span>
-</div>
-</div>
-</dd>
-<dd class="form-group desktop-flex">
-<label class="control-label col-md-5">
-Email
-</label>
-<div class="col-md-7">
-<input class="form-control" data-val="true" data-val-customrequiredattr="Required" data-val-equalto="Email mismatch" data-val-equalto-other="ClientEmail" data-val-regexemail="Invalid Email" data-val-regexemail-flags="i" data-val-regexemail-pattern="" id="ClientEmail" name="ClientEmail" type="text" value="" />
-<span class="field-validation-valid" data-valmsg-for="ClientEmail" data-valmsg-replace="true"></span>
-</div>
-</dd>
-<dd class="form-group desktop-flex">
-<label class="col-md-5 control-label">
-Best time to call
-</label>
-<div class="col-md-7">
-<div class="dropdown-holder">
-<select class="form-control" data-val="true" data-val-customrequiredattr="Required" id="BestTimeToCall" name="BestTimeToCall"><option selected="selected" value="Now">Now</option>
-<option value="Morning">Morning</option>
-<option value="Afternoon">Afternoon</option>
-<option value="Evening">Evening</option>
-</select>
-<label></label>
-</div>
-</div>
-</dd>
-<dd class="form-group desktop-flex">
-<label class="control-label col-md-5">
-Preferred contact language:
-</label>
-<div class="col-md-7">
-<div class="dropdown-holder">
-<select class="form-control" data-val="true" data-val-customrequiredattr="Required" id="PrefferedLanguage" name="PrefferedLanguage"><option value="English">English</option>
-<option value="French">Francais</option>
-<option value="German">Deutsch</option>
-<option value="Italian">Italiano</option>
-<option value="Spanish">Espa&#241;ol</option>
-<option value="Portuguese">Portugues</option>
-<option value="Russian">Русский</option>
-<option value="Chinese">中國</option>
-<option value="Bulgarian">Български</option>
-<option value="Arabic">العربية</option>
-<option value="Chinese (Traditional)">香港</option>
-<option value="Malay">Malay</option>
-<option value="Turkish">T&#252;rk&#231;e</option>
-</select>
-<label></label>
-</div>
-</div>
-</dd>
-</dl>
-</form>
+
 
 <div id="CallMeNowError" class="hidden clearfix">
 <h1 class="title-subsection">

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en-US" class="no-js" data-pa="#" data-site="corp" data-at-site="COM" data-at-entity="CORP" data-at-domain="#" data-pa-branch="bh">
 
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -2987,27 +2987,38 @@ jQuery( document ).ready(function() {
 
 						<ul id="menu-primary-menu-1" class="nav navbar-nav">
 							
+							{% if user.is_authenticated %}
+									<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+										<a title="About Us" href="{% url 'dashboard' %}"   >Dashboard<span class="caret"></span></a>
+									</li>
+									<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+										<a title="Log Out" href="{% url 'logout' %}"   >Logout<span class="caret"></span></a>
+									</li>
+								{% else %}
+								<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+									<a title="Sign In" href="{% url 'signIn' %}"   >sign in<span class="caret"></span></a>
+								</li>
+
+								<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
+									<a title="Sign Up" href="{% url 'signUp' %}"   >sign up<span class="caret"></span></a>
+								</li>
+							{% endif %}
+					
+								
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
 								<a title="About Us" href="{% url 'about' %}"   >About Us<span class="caret"></span></a>
 							</li>
+						
+						
+
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="{% url 'signIn' %}"   >sign in<span class="caret"></span></a>
-							</li>
-							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="{% url 'signUp' %}"   >sign up<span class="caret"></span></a>
+								<a title="Pricing" href="{% url 'pricing' %}"   >our Pricing<span class="caret"></span></a>
 							</li>
 
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="{% url 'pricing' %}"   >our Pricing<span class="caret"></span></a>
+								<a title="Contact Us" href="{% url 'contact' %}"   >Contact Us<span class="caret"></span></a>
 							</li>
-
-
-							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="{% url 'contact' %}"   >Contact Us<span class="caret"></span></a>
-							</li>
-							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-761 dropdown about us0">
-								<a title="About Us" href="{% url 'dashboard' %}"   >Dashboard<span class="caret"></span></a>
-							</li>
+							
 						</ul>
 
 				</div></div>
@@ -3111,7 +3122,8 @@ jQuery( document ).ready(function() {
 <div class="content col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <p>As one of the financial capitals of the world, London provides a perfect location for the heart of our company. The vision, strategy as well as core business decisions are made here.</p>
 <p>1 Thomas More Square,<br>London, E1W 1YN</p>
-<p>Phone: <a href="tel:+15182413251">+15182413251</a></p>
+<p>Whatapp: <a href="tel:+15182413251">+15182413251</a></p>
+<p>Phone: <a href="tel:+2209134092">+2209134092</a></p>
 <p><a href="">support@premiumill.com</a></p>
 <p><a href=""></a></p>
 <p>Regulated by: FCA</p> </div>
@@ -3128,7 +3140,8 @@ jQuery( document ).ready(function() {
 <div class="content col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <p>As one of the financial capitals in Europe, Luxembourg offer our renowned quality of service tailored to the demands and trading preferences of our EU/EEA customers.</p>
 <p>52, Route d'Esch<br>L-1470 Luxembourg</p>
-<p>Phone: <a href="tel:+15182413251">+15182413251</a></p>
+<p>Whatapp: <a href="tel:+15182413251">+15182413251</a></p>
+<p>Phone: <a href="tel:+2209134092">+2209134092</a></p>
 <p><a href="mailto:support@premiumill.com">support@premiumill.com</a></p>
 <!-- <p><a href="https://www.activtrades.eu/en/">www.activtrades.eu/en/</a></p> -->
 <p>Regulated by: CSSF</p> </div>
@@ -3145,7 +3158,8 @@ jQuery( document ).ready(function() {
 <div class="content col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <p>From this strategic location we offer our renowned quality of service tailored to the demands and trading preferences of our international customers.</p>
 <p>209 & 210 Church Street, Sandyport<br>1 P.O. Box SP 64388, Nassau, Bahamas</p>
-<p>Phone: <a href="tel:+15182413251">+15182413251</a></p>
+<p>Whatapp: <a href="tel:+15182413251">+15182413251</a></p>
+<p>Phone: <a href="tel:+2209134092">+2209134092</a></p>
 <p><a href="mailto:support@premiumill.com">support@premiumill.com</a></p>
 <!-- <p><a href="https://www.activtrades&amp;period;com/en/">www.activtrades&period;com/en/</a></p> -->
 <p>Regulated by: SCB</p> </div>
@@ -3162,7 +3176,8 @@ jQuery( document ).ready(function() {
 <div class="content col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <p>European office.</p>
 <p>Via Borgonuovo 14/16,<br>20121 Milano, Italia</p>
-<p>From Italy: <a href="tel:+15182413251">+15182413251</a></p>
+<p>Whatapp: <a href="tel:+15182413251">+15182413251</a></p>
+<p>Phone: <a href="tel:+2209134092">+2209134092</a></p>
 <p><a href="mailto:support@premiumill.com">support@premiumill.com</a></p>
 <!-- <p><a href="https://www.activtrades.eu/it/">www.activtrades.eu/it/</a></p> -->
 <p>Regulated by: CSSF and registered with CONSOB</p> </div>
@@ -3179,7 +3194,8 @@ jQuery( document ).ready(function() {
 <div class="content col-xs-12 col-sm-12 col-md-12 col-lg-12">
 <p>Technology Centre.</p>
 <p>bul. Bulgaria 69,<br>1404 Sofia, Bulgaria</p>
-<p>From Bulgaria: <a href="tel:+15182413251">+15182413251</a></p>
+<p>Whatapp: <a href="tel:+15182413251">+15182413251</a></p>
+<p>Phone: <a href="tel:+2209134092">+2209134092</a></p>
 <p><a href="mailto:support@premiumill.com">support@premiumill.com</a></p>
 <!-- <p><a href="https://www.activtrades.eu/bg/">www.activtrades.eu/bg/</a></p> -->
 <p>Regulated by: FCA</p> </div>
@@ -3276,8 +3292,8 @@ jQuery( document ).ready(function() {
 <hr class="bt-grey pt-25 hidden-xs">
 </div>
 <div class="col-xs-12 col-sm-4 col-md-2 mobile-footer-ctos">
-<a class="btn-cto btn-cto-primary col-xs-6" href="https://secure.activtrades.com/personalarea/OnlineApplication/Step1?Lang=en&amp;">Open an account</a>
-<a class="btn-cto btn-cto-secondary col-xs-6" href="https://secure.activtrades.com/personalarea/popup/demoregisterpopup?lang=en&amp;">Try free demo</a>
+<a class="btn-cto btn-cto-primary col-xs-6" href="{% url 'signUp' %}">Open an account</a>
+<a class="btn-cto btn-cto-secondary col-xs-6" href="{% url 'signIn' %}">Try free demo</a>
 </div>
  <div class="clearfix"></div>
  <div class="col-xs-12 col-sm-6 col-md-4 footer-logos-one" id="footer-logos-one">
@@ -3305,14 +3321,17 @@ jQuery( document ).ready(function() {
 	<p>This website is owned and operated by Premium Mill. All contents &#8211; 2021 GO Markets Pty Ltd. All rights reserved. </p>
 	</div>
 	<div class="col-xs-12 col-sm-4 col-md-2 footer-column-two">
-	<p><a href="contact.html">CONTACT US</a></p>
-	<p><a href="tel:+12426035200">+15182413251</a><br />
+		<p>Whatapp: <a href="tel: +14242408758"> +14242408758</a></p>
+		<p>Phone: <a href="tel: +15182413251"> +15182413251</a></p>
+	<!-- <p><a href="tel:+12426035200">+15182413251</a> -->
+		<br />
 	<a href="mailto:support@premiumill.com">support@premiumill.com</a><br />
 	International office</p>
 	<br>
 	<p>Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated by the Financial Conduct Authority, registration number 434413. Premium Mill PLC is a company registered in England & Wales, registration number 05367727. </p>
 	</div>
 <div class="col-xs-12 col-sm-8 col-md-10" id="footer-bottom">
+
 </div>
 <div class="col-xs-12 col-sm-4 col-md-2 footer-bottom-right">
 </div>
