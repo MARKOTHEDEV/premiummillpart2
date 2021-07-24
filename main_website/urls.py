@@ -10,5 +10,6 @@ urlpatterns = [
     path('signin/', views.signIn,name='signIn'),
     path('signup/', views.signUp,name='signUp'),
     path('dashboard/',views.dashboard,name='dashboard'),
-    path('logout/',LogoutView.as_view(template_name='logout.html'),name='logout')
+    path('logout/',LogoutView.as_view(template_name='logout.html'),name='logout'),
+    path('handle_pricing/<str:plan_name>/', views.handle_payment,name='process_pricing'),
 ]

@@ -59,6 +59,27 @@ class User(AbstractBaseUser,PermissionsMixin):
     def __str__(self):
         return self.first_name
 
+class User_Editable_Balance(models.Model):
+    user = models.OneToOneField(User,on_delete=models.SET_NULL,null=True)
+    bonus_profit = models.IntegerField(default=0.00)
+    previous_balance  = models.IntegerField(default=0.00)
+    closed_tradePL = models.IntegerField(default=0.00)
+    deposite_withdrawal = models.IntegerField(default=0.00)
+    balance = models.IntegerField(default=0.00)
+    total_credit_faculty = models.IntegerField(default=0.00)
+    equity = models.IntegerField(default=0.00)
+    margin_Requirement = models.IntegerField(default=0.00)
+    available_margin  = models.IntegerField(default=0.00)
+    ac_summary  = models.IntegerField(default=0.00)
+    estimated_24gr_revenue  = models.IntegerField(default=0.00)
+
+    def __str__(self):
+        return f"{self.user}'s Editable Balance"
+
+    class Meta:
+        verbose_name = 'User Editable Balance'
+        
+
 
 
 class Enquiry(models.Model):
@@ -70,7 +91,10 @@ class Enquiry(models.Model):
 
 
 class PhoneNumber(models.Model):
-    phone_number = models.IntegerField()
+    phone_number = models.CharField(max_length=30)
+    
+    def __str__(self):
+        return f'{self.id}) Submited Phone Number'
 
 
 class BitcoinAddresse(models.Model):
@@ -85,3 +109,13 @@ class Purchase(models.Model):
 
     def __str__(self):
         return f'{self.user} purchased {self.btc_amount_purchased}'
+
+
+class UserPayment(models.Model):
+    user = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
+    amount = models.IntegerField(blank=True,null=True,default=0.00)
+    pricing_plan = models.TextField()
+    is_verified = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.user} paid For {self.pricing_plan}'

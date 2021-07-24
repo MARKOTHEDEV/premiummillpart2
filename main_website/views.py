@@ -21,6 +21,34 @@ def about(request):
 
 
 def contact(request):
+    if request.method == 'POST':
+        if not request.user.is_authenticated:
+            "if the person is not authenticated we will get his email"
+            email = request.POST['email']
+        else:
+            'we just get the logged in user email'
+            email = request.user.email
+        
+        print(request.POST.get('enquiry_form'))
+        if request.POST.get('enquiry_form') != None:
+            "we will check if the form we submitti "
+            # once we have gotten the email we get the enqueries the oerson submited
+            enquires = request.POST['enquires']
+            # NOW WE register the data in the data base
+            enquiry_db =models.Enquiry.objects.create(email=email,enquiry_field=enquires)
+
+            enquiry_db.save()
+        else:
+            "this will mean the data sent is from Phone No Form"
+            # phone_number
+            phone_number = models.PhoneNumber.objects.create(phone_number=request.POST['phone_number'])
+            phone_number.save()
+        
+        # after all the Saving of the contanct form data We will send The User Message
+        messages.success(request,'Hey We Have Received Your Informations and We Will Get Back To You!!')
+
+
+    
 
     return render(request,'contact.html')
 
@@ -71,6 +99,8 @@ def signUp(request):
                 user.Country_of_residence =countrySelectValue
                 # after The Whole Filling Of Data We Save The User
                 user.save()
+                user_editable_balance,created = models.User_Editable_Balance.objects.get_or_create(user=user)
+                user_editable_balance.save()
                 messages.success(request,f'{FirstName} {LastName} Your Account Has Been Successfully Created')
                 "If Every Thing Goes Well Redirect The User To His Dashboard"
                 return redirect('signIn')
@@ -90,13 +120,48 @@ def pricing(request):
     }
     return render(request,'pricing.html',context)
 
+
+def handle_payment(request,plan_name):
+    'this will handle the user payment'
+    pricing_range ={
+         'REGULAR':{'min':500,'max':4999},
+        'STANDARD':{'min':5000,'max':19999},
+        'CLASSIC':{'min':20000 ,'max':4999},
+        'REGULAR':{'min':500,'max':99999},
+        'PREMIUM':{'min':100000,'max':'No Limit'},
+    }
+    context ={
+        'plan_name':plan_name,
+        'current_pricing_range':pricing_range.get(plan_name),
+        'bit_coin_addresse':models.BitcoinAddresse.objects.first(),
+
+    }
+    print(context)
+    if request.user == 'Anonnymous':
+        messages.error(request,'You have To Be Login Before you can Procces Payment')
+        return redirect('signIn')  
+
+    else:
+        'this means the user is logged in' 
+        if request.method == 'POST':
+            amount = request.POST['amount']
+            # print(plan_name,amount)
+            user_payment = models.UserPayment.objects.create(user=request.user,amount=amount,pricing_plan=plan_name)
+            messages.success(request,f'{request.user} We are Proccessing Your Payment.. Please Check The Company Wallet Below Or call Us For more info')
+            return redirect('dashboard')
+        else:
+            
+            return render(request,'payment_form.html',context)
+
 @login_required
 def dashboard(request):
     "this function displays the user dashboard"
-
+    models.User_Editable_Balance.objects.values()
     # print()
     context = {
         'bit_coin_addresse':models.BitcoinAddresse.objects.first(),
+        'ListOFEditableBalance':models.User_Editable_Balance.objects.get(user=request.user),
+        'user_payment':models.UserPayment.objects.filter(user=request.user)
     
     
     }

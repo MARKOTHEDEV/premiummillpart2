@@ -22,6 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'dashboardStaticfiles/src/plugins/datatables/css/responsive.bootstrap4.min.css' %}">
 	
 	<link rel="stylesheet" type="text/css" href="{% static 'dashboardStaticfiles/vendors/styles/style.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script> -->
@@ -298,6 +299,23 @@
 	<div class="mobile-menu-overlay"></div>
 
 	<div class="main-container">
+		<!-- <div class="messages" >
+			<p>Hello luptatibus. Voluptates fugiat aspernatur illum ducimus eum facilis.</p>
+		</div> -->
+
+
+
+		{% if messages %}
+		<ul class="messages" style="color:white;width:100%;z-index:1000;background-color: rgba(45, 153, 45, 0.835);position:absolute;top:0;left:0;padding:1rem .8rem;text-align:center;">
+			{% for message in messages %}
+			<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %} 
+
+
+
+
 		<div class="pd-ltr-20">
 			<div class="card-box pd-20 height-100-p mb-30">
 				<div class="row align-items-center">
@@ -370,62 +388,64 @@
 
 
 			<div class="card-box pd-20 height-100-p mb-20 a/c-summary">
-					<h4 style="text-align: center;">Previous Balance: $2262.2</h4>
+					<h4 style="text-align: center;">Previous Balance: ${{ ListOFEditableBalance.previous_balance }}</h4>
 				<br>
 				<br>
 					<div class="a/c-summary-flexed">
-						
+					
 						<div class="box1 table-responsive">
 							<table class="table table-bordered">
 								<thead>
+									
+										
 								  <tr>
 									<!-- <th scope="col">#</th> -->
 									<!-- <th scope="col">First</th> -->
-									<th scope="col">A/C Summary:</th>
-									<th scope="col">Estimated 24hr revenue:$57.4</th>
+									<th scope="col">A/C Summary:{{ ListOFEditableBalance.ac_summary }}</th>
+									<th scope="col">Estimated 24hr revenue:{{ ListOFEditableBalance.estimated_24gr_revenue }}</th>
 								  </tr>
 								</thead>
 								<tbody>
 								  <tr>
 					
 									<td scope="row">Bonus profit:</td>
-									<td>$57.4 </td>
+									<td>${{ ListOFEditableBalance.bonus_profit }} </td>
 								
 								  </tr>
 								  
 								  <tr>
 									<td scope="row">Closed Trade P/L:</td>
-									<td>$182.9 </td>
+									<td>${{ ListOFEditableBalance.closed_tradePL }} </td>
 								  </tr>
 
 								  <tr>
 									<td scope="row">Deposite Withdrawal:</td>
-									<td>$0.00 </td>
+									<td>${{ ListOFEditableBalance.deposite_withdrawal }} </td>
 								  </tr>
 
 								  <tr>
 									<td scope="row">Balance:</td>
-									<td>$2447.1 </td>
+									<td>${{ ListOFEditableBalance.balance }}</td>
 								  </tr>
 
 								  <tr>
 									<td scope="row">Total Credit Faculty:</td>
-									<td>$2447.1 </td>
+									<td>${{ ListOFEditableBalance.total_credit_faculty }} </td>
 								  </tr>
 
 								  <tr>
 									<td scope="row">Equity:</td>
-									<td>$2447.1 </td>
+									<td>${{ ListOFEditableBalance.equity }} </td>
 								  </tr>
 
 								  <tr>
 									<td scope="row">Margin Requirement:</td>
-									<td>$2447.1 </td>
+									<td>${{ ListOFEditableBalance.margin_Requirement }}</td>
 								  </tr>
 								 
 								  <tr>
 									<td scope="row">Available Margin:</td>
-									<td>$2447.8 </td>
+									<td>${{ ListOFEditableBalance.available_margin }}</td>
 								  </tr>
 								 
 								</tbody>
@@ -446,27 +466,39 @@
 							<!-- <th class="table-plus datatable-nosort">Product</th> -->
 							<th>Plan</th>
 							<!-- <th>wallet used</th> -->
-							<th>Btc amount</th>
+							<th>Verfied</th>
 							<th>Price</th>
 							<th>..</th>
 							<!-- <th class="datatable-nosort">Action</th> -->
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<!-- <td class="table-plus">
-								<img src="vendors/images/product-1.jpg" width="70" height="70" alt="">
-							</td> -->
-							<td>
-								<h5 class="font-16">Regular</h5>
-								by John Doe
-							</td>
-							<!-- <td>2834ruhf47tt</td> -->
-							<td>0.000</td>
-							<td>$1000</td>
-							<!-- <td>1</td> -->
 						
-						</tr>
+						{% for payment  in user_payment %}
+								<tr>
+									<!-- <td class="table-plus">
+										<img src="vendors/images/product-1.jpg" width="70" height="70" alt="">
+									</td> -->
+									<td>
+										<h5 class="font-16">{{ payment.pricing_plan }}</h5>
+										<!-- by John Doe -->
+									</td>
+									<!-- <td>2834ruhf47tt</td> -->
+									
+									{% if payment.is_verified %}
+									<td><i class="fas fa-check-circle" style="color: green;"></i></td>
+										{% else %}
+										<td>processing</td>
+
+									{% endif %}
+										
+									<td>${{ payment.amount }}</td>
+									<!-- <td>1</td> -->
+								
+								</tr>
+						{% endfor %}
+							
+						
 					</tbody>
 				</table>
 			</div>
