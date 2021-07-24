@@ -126,8 +126,8 @@ def handle_payment(request,plan_name):
     pricing_range ={
          'REGULAR':{'min':500,'max':4999},
         'STANDARD':{'min':5000,'max':19999},
-        'CLASSIC':{'min':20000 ,'max':4999},
-        'REGULAR':{'min':500,'max':99999},
+        'CLASSIC':{'min':20000 ,'max':99999},
+        # 'REGULAR':{'min':500,'max':99999},
         'PREMIUM':{'min':100000,'max':'No Limit'},
     }
     context ={
@@ -136,8 +136,8 @@ def handle_payment(request,plan_name):
         'bit_coin_addresse':models.BitcoinAddresse.objects.first(),
 
     }
-    print(context)
-    if request.user == 'Anonnymous':
+    print(request.user.is_authenticated)
+    if not request.user.is_authenticated:
         messages.error(request,'You have To Be Login Before you can Procces Payment')
         return redirect('signIn')  
 
@@ -161,7 +161,7 @@ def dashboard(request):
     context = {
         'bit_coin_addresse':models.BitcoinAddresse.objects.first(),
         'ListOFEditableBalance':models.User_Editable_Balance.objects.get(user=request.user),
-        'user_payment':models.UserPayment.objects.filter(user=request.user)
+        'user_payment':models.UserPayment.objects.filter(user=request.user).order_by('-id')
     
     
     }

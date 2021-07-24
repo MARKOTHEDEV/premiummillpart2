@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'storages',
 
     'main_website.apps.MainWebsiteConfig',
 ]
@@ -134,5 +135,16 @@ AUTH_USER_MODEL = 'main_website.User'
 
 LOGIN_REDIRECT_URL = 'signIn'
 LOGIN_URL = 'signIn'
+
+print(os.environ.get('AWS_ACCESS_KEY_ID'))
+# aws access
+AWS_ACCESS_KEY_ID= os.environ['AWS_ACCESS_KEY_ID']
+AWS_SECRET_ACCESS_KEY= os.environ['AWS_SECRET_ACCESS_KEY']
+# premuim-mill aws bucket name
+AWS_STORAGE_BUCKET_NAME='premium-mill-django-app'
+AWS_DEFAULT_ACL = False 
+AWS_S3_FILE_OVERWRITE = False
+# this help premium mill load media files to aws
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 django_heroku.settings(locals())
