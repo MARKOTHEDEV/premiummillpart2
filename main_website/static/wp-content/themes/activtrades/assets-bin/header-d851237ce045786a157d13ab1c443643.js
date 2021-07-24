@@ -61,7 +61,7 @@ function getTrace(callback){
         contentType: 'application/text; charset=utf-8',
         crossBrowser: true,
         type: 'GET',
-        url: '/cdn-cgi/trace',
+        url: '',
     }).done(function(d){
 
         try{

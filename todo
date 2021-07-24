@@ -35,12 +35,6 @@ s3 bucket -- done
 Whatapp: +14242408758
 call:  +15182413251
 
-        index, --done
-        about, -- done
-        contact -- done
-        ,payment_form --done
-        pricing --done
-        signup
-        singin
-        logout -- done
+ the logout template check th link to login again
+ rename the header in the django admin
 
