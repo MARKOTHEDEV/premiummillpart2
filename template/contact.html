@@ -717,7 +717,7 @@ html[data-at-entity="CORP"] ul.related_topics li:first-child{
             {% csrf_token %}
             <div class="form_box">
                 <label for="contactModal__phone">Phone No.</label>
-                <input type="number" name="phone_number" id="contactModal__phone" required>
+                <input type="number" name="phone_number" id="contactModal__phone" max="30" required>
             </div>
     
      
