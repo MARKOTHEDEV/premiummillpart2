@@ -24,7 +24,7 @@ def contact(request):
     if request.method == 'POST':
         if not request.user.is_authenticated:
             "if the person is not authenticated we will get his email"
-            email = request.POST['email']
+            email = request.POST.get('email')
         else:
             'we just get the logged in user email'
             email = request.user.email
