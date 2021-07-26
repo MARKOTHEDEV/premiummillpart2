@@ -209,5 +209,3 @@ LOGGING = {
 
 
 django_heroku.settings(config=locals(), staticfiles=False,logging=False)
-# STATICFILES_STORAGE = 'core.storage.CustomStorgeClass'
-# WHITENOISE_MANIFEST_STRICT = False
