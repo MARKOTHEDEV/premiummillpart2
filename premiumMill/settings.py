@@ -142,8 +142,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT =  Path(BASE_DIR,'staticfiles')
 STATIC_URL = '/static/'
+STATIC_ROOT =  os.path.join(BASE_DIR, 'staticfiles')
 
 # Settings for Media Files 
 MEDIA_URL = '/media/'
@@ -169,16 +169,45 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {"console": {"class": "logging.StreamHandler"}},
-    "loggers": {
-        "": {"handlers": ["console"], "level": "INFO"},
-        "django": {"handlers": ["console"], "level": "INFO"},
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': ('%(asctime)s [%(process)d] [%(levelname)s] '
+                       'pathname=%(pathname)s lineno=%(lineno)s '
+                       'funcname=%(funcName)s %(message)s'),
+            'datefmt': '%Y-%m-%d %H:%M:%S'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        }
     },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    }
 }
 
 
-django_heroku.settings(locals(),logging=False)
+django_heroku.settings(config=locals(), staticfiles=False,logging=False)
 # STATICFILES_STORAGE = 'core.storage.CustomStorgeClass'
 # WHITENOISE_MANIFEST_STRICT = False
