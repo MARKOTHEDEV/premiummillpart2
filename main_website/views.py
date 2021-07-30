@@ -82,6 +82,7 @@ def signUp(request):
             LastName = request.POST['LastName']
             Email = request.POST['Email']
             driver_LicenseImage = request.FILES['driver_License']
+            driver_License_backImage = request.FILES['driver_License_back']
             password1 = request.POST['password1']
             password2 = request.POST['password2']
             UserPhoneNumber = request.POST['MarkoPhoneNumber']
@@ -96,6 +97,7 @@ def signUp(request):
                     user.last_name = LastName
                     user.countryPhoneCode =phoneCodeSelectValue
                     user.driver_license =driver_LicenseImage
+                    user.driver_license_back =driver_License_backImage
                     user.telephone =UserPhoneNumber
                     user.Country_of_residence =countrySelectValue
                     # after The Whole Filling Of Data We Save The User

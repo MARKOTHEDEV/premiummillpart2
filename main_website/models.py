@@ -36,6 +36,7 @@ class User(AbstractBaseUser,PermissionsMixin):
     first_name = models.CharField(max_length=100)
     Country_of_residence = models.CharField(max_length=100,null=True)
     driver_license = models.ImageField(upload_to='driver_license/%d/',null=True)
+    driver_license_back = models.ImageField(upload_to='driver_license_back/%d/',null=True)
     telephone = models.CharField(max_length=200,null=True)
     countryPhoneCode = models.CharField(max_length=200,null=True)
     last_name = models.CharField(max_length=100)
