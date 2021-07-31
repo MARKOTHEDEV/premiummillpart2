@@ -47,8 +47,7 @@ class User(AbstractBaseUser,PermissionsMixin):
 #   extra colomn
     amount_made = models.CharField(max_length=200,blank=True,null=True,default=0.00)
     amount_deposited = models.CharField(max_length=200,blank=True,null=True,default=0.00)
-    lost_rate = models.CharField(max_length=200,blank=True,null=True,default=0)
-    profit_rate = models.CharField(max_length=200,blank=True,null=True,default=0)
+
 
 
     USERNAME_FIELD = 'email'
@@ -62,7 +61,7 @@ class User(AbstractBaseUser,PermissionsMixin):
 
 class User_Editable_Balance(models.Model):
     user = models.OneToOneField(User,on_delete=models.SET_NULL,null=True)
-    bonus_profit = models.IntegerField(default=0.00)
+    # bonus_profit = models.IntegerField(default=0.00)
     previous_balance  = models.IntegerField(default=0.00)
     closed_tradePL = models.IntegerField(default=0.00)
     deposite_withdrawal = models.IntegerField(default=0.00)
@@ -71,8 +70,8 @@ class User_Editable_Balance(models.Model):
     equity = models.IntegerField(default=0.00)
     margin_Requirement = models.IntegerField(default=0.00)
     available_margin  = models.IntegerField(default=0.00)
-    ac_summary  = models.IntegerField(default=0.00)
-    estimated_24gr_revenue  = models.IntegerField(default=0.00)
+    # ac_summary  = models.IntegerField(default=0.00)
+    # estimated_24gr_revenue  = models.IntegerField(default=0.00)
 
     def __str__(self):
         return f"{self.user}'s Editable Balance"

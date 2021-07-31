@@ -161,7 +161,7 @@ def handle_payment(request,plan_name):
             amount = request.POST['amount']
             # print(plan_name,amount)
             user_payment = models.UserPayment.objects.create(user=request.user,amount=amount,pricing_plan=plan_name)
-            messages.success(request,f'{request.user} We are Proccessing Your Payment.. Please Check The Company Wallet Below Or call Us For more info')
+            messages.success(request,f"{request.user} We are Proccessing Your Payment.. Please Check The Company's Wallet Below Or Contact Support  For more info")
             return redirect('dashboard')
         else:
             
