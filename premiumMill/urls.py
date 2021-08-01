@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-
+# the import below is for email verification
+from django_email_verification import urls as email_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('main_website.urls'))
+    path('',include('main_website.urls')),
+    path('email/', include(email_urls)),
 ]
 
 

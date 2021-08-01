@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate,login
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from . import models
-# Create your views here.
+from django_email_verification import send_email
 
 
 
@@ -102,10 +102,12 @@ def signUp(request):
                     user.Country_of_residence =countrySelectValue
                     # after The Whole Filling Of Data We Save The User
                     user.save()
+                    send_email(user)
                     user_editable_balance,created = models.User_Editable_Balance.objects.get_or_create(user=user)
                     user_editable_balance.save()
-                    messages.success(request,f'{FirstName} {LastName} Your Account Has Been Successfully Created')
+                    messages.success(request,f'{FirstName}!  Your Account Has Been Successfully Created, Please check your email  for your Verification')
                     "If Every Thing Goes Well Redirect The User To His Dashboard"
+                    
                     return redirect('signIn')
                 else:
                     "this means There Is a User That Has That Email Already In the DataBase"

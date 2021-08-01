@@ -42,7 +42,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'c$%w$$4^d%2k592ph5jjpxhw93$y-03h!+w*xin(c(25fwo^y8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['marko-premiummill.herokuapp.com','www.premiumill.com','premiumill.com']
 
@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'storages',
 
     'main_website.apps.MainWebsiteConfig',
+    'django_email_verification',
 ]
 
 MIDDLEWARE = [
@@ -206,6 +207,33 @@ LOGGING = {
         },
     }
 }
+
+
+
+"Settings for Emails"
+def verified_callback(user):
+    "this will be called when the user verify his email"
+    user.is_active = True
+
+
+# 
+EMAIL_VERIFIED_CALLBACK = verified_callback
+EMAIL_FROM_ADDRESS = os.environ['EMAIL_HOST_USER']
+EMAIL_MAIL_SUBJECT = 'Confirm your email'
+EMAIL_MAIL_HTML = 'mail_body.html'
+EMAIL_MAIL_PLAIN = 'mail_body.txt'
+EMAIL_TOKEN_LIFE = 60 * 60
+EMAIL_PAGE_TEMPLATE = 'confirm_template.html'
+EMAIL_PAGE_DOMAIN = 'https://premiumill.com/'
+
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+EMAIL_USE_TLS = True
+"End Settings for Emails"
 
 
 django_heroku.settings(config=locals(), staticfiles=False,logging=False)

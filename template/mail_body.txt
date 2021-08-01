@@ -1,0 +1,6 @@
+You've requested to confirm your email, {{ user.first_name }}!
+Please click to confirm your account {{ link }}
+If this wasn't you, please ignore this email.
+The token expires on {{ expiry|time:"TIME_FORMAT" }}
+
+For any inquiries, please contact us at support@premiumill.com

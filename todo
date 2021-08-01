@@ -46,3 +46,11 @@ phone:  +15187036007
  the logout template check th link to login again
  rename the header in the django admin
 
+
+
+
+
+    <title></title>
+
+ 
+

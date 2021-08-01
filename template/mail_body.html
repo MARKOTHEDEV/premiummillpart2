@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Confirmation</title>
+</head>
+<body>
+<h1> You've requested to confirm your email, {{ user.first_name }}!</h1><br>
+
+<p>
+
+
+Please click on the  link below to verify your email: 
+<br>
+
+<strong>Please click <a href="{{ link }}" style="color:blue">here</a> to confirm your account</strong></p>
+<p>If this wasn't you, please ignore this email.</p>
+<br>
+
+<p>The token expires on {{ expiry|time:"TIME_FORMAT" }}</p>
+<br>
+
+<p>For any inquiries, please contact us at <a href="malito:support@premiumill.com">support@premiumill.com</a></p>
+</body>
+</html>
