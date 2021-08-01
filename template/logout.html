@@ -3422,11 +3422,25 @@ piCId = '1440';
 	const removeRiskBtn = document.querySelector('#removeRiskBtn')
     let RiskContainer = document.querySelector('#riskwarning')
 
-    removeRiskBtn.addEventListener('click',e=>{
-        e.preventDefault()
-    RiskContainer.remove()
-    
-    })
+	if(localStorage.getItem("RiskContainer") == null){
+		// still show the container
+	}
+	else{
+		//that means the user has  visit before  let check if the user has closed the RiskContainer
+		//note it a true or false stuff that why we parsing it
+		if(JSON.parse(localStorage.getItem("RiskContainer")) === true){
+			RiskContainer.remove()
+
+		}
+	}
+	removeRiskBtn.addEventListener('click',e=>{
+		e.preventDefault()
+		localStorage.setItem("RiskContainer",JSON.stringify(true))
+		RiskContainer.remove()
+	
+	a = document.querySelector('#section_2')
+	a.remove()	
+	})
 
 
 
