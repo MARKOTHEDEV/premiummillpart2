@@ -105,7 +105,7 @@ def signUp(request):
                     send_email(user)
                     user_editable_balance,created = models.User_Editable_Balance.objects.get_or_create(user=user)
                     user_editable_balance.save()
-                    messages.success(request,f'{FirstName}!  Your Account Has Been Successfully Created, Please check your email  for your Verification')
+                    messages.success(request,f'{FirstName}!  Your Account Has Been Successfully Created, Please check your email  for  Verification')
                     "If Every Thing Goes Well Redirect The User To His Dashboard"
                     
                     return redirect('signIn')
