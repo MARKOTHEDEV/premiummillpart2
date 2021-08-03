@@ -702,15 +702,23 @@ It looks like you already have an application in progress. Please provide your p
 <div v-if="!Data.IsDemoUserLoggedInPA">
 
 <br>
+<div  class="dropdown-holder relative-pos">
+	<label for="">Choose Document</label>
+	<select  class='form-control' required>
+		<option value="Driving License">Driving License</option>
+		<option value="State Identification">State Identification</option>
+	</select>
+</div>
+<br>
 <div >
-	<label for="">Driver License Or any Identification (*front)</label>
+	<label for="">Proof Of Identification (POI)(*front)</label>
 	<input type="file" name="driver_License" id="" class="form-control" required>
 </div>
 <br>
 
 <br>
 <div >
-	<label for="">Driver License Or any Identification (*back)</label>
+	<label for="">Proof Of Identification (POI)(*back)</label>
 	<input type="file" name="driver_License_back" id="" class="form-control" required>
 </div>
 <br>
