@@ -6,6 +6,39 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from . import models
 from django_email_verification import send_email
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+import json,requests
+
+apiKey = 'coinrankingce615f2ed2e4aee0da1f35269c67a18744daa8c31d883574'
+baseUrl = 'https://api.coinranking.com/v2/coins'
+proxyUrl = "https://cors-anywhere.herokuapp.com/"
+
+
+
+
+
+
+
+
+
+
+@api_view(['GET'])
+def get_list_of_coins(request):
+    "we make a request to coin ranking"
+    resp  = requests.get(baseUrl,headers={
+     'Content-Type':'application/json',
+        'x-access-token': apiKey
+    })
+    "we get the response and store it in a data varaible"
+    def returns_formated_coin_data(data):
+        "this fuction works direclty to the map function it returns a more arranged data for coin ranking"
+        return {'iconUrl':data['iconUrl'],'name':data['symbol'],'price':data['price']}
+
+    "this  varable below contains the list of arranged coins data with the help of the map function"
+    list_of_coins_info = list(map(returns_formated_coin_data,resp.json().get('data')['coins']))
+ 
+    return Response(list_of_coins_info)
 
 
 

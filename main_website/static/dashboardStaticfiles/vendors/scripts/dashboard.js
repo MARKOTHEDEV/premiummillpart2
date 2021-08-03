@@ -25,7 +25,7 @@ var options = {
 				},
 				value: {
 					show: true,
-					color: '#333',
+					color: 'white',
 					offsetY: 5,
 					fontSize: '15px'
 				}
@@ -95,7 +95,8 @@ var options2 = {
 				},
 				value: {
 					show: true,
-					color: '#333',
+					color: 'white',
+
 					offsetY: 5,
 					fontSize: '15px'
 				}

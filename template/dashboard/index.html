@@ -38,12 +38,53 @@
 		.dropdown-toggle::after {
 		display: none;
 		}
+
+		.coin_box{
+			background-color: white;
+			padding: 1rem .8rem;
+			width: 150px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			border-radius: 10px;
+			
+		}
+
+		.coins_container{
+			display: flex;
+			justify-content: space-between;
+			margin: 3% 0;
+		}
+		body{
+			background-color: rgb(15, 15, 14);
+		}
+		.pane{
+			/*this represent every pane or box in th dashboard*/
+			color: white;
+			background-color: rgba(47, 45, 45, 0.842);
+
+		}
+		.pane *{
+			color: white;
+		}
 	</style>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<style>
+	.swiper-container {
+		width: 300px;
+		height: 200px;
+		margin: 3% 0;
+		
+	  }
+	
+</style>
 </head>
 <body>
 
 
-	<div class="header">
+	<div class="header pane">
 		<div class="header-left">
 			<div class="menu-icon dw dw-menu"></div>
 			<!-- <div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div> -->
@@ -298,7 +339,7 @@
 	</div>
 	<div class="mobile-menu-overlay"></div>
 
-	<div class="main-container">
+	<div class="main-container ">
 		<!-- <div class="messages" >
 			<p>Hello luptatibus. Voluptates fugiat aspernatur illum ducimus eum facilis.</p>
 		</div> -->
@@ -317,14 +358,14 @@
 
 
 		<div class="pd-ltr-20">
-			<div class="card-box pd-20 height-100-p mb-30">
+			<div class="card-box pd-20 height-100-p mb-30 pane">
 				<div class="row align-items-center">
 					<div class="col-md-4">
 						<img src="{% static 'dashboardStaticfiles/vendors/images/banner-img.png' %}" alt="">
 					</div>
 					<div class="col-md-8">
 						<h4 class="font-20 weight-500 mb-10 text-capitalize">
-							Welcome back <div class="weight-600 font-30 text-blue">{{ user }}!</div>
+							Welcome back <div class="weight-600 font-30 text-blue" style="color:rgb(19, 19, 49);">{{ user }}!</div>
 						</h4>
 						<p class="font-18 max-width-600">Notice!! All payment Should be paid to the company official Bitcoin Wallet</p>
 						<p class="font-23 max-width-600">Company Wallet: <strong>{{ bit_coin_addresse.company_wallet }}</strong></p>
@@ -333,7 +374,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xl-4 mb-30">
-					<div class="card-box height-100-p widget-style1">
+					<div class="card-box height-100-p widget-style1 pane">
 						<div class="d-flex flex-wrap align-items-center">
 							<div class="progress-data">
 								<div id="chart"></div>
@@ -346,7 +387,7 @@
 					</div>
 				</div>
 				<div class="col-xl-4 mb-30">
-					<div class="card-box height-100-p widget-style1">
+					<div class="card-box height-100-p widget-style1 pane">
 						<div class="d-flex flex-wrap align-items-center">
 							<div class="progress-data">
 								<div id="chart2"></div>
@@ -358,12 +399,38 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			<br>
 
-			
+			<div class="swiper-container">
+				<!-- Additional required wrapper -->
+				<div class="swiper-wrapper">
+					<img src="{% static 'images/loading-36.gif' %}" alt="loading" id="coinLoader">
+				  <!-- Slides -->
+					<!-- slide will be automatically added by js
+					 -->
+				 
+				</div>
+				<!-- If we need pagination -->
+				<!-- <div class="swiper-pagination"></div> -->
+			  
+				<!-- If we need navigation buttons -->
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			  
+				<!-- If we need scrollbar -->
+				<div class="swiper-scrollbar"></div>
+			  </div>
+
+			  <br>
+		
+
+
+			<div class="coin_charts_container">
+
 			</div>
 
-
-			<div class="card-box pd-20 height-100-p mb-20 a/c-summary">
+			<div class="card-box pd-20 height-100-p mb-20 a/c-summary pane">
 					<h4 style="text-align: center;">Previous Balance: ${{ ListOFEditableBalance.previous_balance }}</h4>
 				<br>
 				<br>
@@ -420,7 +487,7 @@
 			</div>
 
 
-			<div class="card-box mb-30" style="overflow: scroll;">
+			<div class="card-box mb-30 pane" style="overflow: scroll;">
 				<h2 class="h4 pd-20">All Transactions</h2>
 				<table class="data-table table nowrap">
 					<thead>
@@ -500,5 +567,70 @@
 	
 	</script>
 	<script src="{% static 'dashboardStaticfiles/vendors/scripts/dashboard.js' %}"></script>
+
+	
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+
+
+<script >
+    const swiper = new Swiper('.swiper-container', {
+        // Optional parameters
+       
+        loop: true,
+		animating:true,
+		width:250,
+		spaceBetween:10,
+      
+        // If we need pagination
+        pagination: {
+          el: '.swiper-pagination',
+        },
+      
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      
+      });
+</script>
+<script>
+	const coinLoader = document.querySelector('#coinLoader')
+	//this script will get all the coins and lay it out in the html 
+	let swiperWrapperForCoins = document.querySelector('.swiper-wrapper')
+
+/*\
+	<div class="coin_box pane swiper-slide" style="text-align: center;" >
+		<img src="" alt="coin_image" id="coin_image">
+	  <div class="weight-600 font-14">Coin Name: Btc Coin  	</div>
+	  <div class="font-14 mb-0">Current Price: $3439</div>
+
+  </div>
+*/
+fetch("{% url 'get_list_of_coins' %}")
+.then(resp=>resp.json())
+.then(data=>{
+	console.log(data)
+	coinLoader.style.display='none';
+	let html = ''
+	  data.forEach((coinData,index)=>{
+		html=`
+			<div class="coin_box pane swiper-slide" style="text-align: center;" >
+					<img src="${coinData.iconUrl}" alt="coin_image" id="coin_image" style="width:50px;height:50px;border-radius:50%;">
+				<div class="weight-600 font-14">${coinData.name}</div>
+				<div class="font-14 mb-0">${Math.round(coinData.price)} Billion</div>
+			
+			</div>
+		`
+		swiper.addSlide(index, html)
+	})
+	//swiperWrapperForCoins.innerHTML =html
+})
+.catch(err=>{
+	console.log(err)
+})
+</script>
 </body>
 </html>

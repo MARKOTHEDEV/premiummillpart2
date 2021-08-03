@@ -12,4 +12,5 @@ urlpatterns = [
     path('dashboard/',views.dashboard,name='dashboard'),
     path('logout/',LogoutView.as_view(template_name='logout.html'),name='logout'),
     path('handle_pricing/<str:plan_name>/', views.handle_payment,name='process_pricing'),
+    path('get_list_of_coins/',views.get_list_of_coins,name='get_list_of_coins'),
 ]
