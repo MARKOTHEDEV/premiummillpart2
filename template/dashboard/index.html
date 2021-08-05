@@ -309,8 +309,8 @@
 					</li>
 
 					<li class="dropdown">
-						<a href="{% url 'about' %}" class="dropdown-toggle">
-							<span class="micon dw dw-house-1"></span><span class="mtext">About</span>
+						<a href="{% url 'profile' %}" class="dropdown-toggle">
+							<span class="micon dw dw-house-1"></span><span class="mtext">Profile</span>
 						</a>
 					
 					</li>
@@ -415,12 +415,7 @@
 				<!-- If we need pagination -->
 				<!-- <div class="swiper-pagination"></div> -->
 			  
-				<!-- If we need navigation buttons -->
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
-			  
-				<!-- If we need scrollbar -->
-				<div class="swiper-scrollbar"></div>
+
 			  </div>
 
 			 
@@ -581,8 +576,7 @@
     const swiper = new Swiper('.swiper-container', {
         // Optional parameters
        
-        loop: true,
-		animating:true,
+        
 		width:250,
 		spaceBetween:10,
       
@@ -596,6 +590,11 @@
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
+		loop: true,
+		autoplay: {
+			delay: 3000,
+			disableOnInteraction: true,
+		},
       
       });
 </script>
@@ -628,6 +627,7 @@ fetch("{% url 'get_list_of_coins' %}")
 			</div>
 		`
 		swiper.addSlide(index, html)
+		swiper.autoplay.start()
 	})
 	
 })
