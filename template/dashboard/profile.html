@@ -1,0 +1,719 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Basic Page Info -->
+	<meta charset="utf-8">
+	<title>Hello! {{ user }}</title>
+
+	<!-- Site favicon -->
+	<!-- <link rel="apple-touch-icon" sizes="180x180" href="{% static 'dashboardStaticfiles/vendors/images/apple-touch-icon.png' %}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{% static 'dashboardStaticfiles/vendors/images/favicon-32x32.png' %}"> -->
+	<link rel="icon" type="image/png" href="{% static 'images/premiumLogo.ico' %}">
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'dashboardStaticfiles/vendors/styles/core.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'dashboardStaticfiles/vendors/styles/icon-font.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'dashboardStaticfiles/src/plugins/datatables/css/dataTables.bootstrap4.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'dashboardStaticfiles/src/plugins/datatables/css/responsive.bootstrap4.min.css' %}">
+	
+	<link rel="stylesheet" type="text/css" href="{% static 'dashboardStaticfiles/vendors/styles/style.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script> -->
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-119386393-1');
+	</script>
+
+	<style>
+		.dropdown-toggle::after {
+		display: none;
+		}
+
+		.coin_box{
+			background-color: white;
+			padding: 1rem .8rem;
+			width: 150px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			border-radius: 10px;
+			
+		}
+
+		.coins_container{
+			display: flex;
+			justify-content: space-between;
+			margin: 3% 0;
+		}
+		body{
+			background-color: rgb(15, 15, 14);
+		}
+		.pane{
+			/*this represent every pane or box in th dashboard*/
+			color: white;
+			background-color: rgba(47, 45, 45, 0.842);
+
+		}
+		.pane *{
+			color: white;
+		}
+        .profile_image_container{
+            height: 200px;
+            width: 200px;
+            margin:  4% auto;
+        }
+        .profile_detail_pane{
+            background-color: #1a1b21;
+            padding: 1rem;
+            border-top-left-radius: 6%;
+            border-top-right-radius: 6%;
+            margin: 10% 0;
+            margin-bottom: 0;
+        }
+        .profile_image_container img{
+            width: 100%;
+            height: 100%;
+            
+            border-radius: 50%;
+        }
+        .user_name{
+            color: white;
+            font-size: 1.5rem;
+            padding: .5rem 0;
+        }
+        .grid_box{
+            
+        }
+        .user_info_head{
+            color: #828797;
+            margin: 0;
+        }
+
+        @media screen and (min-width:500px) {
+            .grid_box{
+                display: grid;
+                grid-template-columns: repeat(2,1fr);
+                
+            }
+        }
+
+        @media screen and (min-width:900px) {
+            .user_name{font-size: 2rem;}
+            .profile_image_container{
+                width: 300px;
+                height: 300px;
+            }
+            .grid_box{
+                display: grid;
+                gap: 30px 0;
+                grid-template-columns: repeat(3,1fr);
+                
+            }
+        }
+	</style>
+
+    <style>
+
+    </style>
+</head>
+<body>
+<!-- Modal to Change Password -->
+	<div class="modal fade " id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModal" aria-hidden="true">
+		<div class="modal-dialog " role="document">
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+			
+			  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+			<!--  -->
+			<form action="{%  url 'profile' %}" method="POST">
+				{% csrf_token %}
+			<div class="modal-body">
+
+				<!-- Start this tell our backend what for we it should handle -->
+				<input type="hidden" name="changePassword" value="true">
+				<!-- end this tell our backend what for we it should handle -->
+					
+					<div class="form-group">
+						<label for="password">Password:</label>
+						<input type="password" class="form-control" name="password" id="password" aria-describedby="emailHelp" placeholder="Enter password" required aria-required="thisid">
+						<small id="passwordHelp" class="form-text text-muted">Please Be carefull.... this is an important section</small>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					
+					<input type="submit" class="btn btn-primary" value="Submit">
+				</div>
+			</form>
+			<!--  -->
+		  </div>
+		</div>
+	  </div>
+<!-- Modal to Change Password -->
+
+
+
+<!-- 
+
+
+
+ -->
+
+
+ <!-- Modal to Request Widrawal -->
+ <div class="modal fade " id="requestWidthdrawModal" tabindex="-1" role="dialog" aria-labelledby="requestWidthdrawModal" aria-hidden="true">
+	<div class="modal-dialog " role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Request Withdraw</h5>
+		
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<!--  -->
+		<form action="{%  url 'profile' %}" method="POST">
+			{% csrf_token %}
+		<div class="modal-body">
+
+				<!-- Start this tell our backend what for we it should handle -->
+				<input type="hidden" name="requestWidthdrawal" value="true">
+				<!-- end this tell our backend what for we it should handle -->
+
+				
+				<div class="form-group">
+					<label for="amount_requested">Amount:</label>
+					<input type="text" class="form-control" name="amount_requested" id="amount_requested" aria-describedby="emailHelp" placeholder="Enter Amount" required aria-required="thisid">
+					<small id="passwordHelp" class="form-text text-muted">Please Be carefull.... this is an important section</small>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				
+				<input type="submit" class="btn btn-primary" value="Submit">
+			</div>
+		</form>
+		<!--  -->
+	  </div>
+	</div>
+  </div>
+<!-- Modal to Request Widrawal -->
+
+
+ <!-- Modal to Request Widrawal -->
+ <div class="modal fade " id="changeProfileDetails" tabindex="-1" role="dialog" aria-labelledby="changeProfileDetailsModal" aria-hidden="true">
+	<div class="modal-dialog " role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+		
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<!--  -->
+		<form action="{%  url 'profile' %}" method="POST">
+			{% csrf_token %}
+		<div class="modal-body">
+
+				<!-- Start this tell our backend what for we it should handle -->
+				<input type="hidden" name="changeProfileDetails" value="true">
+				<!-- end this tell our backend what for we it should handle -->
+
+				
+				<div class="form-group">
+					<label for="amount_requested">Country Of Residence</label>
+					<input type="text" class="form-control" name="country" value="{{ user.Country_of_residence }}" id="amount_requested" aria-describedby="emailHelp" placeholder="Enter Country Of Residence" required aria-required="thisid">
+					<!-- <small id="passwordHelp" class="form-text text-muted">Please Be carefull.... this is an important section</small> -->
+				</div>
+
+				<div class="form-group">
+					<label for="gender">Gender:</label>
+					<input type="text" class="form-control" name="gender" id="gender" value="{{ user.gender }}" placeholder="Enter gender" >
+				
+				</div>
+				<div class="form-group">
+					<label for="email">Email:</label>
+					<input type="text" class="form-control" name="email" id="email" value="{{ user.email }}"  placeholder="Enter email" >
+				
+				</div>
+
+				<div class="form-group">
+					<label for="telephone">Telephone:</label>
+					<input type="text" class="form-control" name="telephone" id="telephone" value="{{ user.telephone }}" aria-describedby="emailHelp" placeholder="Enter Telephone" required aria-required="thisid">
+					<!-- <small id="passwordHelp" class="form-text text-muted">Please Be carefull.... this is an important section</small> -->
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				
+				<input type="submit" class="btn btn-primary" value="Submit">
+			</div>
+		</form>
+		<!--  -->
+	  </div>
+	</div>
+  </div>
+<!-- Modal to Request Widrawal -->
+
+
+
+
+
+	<div class="header pane">
+		<div class="header-left">
+			<div class="menu-icon dw dw-menu"></div>
+			<!-- <div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div> -->
+			<!-- <div class="header-search">
+				<form>
+					<div class="form-group mb-0">
+						<i class="dw dw-search2 search-icon"></i>
+						<input type="text" class="form-control search-input" placeholder="Search Here">
+						<div class="dropdown">
+							<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
+								<i class="ion-arrow-down-c"></i>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<div class="form-group row">
+									<label class="col-sm-12 col-md-2 col-form-label">From</label>
+									<div class="col-sm-12 col-md-10">
+										<input class="form-control form-control-sm form-control-line" type="text">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-12 col-md-2 col-form-label">To</label>
+									<div class="col-sm-12 col-md-10">
+										<input class="form-control form-control-sm form-control-line" type="text">
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-sm-12 col-md-2 col-form-label">Subject</label>
+									<div class="col-sm-12 col-md-10">
+										<input class="form-control form-control-sm form-control-line" type="text">
+									</div>
+								</div>
+								<div class="text-right">
+									<button class="btn btn-primary">Search</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div> -->
+		</div>
+		<div class="header-right">
+			<!-- <div class="dashboard-setting user-notification">
+				<div class="dropdown">
+					<a class="dropdown-toggle no-arrow" href="javascript:;" data-toggle="right-sidebar">
+						<i class="dw dw-settings2"></i>
+					</a>
+				</div>
+			</div> -->
+			<!-- <div class="user-notification">
+				<div class="dropdown">
+					<a class="dropdown-toggle no-arrow" href="#" role="button" data-toggle="dropdown">
+						<i class="icon-copy dw dw-notification"></i>
+						<span class="badge notification-active"></span>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<div class="notification-list mx-h-350 customscroll">
+							<ul>
+								<li>
+									<a href="#">
+										<img src="vendors/images/img.jpg" alt="">
+										<h3>John Doe</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="vendors/images/photo1.jpg" alt="">
+										<h3>Lea R. Frith</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="vendors/images/photo2.jpg" alt="">
+										<h3>Erik L. Richards</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="vendors/images/photo3.jpg" alt="">
+										<h3>John Doe</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="vendors/images/photo4.jpg" alt="">
+										<h3>Renee I. Hansen</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<img src="vendors/images/img.jpg" alt="">
+										<h3>Vicki M. Coleman</h3>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed...</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div> -->
+			<div class="user-info-dropdown">
+				<div class="dropdown">
+					<a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+						<!-- <span class="user-icon">
+							<img src="vendors/images/photo1.jpg" alt="">
+						</span> -->
+						<span class="user-name"><a href="{% url 'logout' %}">Log Out</a></span>
+					</a>
+					<!-- <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
+						<a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a>
+						<a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Help</a>
+						<a class="dropdown-item" href="login.html"><i class="dw dw-logout"></i> Log Out</a>
+					</div> -->
+				</div>
+			</div>
+			<!-- <div class="github-link">
+				<a href="https://github.com/dropways/deskapp" target="_blank"><img src="vendors/images/github.svg" alt=""></a>
+			</div> -->
+		</div>
+	</div>
+
+	<div class="right-sidebar">
+		<div class="sidebar-title">
+			<h3 class="weight-600 font-16 text-blue">
+				Layout Settings
+				<span class="btn-block font-weight-400 font-12">User Interface Settings</span>
+			</h3>
+			<div class="close-sidebar" data-toggle="right-sidebar-close">
+				<i class="icon-copy ion-close-round"></i>
+			</div>
+		</div>
+		<div class="right-sidebar-body customscroll">
+			<div class="right-sidebar-body-content">
+				<h4 class="weight-600 font-18 pb-10">Header Background</h4>
+				<div class="sidebar-btn-group pb-30 mb-10">
+					<a href="javascript:void(0);" class="btn btn-outline-primary header-white active">White</a>
+					<a href="javascript:void(0);" class="btn btn-outline-primary header-dark">Dark</a>
+				</div>
+
+				<h4 class="weight-600 font-18 pb-10">Sidebar Background</h4>
+				<div class="sidebar-btn-group pb-30 mb-10">
+					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-light ">White</a>
+					<a href="javascript:void(0);" class="btn btn-outline-primary sidebar-dark active">Dark</a>
+				</div>
+
+				<h4 class="weight-600 font-18 pb-10">Menu Dropdown Icon</h4>
+				<div class="sidebar-radio-group pb-10 mb-10">
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebaricon-1" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-1" checked="">
+						<label class="custom-control-label" for="sidebaricon-1"><i class="fa fa-angle-down"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebaricon-2" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-2">
+						<label class="custom-control-label" for="sidebaricon-2"><i class="ion-plus-round"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebaricon-3" name="menu-dropdown-icon" class="custom-control-input" value="icon-style-3">
+						<label class="custom-control-label" for="sidebaricon-3"><i class="fa fa-angle-double-right"></i></label>
+					</div>
+				</div>
+
+				<h4 class="weight-600 font-18 pb-10">Menu List Icon</h4>
+				<div class="sidebar-radio-group pb-30 mb-10">
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebariconlist-1" name="menu-list-icon" class="custom-control-input" value="icon-list-style-1" checked="">
+						<label class="custom-control-label" for="sidebariconlist-1"><i class="ion-minus-round"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebariconlist-2" name="menu-list-icon" class="custom-control-input" value="icon-list-style-2">
+						<label class="custom-control-label" for="sidebariconlist-2"><i class="fa fa-circle-o" aria-hidden="true"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebariconlist-3" name="menu-list-icon" class="custom-control-input" value="icon-list-style-3">
+						<label class="custom-control-label" for="sidebariconlist-3"><i class="dw dw-check"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebariconlist-4" name="menu-list-icon" class="custom-control-input" value="icon-list-style-4" checked="">
+						<label class="custom-control-label" for="sidebariconlist-4"><i class="icon-copy dw dw-next-2"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebariconlist-5" name="menu-list-icon" class="custom-control-input" value="icon-list-style-5">
+						<label class="custom-control-label" for="sidebariconlist-5"><i class="dw dw-fast-forward-1"></i></label>
+					</div>
+					<div class="custom-control custom-radio custom-control-inline">
+						<input type="radio" id="sidebariconlist-6" name="menu-list-icon" class="custom-control-input" value="icon-list-style-6">
+						<label class="custom-control-label" for="sidebariconlist-6"><i class="dw dw-next"></i></label>
+					</div>
+				</div>
+
+				<div class="reset-options pt-30 text-center">
+					<button class="btn btn-danger" id="reset-settings">Reset Settings</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="left-side-bar">
+		<div class="brand-logo">
+			<a href="#">
+				<!-- <img src="{% static 'dashboardStaticfiles/vendors/images/deskapp-logo.svg' %}" alt="" class="dark-logo"> -->
+				<!-- <img src="{% static 'dashboardStaticfiles/vendors/images/deskapp-logo-white.svg' %}" alt="" class="light-logo"> -->
+				<h1 class="hidden-xs" style="font-size: 1.2rem;font-family:cursive;color:white;text-decoration:none;"><i>Premium Mill</i></h1>
+			
+			</a>
+			<div class="close-sidebar" data-toggle="left-sidebar-close">
+				<i class="ion-close-round"></i>
+			</div>
+		</div>
+		<div class="menu-block customscroll">
+			<div class="sidebar-menu">
+				<ul id="accordion-menu">
+					<li class="dropdown">
+						<a href="{% url 'home' %}" class="dropdown-toggle">
+							<span class="micon dw dw-house-1"></span><span class="mtext">Home</span>
+						</a>
+						
+					</li>
+
+			
+
+
+					<li class="dropdown">
+						<a href="{% url 'contact' %}" class="dropdown-toggle">
+							<span class="micon dw dw-house-1"></span><span class="mtext">Contact</span>
+						</a>
+					
+					</li>
+
+					<li class="dropdown">
+						<a href="{% url 'pricing' %}" class="dropdown-toggle">
+							<span class="micon dw dw-house-1"></span><span class="mtext">Our Plans</span>
+						</a>
+					
+					</li>
+
+
+
+					
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="mobile-menu-overlay"></div>
+
+	<div class="main-container ">
+		<!-- <div class="messages" >
+			<p>Hello luptatibus. Voluptates fugiat aspernatur illum ducimus eum facilis.</p>
+		</div> -->
+
+
+
+		{% if messages %}
+		<ul class="messages" style="color:white;width:100%;z-index:1000;background-color: rgba(45, 153, 45, 0.835);position:absolute;top:0;left:0;padding:1rem .8rem;text-align:center;">
+			{% for message in messages %}
+			<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %} 
+
+
+
+
+		<div class="pd-ltr-20">
+			<div class="card-box  height-100-p mb-30 pane">
+				<div class="row align-items-center">
+					<div class="col-md-12 ">
+						<div  id="profile">
+                            <div class="profile_image_container">
+                                <img src="{% static 'images/user.jpg' %}" alt="">
+                            </div>
+
+                            <div class="profile_detail_pane">
+                                <div class="profile_detail_box">
+                                    <p class="user_name">Nwokolo Ogechuwku matthew <i class="fas fa-check-circle" style="color: greenyellow;"></i></p>
+                                    
+                                    <div class="grid_box">
+                                        <div class="user_info">
+                                            <p class="user_info_head">Country Of Residence</p>
+                                            <p class="user_info_Content">{{ user.Country_of_residence }}</p>
+                                        </div>
+
+                                        <div class="user_info">
+                                            <p class="user_info_head">Telephone</p>
+                                            <p class="user_info_Content">{{ user.telephone }}</p>
+                                        </div>
+
+                                        <div class="user_info">
+                                            <p class="user_info_head">Gender</p>
+                                            <p class="user_info_Content">{{ user.gender }}</p>
+                                        </div>
+
+                                        <div class="user_info">
+                                            <p class="user_info_head">Email</p>
+                                            <p class="user_info_Content">{{ user.email }}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+					</div>
+				
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xl-4 mb-30">
+					<div class="card-box height-100-p widget-style1 pane">
+						<div class="d-flex flex-wrap align-items-center">
+							<div class="progress-data">
+								<div id="chart"></div>
+							</div>
+							<div class="widget-data">
+								<div class="h4 mb-0">${{ user.amount_made }}</div>
+								<div class="weight-600 font-14">Amount Made</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-4 mb-30">
+					<div class="card-box height-100-p widget-style1 pane">
+						<div class="d-flex flex-wrap align-items-center">
+							<div class="progress-data">
+								<div id="chart2"></div>
+							</div>
+							<div class="widget-data">
+								<div class="h4 mb-0">${{ user.amount_deposited }}</div>
+								<div class="weight-600 font-14">Amount Deposited</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				
+                <button class="col-xl-3 mb-30 btn btn-secondary" data-toggle="modal" data-target="#passwordModal">
+                Click me To Change Your Password</button>
+                <button class="col-xl-3 mb-30 btn  btn-secondary" style="margin: 3% 20px" data-toggle="modal" data-target="#changeProfileDetails">Click me To Change Your Profile Info</button>
+                <button class="col-xl-3 mb-30 btn btn-secondary"   style="margin:3%  20px;padding:1.1rem;" data-toggle="modal" data-target="#requestWidthdrawModal">Request Widthraw</button>
+			
+			</div>
+		
+			
+
+		
+
+
+            <br>
+
+			<div class="card-box mb-30 pane" style="overflow: scroll;">
+				<h2 class="h4 pd-20">All Transactions</h2>
+				<table class="data-table table nowrap">
+					<thead>
+						<tr>
+							<!-- <th class="table-plus datatable-nosort">Product</th> -->
+							<th>Plan</th>
+							<!-- <th>wallet used</th> -->
+							<th>Verfied</th>
+							<th>Price</th>
+							<th>..</th>
+							<!-- <th class="datatable-nosort">Action</th> -->
+						</tr>
+					</thead>
+					<tbody>
+						
+						{% for payment  in user_payment %}
+								<tr>
+									<!-- <td class="table-plus">
+										<img src="vendors/images/product-1.jpg" width="70" height="70" alt="">
+									</td> -->
+									<td>
+										<h5 class="font-16">{{ payment.pricing_plan }}</h5>
+										<!-- by John Doe -->
+									</td>
+									<!-- <td>2834ruhf47tt</td> -->
+									
+									{% if payment.is_verified %}
+									<td><i class="fas fa-check-circle" style="color: green;"></i></td>
+										{% else %}
+										<td>processing</td>
+
+									{% endif %}
+										
+									<td>${{ payment.amount }}</td>
+									<!-- <td>1</td> -->
+								
+								</tr>
+						{% endfor %}
+							
+						
+					</tbody>
+				</table>
+			</div>
+			<!-- <div class="footer-wrap pd-20 mb-20 card-box">
+				Admin by premium mill team <a href="{% url 'home' %}" target="_blank">Go home</a>
+			</div> -->
+		</div>
+	</div>
+	<!-- js -->
+	<script src="{% static 'dashboardStaticfiles/vendors/scripts/core.js' %}"></script>
+	<script src="{% static 'dashboardStaticfiles/vendors/scripts/script.min.js' %}"></script>
+	<script src="{% static 'dashboardStaticfiles/vendors/scripts/process.js' %}"></script>
+	<script src="{% static 'dashboardStaticfiles/vendors/scripts/layout-settings.js' %}"></script>
+	<script src="{% static 'dashboardStaticfiles/src/plugins/apexcharts/apexcharts.min.js' %}"></script>
+	<script src="{% static 'dashboardStaticfiles/src/plugins/datatables/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'dashboardStaticfiles/src/plugins/datatables/js/dataTables.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'dashboardStaticfiles/src/plugins/datatables/js/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static 'dashboardStaticfiles/src/plugins/datatables/js/responsive.bootstrap4.min.js' %}"></script>
+
+	<script>
+		//chart
+	let amount_made_percent = "{{ user.amount_made }}"	
+	
+	amount_made_percent = (amount_made_percent /10000)*100 	
+
+		//char2
+	let amount_deposited_percent= "{{ user.amount_deposited }}"
+	amount_deposited_percent = (amount_deposited_percent /10000)*100 	
+
+	//chart3
+	let lost_rate_percent	= "{{ user.lost_rate }}"
+	lost_rate_percent = (lost_rate_percent /1000)*100 	
+
+	//chart4
+	let profit_rate_percent	 = "{{ user.profit_rate }}"
+	profit_rate_percent = (profit_rate_percent /1000)*100 	
+	
+	</script>
+	<script src="{% static 'dashboardStaticfiles/vendors/scripts/dashboard.js' %}"></script>
+
+	
+
+
+</body>
+</html>

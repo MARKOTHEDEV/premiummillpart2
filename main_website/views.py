@@ -217,4 +217,54 @@ def dashboard(request):
     }
     return render(request,'dashboard/index.html',context)
 
+
+@login_required
+def profile(request):
+    user = request.user
+    if request.method == 'POST':
+        # for password changiung
+        password = request.POST.get('password')
+        # for Requesting withdrawal changiung
+        amount_requested = request.POST.get('amount_requested')
+
+        # for Changing User Profile 
+        country = request.POST.get('country')
+        gender = request.POST.get('gender')
+        email = request.POST.get('email')
+        telephone = request.POST.get('telephone')
+        
+        if password is not None and request.POST.get('changePassword') is not None:
+            "this will help handle password changing"
+            update_user_password(user,password,request)
+
+        if  request.POST.get('requestWidthdrawal') is not None:
+            user_request_withdrawal = models.UserRequestWithdrawal.objects.create(user=user,amount_requested=amount_requested)
+            user_request_withdrawal.save()
+            messages.success(request,'your request was successful! our support will get back to you!!')
+
+        if  request.POST.get('changeProfileDetails') is not None:
+            "this helps to change the user profile details"
+            user = get_user_model().objects.get(id=request.user.id)
+            user.email =email
+            user.gender =gender
+            user.telephone =telephone
+            user.Country_of_residence =country
+            user.save()
+            messages.success(request,f'{user} your profile was successfully updated')
+            return redirect('profile')
+        
+    context = {
+    'bit_coin_addresse':models.BitcoinAddresse.objects.first(),
+    'ListOFEditableBalance':models.User_Editable_Balance.objects.get(user=request.user),
+    'user_payment':models.UserPayment.objects.filter(user=request.user).order_by('-id')}
+    return render(request,'dashboard/profile.html',context)
+
+
+def update_user_password(user,password,request):
+    'this function updates a users password'
+    user.set_password(password)
+    user.save()
+    messages.success(request,'your request was successful!')
+
+
 "END this are the function that renders the page"
