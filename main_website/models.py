@@ -125,7 +125,7 @@ class UserPayment(models.Model):
 
 class  UserRequestWithdrawal(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.SET_NULL,null=True)
-    amount_requested = models.CharField(max_length=1000000000000,blank=True,default='0.00')
+    amount_requested = models.IntegerField(default=0.00)
     bitcoin_addresse = models.TextField(blank=True,default='')
 
     def __str__(self):
