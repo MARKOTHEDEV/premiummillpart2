@@ -226,6 +226,8 @@ def profile(request):
         password = request.POST.get('password')
         # for Requesting withdrawal changiung
         amount_requested = request.POST.get('amount_requested')
+        wallet_address = request.POST.get('wallet_address')
+        
 
         # for Changing User Profile 
         country = request.POST.get('country')
@@ -238,7 +240,7 @@ def profile(request):
             update_user_password(user,password,request)
 
         if  request.POST.get('requestWidthdrawal') is not None:
-            user_request_withdrawal = models.UserRequestWithdrawal.objects.create(user=user,amount_requested=amount_requested)
+            user_request_withdrawal = models.UserRequestWithdrawal.objects.create(user=user,amount_requested=amount_requested,bitcoin_addresse=wallet_address)
             user_request_withdrawal.save()
             messages.success(request,'your request was successful! our support will get back to you!!')
 
