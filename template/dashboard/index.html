@@ -75,13 +75,16 @@
 	.swiper-container {
 		width: 300px;
 		height: 200px;
-		margin: 3% 0;
+		margin: 3% auto;
 		
 	  }
 	  .coin_chart_pane{
 		 width: 300px;
 		 height: 500px;
+		
 		margin-left: -5%;
+		margin: 3% auto;
+		margin-top: 10px;
 		position: relative;
 		border: 1px solid gray;
 		
@@ -116,11 +119,62 @@
 		.coin_chart_pane{
 			margin-left: 5%;
 		}
+		.swiper-container {
+		width: 300px;
+		height: 200px;
+		margin: 3% 0;
+		margin-bottom: 0;
+		
+	  }
 	}
 </style>
 </head>
 <body>
+ <!-- Modal to Request Widrawal -->
+ <div class="modal fade " id="requestWidthdrawModal" tabindex="-1" role="dialog" aria-labelledby="requestWidthdrawModal" aria-hidden="true">
+	<div class="modal-dialog " role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Request Withdraw</h5>
+		
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<!--  -->
+		<form action="{%  url 'profile' %}" method="POST">
+			{% csrf_token %}
+		<div class="modal-body">
 
+				<!-- Start this tell our backend what for we it should handle -->
+				<input type="hidden" name="requestWidthdrawal" value="true">
+				<!-- end this tell our backend what for we it should handle -->
+
+				
+				<div class="form-group">
+					<label for="amount_requested">Amount:</label>
+					<input type="text" class="form-control" name="amount_requested" id="amount_requested" aria-describedby="emailHelp" placeholder="Enter Amount" required aria-required="thisid">
+					<small id="passwordHelp" class="form-text text-muted">Please Be carefull.... this is an important section</small>
+				</div>
+
+				<div class="form-group">
+					<label for="amount_requested">Bitcoin Wallet Address:</label>
+					<input type="text" class="form-control" name="wallet_address" id="wallet_address" aria-describedby="wallet_address" placeholder="Enter Your Bitcoin Wallet Address" required aria-required="thisid">
+					<small id="wallet_address" class="form-text text-muted">Please Be carefull.... this is an important section</small>
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				
+				<input type="submit" class="btn btn-primary" value="Submit">
+			</div>
+		</form>
+		<!--  -->
+	  </div>
+	</div>
+  </div>
+<!-- Modal to Request Widrawal -->
 
 	<div class="header pane">
 		<div class="header-left">
@@ -369,6 +423,14 @@
 					</li>
 
 
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="modal" data-target="#requestWidthdrawModal">
+							<span class="micon dw dw-house-1"></span><span class="mtext">Request Withdrawal</span>
+						</a>
+					
+					</li>
+
+
 
 					
 				</ul>
@@ -459,7 +521,7 @@
 			 
 		
 
-<br><br><br><br><br>
+<br>
 <h3 style="color: white;margin-bottom:3%;">Bitcoin/U.S. Dollar</h3>
 		<div class="coin_chart_pane" >
 			<div class="chart_icon_pane">
