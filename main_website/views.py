@@ -8,9 +8,9 @@ from . import models
 from django_email_verification import send_email
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-import json,requests
+import json,requests,os
 
-apiKey = 'coinrankingce615f2ed2e4aee0da1f35269c67a18744daa8c31d883574'
+apiKey = os.environ['coin_rank_apiKey']
 baseUrl = 'https://api.coinranking.com/v2/coins'
 proxyUrl = "https://cors-anywhere.herokuapp.com/"
 
@@ -33,7 +33,8 @@ def get_list_of_coins(request):
     "we get the response and store it in a data varaible"
     def returns_formated_coin_data(data):
         "this fuction works direclty to the map function it returns a more arranged data for coin ranking"
-        return {'iconUrl':data['iconUrl'],'name':data['symbol'],'price':data['price']}
+        # if u see this format '{:.2f}'.format(float(data['price'])) what am basically doing i rounding the decimal values to two decimal numbers
+        return {'iconUrl':data['iconUrl'],'name':data['symbol'],'price':'{:.2f}'.format(float(data['price'])),'percentage_of_change':'{:.2f}'.format(float(data['change']))}
 
     "this  varable below contains the list of arranged coins data with the help of the map function"
     list_of_coins_info = list(map(returns_formated_coin_data,resp.json().get('data')['coins']))

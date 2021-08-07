@@ -680,8 +680,9 @@ fetch("{% url 'get_list_of_coins' %}")
 		html=`
 			<div class="coin_box pane swiper-slide" style="text-align: center;" >
 					<img src="${coinData.iconUrl}" alt="coin_image" id="coin_image" style="width:50px;height:50px;border-radius:50%;">
-				<div class="weight-600 font-14">${coinData.name}</div>
-				<div class="font-14 mb-0">${Math.round(coinData.price)} Billion</div>
+				<div class="weight-600 font-14">${coinData.name}/USD</div>
+				<div class="font-14 mb-0">$${coinData.price} </div>
+				<div class="font-14 mb-0" style="color:${coinData.percentage_of_change.includes('-')? 'greenyellow':'red'};">(${coinData.percentage_of_change.includes('-')? '':'+'}${coinData.percentage_of_change}%) </div>
 			
 			</div>
 		`
