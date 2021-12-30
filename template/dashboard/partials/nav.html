@@ -1,0 +1,190 @@
+{% load static %}
+<div class="sidebar" data-active-color="rose" data-background-color="black" data-image="../dashboardStaticfiles/img/sidebar-1.jpg">
+    <!--
+        Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
+        Tip 2: you can also add an image using data-image tag
+        Tip 3: you can change the color of the sidebar with data-background-color="white | black"
+    -->
+
+    <div class="logo">
+        <a href="" class="simple-text logo-mini">
+             PR
+        </a>
+
+        <a href="" class="simple-text logo-normal">
+             PREMIUM MILL
+        </a>
+    </div>
+
+    <div class="sidebar-wrapper">
+        <div class="user">
+            <div class="photo">
+                <img src="{% static 'dashboardStaticfiles/img/faces/avatar.jpg' %}" />
+            </div>
+            <div class="info">
+                <a href="#collapseExample" class="">
+                    <span>
+                         Tania Andrew 
+                        <!-- <b class="caret"></b> -->
+                    </span>
+                </a>
+                <div class="clearfix"></div>
+                <!-- <div class="collapse" id="collapseExample">
+                    <ul class="nav">
+                        <li>
+                            <a href="#">
+                                <span class="sidebar-mini"> MP </span>
+                                <span class="sidebar-normal"> My Profile </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="sidebar-mini"> EP </span>
+                                <span class="sidebar-normal"> Edit Profile </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="sidebar-mini"> S </span>
+                                <span class="sidebar-normal"> Settings </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+        <ul class="nav">
+
+            <li 
+            
+            {% if 'dashboard' in request.path %}
+            class="active"
+                
+            {% endif %}
+                
+            >
+                
+                <a href="{% url 'dashboard' %}">
+                    <i class="material-icons">dashboard</i>
+                    <p>Account Overview </p>
+                </a>
+            </li>
+            
+            <li>
+                <a data-toggle="collapse" href="#pagesExamples">
+                    <!-- <i class="material-icons">coin</i> -->
+                    <i class="fas fa-money-bill-wave"></i>
+                    <p> My Money 
+                       <b class="caret"></b>
+                    </p>
+                </a>
+
+                <div class="collapse" id="pagesExamples">
+                    <ul class="nav">
+                        <li
+                        {% if 'deposit' in request.path %}
+                        class="active"
+                            
+                        {% endif %}
+                        >
+                            <a href="{% url 'deposit' %}">
+                                <span class="sidebar-mini"> D </span>
+                                <span class="sidebar-normal">Deposit funds</span>
+                            </a>
+                        </li>
+                        <li
+                        {% if 'withdraw' in request.path %}
+                        class="active"
+                            
+                        {% endif %}
+                        
+                        >
+                            <a href="{% url 'widthdraw' %}">
+                                <span class="sidebar-mini"> WF </span>
+                                <span class="sidebar-normal"> Withdraw funds </span>
+                            </a>
+                        </li>
+                        <li
+
+                        {% if 'history' in request.path %}
+                        class="active"
+                            
+                        {% endif %}
+                        
+                        >
+                            <a href="{% url 'history' %}">
+                                <span class="sidebar-mini"> TH </span>
+                                <span class="sidebar-normal"> Transaction history </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <a data-toggle="collapse" href="#componentsExamples">
+                    <i class="material-icons">apps</i>
+                    <p> My Document 
+                       <b class="caret"></b>
+                    </p>
+                </a>
+
+                <div class="collapse" id="componentsExamples">
+                    <ul class="nav">
+                        <!-- <li>
+                            <a href="">
+                                <span class="sidebar-mini"> V </span>
+                                <span class="sidebar-normal"> Verify Profile </span>
+                            </a>
+                        </li> -->
+                        <li
+                        {% if 'verify_profile' in request.path %}
+                        class="active"
+                            
+                        {% endif %}
+                        
+                        >
+                        <a href="{% url 'verify_profile' %}">
+                                <span class="sidebar-mini"> V </span>
+                                <span class="sidebar-normal">Verify Payment </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <a data-toggle="collapse" href="#formsExamples">
+                    <i class="fas fa-user"></i>
+                    <p> My Profile 
+                       <b class="caret"></b>
+                    </p>
+                </a>
+
+                <div class="collapse" id="formsExamples">
+                    <ul class="nav">
+                        <li
+                        {% if 'profile' in request.path %}
+                        class="active"
+                            
+                        {% endif %}
+                        >
+                            <a href="{% url 'profile' %}">
+                                <span class="sidebar-mini"> UP </span>
+                                <span class="sidebar-normal"> User Profile </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="sidebar-mini"> CP </span>
+                                <span class="sidebar-normal"> Change password </span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+        </div>

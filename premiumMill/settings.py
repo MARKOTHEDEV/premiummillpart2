@@ -17,7 +17,7 @@ import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
 sentry_sdk.init(
-    dsn="https://9cf485df31a7436dbb5167e8d4bcc5c8@o930234.ingest.sentry.io/5878793",
+    dsn="https://e5f7dcb4c1c6409a96441909a253f838@o930234.ingest.sentry.io/6126940",
     integrations=[DjangoIntegration()],
 
     # Set traces_sample_rate to 1.0 to capture 100%
@@ -39,12 +39,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'c$%w$$4^d%2k592ph5jjpxhw93$y-03h!+w*xin(c(25fwo^y8'
+SECRET_KEY = 'c$%w$$4^d%2k592ph5jjjxhw93$y-03h!+w*xin(c(25fwo^y8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['marko-premiummill.herokuapp.com','www.premiumill.com','premiumill.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition

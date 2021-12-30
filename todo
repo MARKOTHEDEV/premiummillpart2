@@ -1,39 +1,13 @@
+Account Overview
+My money
+        Deposit funds -- done
+        withdraw funds --done
+        transaction history -- done
 
+My Document
+        Verify Profile -- done
+        Verify Payment  --done
 
-Model
-    Enquiry
-            email field.Enquires-textfield
-
-    PhoneNumber Table
-        Phone Number->phone Number
-
-
-Save Bitcoin Addresse
-
-
-
-Todo--
-        Show Dashboard If User Is Login --done
-        Filter THe Nav Bar Based On Logged In User --done
-        Write Data In Dashboard By creating (Dashboard Model) -- done
-        Create Purchase Model
-
-
-chnage phone Number
-<p>Whatapp: <a href="tel:+15182413251">+15182413251</a></p>
-<p>Phone: <a href="tel:+2209134092">+2209134092</a></p>
-
-markothedevmail@gmail.com
-click a plan -- done
-enter the amount  -- done
-Create A model for the payment -- done
-after they submit tell them ->telling them that they should make payment to the company Btc Addresse --done
-contact us -  done
-s3 bucket -- done
-
-
-add functionlity
-        edit profile -- done    
-        chnage password  --done
-        request withdraw -- modify and and bitcoin wallet addresse -- done
-
+My Profile:
+        user Profile -done
+        change password -- done

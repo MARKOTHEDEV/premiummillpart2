@@ -14,4 +14,9 @@ urlpatterns = [
     path('logout/',LogoutView.as_view(template_name='logout.html'),name='logout'),
     path('handle_pricing/<str:plan_name>/', views.handle_payment,name='process_pricing'),
     path('get_list_of_coins/',views.get_list_of_coins,name='get_list_of_coins'),
+
+    path('deposit/',views.Dashboard_deposit_funds,name='deposit'),
+    path('withdraw/',views.Dashboard_withdraw_funds,name='widthdraw'),
+    path('history/',views.Dashboard_transaction_history_funds,name='history'),
+    path('verify_profile/',views.Dashboard_verify_profile,name='verify_profile'),
 ]
