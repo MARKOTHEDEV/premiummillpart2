@@ -1,0 +1,79 @@
+{% extends './base.html' %}
+{% load static %}
+
+
+
+
+{% block mainContent %}
+
+
+
+    <div class="content">
+        <div class="container-fluid">
+            
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+          <form method="post" action="{% url 'pay_with_bitcoin' %}" class="form-horizontal">
+            {% csrf_token %}
+            <div class="card-header card-header-text" data-background-color="rose">
+              <h4 class="card-title">Payment via Bitcoin</h4>
+            </div>
+            <div class="card-content">
+              <div class="row">
+                <label class="col-sm-2 label-on-left">Company Wallet Address</label>
+
+                <div class="col-sm-10">
+                  <div class="form-group label-floating is-empty">
+                    <label class="control-label"></label>
+                    <input type="text" class="form-control" disabled value="{{ company_wallet.company_wallet }}">
+                    <!-- <span class="help-block">A block of help text that breaks onto a new line.</span> -->
+                  <span class="material-input"></span></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <label class="col-sm-2 label-on-left">Wallet</label>
+
+                <div class="col-sm-10">
+                  <div class="form-group label-floating is-empty">
+                    <label class="control-label"></label>
+                    <input type="text" class="form-control" name="user_wallet" required placeholder="your wallet addresse">
+                  <span class="material-input"></span></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <label class="col-sm-2 label-on-left">Amount</label>
+
+                <div class="col-sm-10">
+                  <div class="form-group label-floating is-empty">
+                    <label class="control-label"></label>
+                    <input type="number" class="form-control" name="amount" required placeholder="100">
+                  <span class="material-input"></span></div>
+                </div>
+              </div>
+
+
+
+                  <button type="submit" class="btn btn-fill btn-rose" >Submit<div class="ripple-container"></div></button>
+            </div>
+          </form>
+        </div>
+      </div>
+</div>
+
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+{% endblock mainContent %}
+
+

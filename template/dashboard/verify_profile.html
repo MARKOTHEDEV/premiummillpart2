@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="row">
                     <div class="col-md-11">
-                        <h1>Verify your Payment Method</h1>
+                        <h1>Proof Of Identification (POI)</h1>
                         <h3>Verifying your ID and Proof of Residence will allow you to make withdrawals from your account.</h3>
                     </div>
                     
@@ -23,38 +23,119 @@
             <div class="row">
                 <div class="content">
                     <div class="container-fluid">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <div class="card">
-                            <div class="card-header card-header-icon" data-background-color="rose">
-                              <i class="material-icons">assignment</i>
-                            </div>
-                            <div class="card-content">
-                              <!-- <h4 class="card-title">Our Plans</h4> -->
-                              <h4>
-                                You don’t have to do it now, but we encourage you to upload your documents for quicker processing of your future transactions with this payment method.
-                              </h4>
-                              
-
-                              <button class="btn btn-success">
-                                <span class="btn-label">
-                                    <i class="material-icons">check</i>
-                                </span>
-                         upload
-                        </button>
-
-                            </div>
-                          </div>
-              
-                         
-              
+                      <form action="{% url 'verify_profile' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
                         
-                        </div>
-                      </div>
-              
+                            <div class="col-md-3 col-sm-4">
+                              <legend>Profile Picture</legend>
+                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail img-circle">
+                                  {% if isUserpicEmpty %}
+                                  <img src="{{ profile_url }}"  alt="...">
+                                  {% else %}
+                                  <img src="{% static 'dashboardStaticfiles/img/placeholder.jpg' %}" alt="...">
+
+                                  {% endif %}
+
+
+                                  
+                                    
+
+                             
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                <div>
+                            <span class="btn btn-round btn-rose btn-file">
+                              <span class="fileinput-new">Add Photo</span>
+                              <span class="fileinput-exists">Change</span>
+                              <input type="file" name="profile_pics"></span>
+                                  <br>
+                                  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                </div>
+                              </div>
+                            </div>
 
 
 
+                            <div class="col-md-3 col-sm-4">
+                              <legend>Proof Of Identification* Front(POI)</legend>
+                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail img-circle">
+                                  
+                                  <img src="{% static 'dashboardStaticfiles/img/placeholder.jpg' %}" alt="...">                                
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                <div>
+
+                                  
+                            <span class="btn btn-round btn-rose btn-file">
+                              <span class="fileinput-new">Add Photo</span>
+                              <span class="fileinput-exists">Change</span>
+                              <input type="file" name="pof_front"></span>
+                         
+                              {% if Isapprove_pof %}
+                                      {% if approve_pof_front %}
+                                      <button class="btn btn-round" style="background-color:greenyellow;">Approved</button>
+                                      {% else %}
+                                      <button class="btn btn-round" style="background-color: rgb(93, 93, 59);">Pending</button>
+                                        
+                                      {% endif %}
+                                
+                              {% endif %}
+                                
+
+                                  <br>
+                                  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                </div>
+                              </div>
+                            </div>
+
+
+                            <div class="col-md-3 col-sm-4">
+                              <legend>Proof Of Identification* Back(POI)</legend>
+                              <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail img-circle">
+                                  <img src="{% static 'dashboardStaticfiles/img/placeholder.jpg' %}" alt="...">
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail img-circle"></div>
+                                <div>
+                            <span class="btn btn-round btn-rose btn-file">
+                              <span class="fileinput-new">Add Photo</span>
+                              <span class="fileinput-exists">Change</span>
+                              <input type="file" name="pof_back"></span>
+
+                              {% if Isapprove_pof_back %}
+                                    
+                              
+                                                            {% if approve_pof_back %}
+                                                            <button class="btn btn-round" style="background-color:greenyellow;">Approved</button>
+                                                            {% else %}
+                                                            <button class="btn btn-round" style="background-color: rgb(93, 93, 59);">Pending</button>
+                                                              
+                                                            {% endif %}
+                              {% endif %}
+                                
+                                  <br>
+                                  <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+                          </div>
+                  
+                          <div style="margin:20px 0;width:70%;">
+
+                            <input style="display:block;margin:0 auto;" value="Submit Files" type="submit" class="btn btn-success">
+                            <!-- <span class="btn-label">
+                              <i class="material-icons">check</i>
+                            </span> -->
+                                  
+                                <div class="ripple-container"></div></input>
+                          </div>
+                    </form>
                     </div>
                   </div>
             </div>

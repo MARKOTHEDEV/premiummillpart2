@@ -6,7 +6,24 @@
 
 {% block mainContent %}
 
+<style>
+.chart_container{
+  display: flex;
+  position: relative;
+}
+.chart_icon_pane{
+  position: absolute;
+  top: 8%;
+  left: 0;
+  font-size: 1.2rem;
+}
 
+.chart_container .card{
+
+}
+
+
+</style>
 
     <div class="content">
         <div class="container-fluid">
@@ -34,7 +51,35 @@
                     
             </div>
 
-
+            <h2 style="padding: 0;">Bitcoin/U.S. Dollar</h2>
+            <div class="row">
+              <div class="col-md-11 chart_container" >
+                <div class="chart_icon_pane">
+                  <i class="fas fa-binoculars"></i>
+                  <br><br>
+                  <i class="fas fa-pen"></i>
+                  <br><br>
+                  <i class="far fa-smile"></i>
+                  <br><br>
+                  <i class="fas fa-magnet"></i>
+                  <br><br>
+                  <i class="fas fa-search-plus"></i>
+                  <br><br>
+                  <i class="fas fa-search-minus"></i>
+                  <br><br>
+                  <i class="fas fa-underline"></i>
+                  <br><br>
+                  <i class="fas fa-wave-square"></i>
+                  <br><br>
+                </div>
+                  <div class="card" id="coin_charts_container" style="
+                  
+                  width: 100%;
+                  height: 400px;
+                  "></div>
+                
+              </div>
+            </div>
 
             <div class="row">
                 <div class="content">
@@ -46,28 +91,27 @@
                               <i class="material-icons">assignment</i>
                             </div>
                             <div class="card-content">
-                              <h4 class="card-title">My Trading Accounts</h4>
+                              <h4 class="card-title">Previous Balance: $0</h4>
                               <div class="table-responsive">
-                                <table class="table">
+                                <table class="table table-hover">
                                   <thead class="text-primary">
-                                  <tr><th>Name</th>
-                                  <th>Account number</th>
-                                  <th>Leverage</th>
+                                  <tr><th>Close Trade P/L</th>
+                                  <th>Deposite Withdrawal:</th>
                                   <th>Balance</th>
-                                  <th>Credit</th>
-                                  <th>..</th>
+                                  <th>Total Credit Faculty:</th>
+                                  <th>Equity:</th>
+                                  <th>Margin Requirement:</th>
+                                  <th>Available Margin:</th>
                                   </tr></thead>
                                   <tbody>
                                   <tr>
-                                    <td>Dakota Rice</td>
-                                    <td>6615657</td>
-                                    <td>1:55</td>
-                                    <td class="text-primary">usd 0.00</td>
-                                    <td>USD 0.00</td>
-                                    <td></td>
-                                    <td><button class="btn btn-danger">
-                                        Deposit
-                                      </button></td>
+                                    <td>${{ ListOFEditableBalance.closed_tradePL }}</td>
+                                    <td>${{ ListOFEditableBalance.deposite_withdrawal }} </td>
+                                    <td>${{ ListOFEditableBalance.balance }}</td>
+                                    <td>${{ ListOFEditableBalance.total_credit_faculty }}</td>
+                                    <td>${{ ListOFEditableBalance.equity }}</td>
+                                    <td>${{ ListOFEditableBalance.margin_Requirement }}</td>
+                                    <td>${{ ListOFEditableBalance.available_margin }}</td>
                                   </tr>
                                   
                                   </tbody>
@@ -95,6 +139,69 @@
 
 
 
+
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+
+    <script>
+      	
+//define chart properties.
+const log = console.log
+
+if(window.screen.width <=360){
+	console.log(window.screen.width )
+}else{
+	console.log(window.screen.width )
+	
+}
+const chartproperties = {
+  //  width:window.screen.width<=360?300:window.screen.width<=400?400:window.screen.width<=600?600:700,
+//	width:700,
+  //height:600,
+    layout: {
+		backgroundColor: '#ffff',
+		textColor: 'rgba(255, 255, 255, 0.9)',
+	},
+    timeScale:{timeVisible:true,secondsVisible:false,}
+}
+
+//reference to the dom
+const domElement = document.getElementById("coin_charts_container")
+
+const lightweigh_chart = LightweightCharts.createChart(domElement,chartproperties)
+const candleSeries= lightweigh_chart.addCandlestickSeries();
+
+
+
+
+//set data and render chart
+fetch('https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1000')
+.then(res=>res.json())
+.then(data=>{
+    const cdata =data.map(d=>{
+        return {time:d[0]/1000, open:parseFloat(d[1]),high:parseFloat(d[2]),low:parseFloat(d[3]),close:parseFloat(d[4])}
+    })
+    candleSeries.setData(cdata);
+})
+.catch(err=>{
+     log(err)
+})
+
+
+let binanceSocket = new WebSocket("wss://stream.binance.com:9443/ws/btcusdt@kline_1m")
+
+binanceSocket.onmessage= function(event){
+    let message = JSON.parse(event.data)
+    let candlestick= message.k;
+    console.log(message.k)
+    candleSeries.update({
+        time:candlestick.t/1000,
+        open:candlestick.o,
+        high:candlestick.h,
+        low:candlestick.l,
+        close:candlestick.c,
+    })
+}
+    </script>
 
 {% endblock mainContent %}
 

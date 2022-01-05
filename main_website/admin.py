@@ -1,6 +1,9 @@
 from django.contrib import admin
 from main_website.models import (User,UserPayment,Enquiry,PhoneNumber,
-BitcoinAddresse,User_Editable_Balance,UserRequestWithdrawal)
+BitcoinAddresse,User_Editable_Balance,UserRequestWithdrawal,UserPaysWithCard,
+PayWithBitcoin,
+UserAskForWithDrawWithCard,UserAskForWithDrawBitcoin
+)
 
 admin.site.site_header = "Premium Mill Admin"
 admin.site.site_title = "Premium Mill Admin Portal"
@@ -13,3 +16,11 @@ admin.site.register(Enquiry)
 admin.site.register(PhoneNumber)
 admin.site.register(BitcoinAddresse)
 admin.site.register(UserRequestWithdrawal)
+admin.site.register(UserPaysWithCard)
+
+
+admin.site.register(PayWithBitcoin)
+
+
+admin.site.register(UserAskForWithDrawWithCard)
+admin.site.register(UserAskForWithDrawBitcoin)

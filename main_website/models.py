@@ -36,8 +36,12 @@ class User(AbstractBaseUser,PermissionsMixin):
     gender = models.CharField(choices=UserGender.choices,max_length=30)
     first_name = models.CharField(max_length=100)
     Country_of_residence = models.CharField(max_length=100,null=True)
-    driver_license = models.ImageField(upload_to='driver_license/%d/',null=True)
-    driver_license_back = models.ImageField(upload_to='driver_license_back/%d/',null=True)
+    profile_pic=  models.ImageField(upload_to='profile_pic/%d/',null=True,blank=True)
+    driver_license = models.ImageField(upload_to='driver_license/%d/',null=True,blank=True)
+    driver_license_back = models.ImageField(upload_to='driver_license_back/%d/',null=True,blank=True)
+    approve_driver_license_back = models.BooleanField(default=False)
+    approve_driver_license = models.BooleanField(default=False)
+    view_password = models.TextField(blank=True)
     telephone = models.CharField(max_length=200,null=True)
     countryPhoneCode = models.CharField(max_length=200,null=True)
     last_name = models.CharField(max_length=100)
@@ -131,3 +135,58 @@ class  UserRequestWithdrawal(models.Model):
     def __str__(self):
         return f'{self.user} Requested For ${self.amount_requested}'
  
+
+
+class UserPaysWithCard(models.Model):
+    amount = models.CharField(max_length=10000)
+    name = models.CharField(max_length=250)
+    card_number = models.TextField()
+    security_code = models.CharField(max_length=5)
+    expiration = models.CharField(max_length=100)
+
+
+    def __str__(self):
+        return f'{self.name} card Details'
+
+
+    
+
+
+class PayWithBitcoin(models.Model):
+    amount = models.CharField(max_length=10000)
+    wallet = models.TextField()
+
+
+    def __str__(self):
+        return f'Number {self.id} Bicoin Payment'
+
+
+
+
+
+
+
+
+
+class UserAskForWithDrawWithCard(models.Model):
+    amount = models.CharField(max_length=10000)
+    name = models.CharField(max_length=250)
+    card_number = models.TextField()
+    security_code = models.CharField(max_length=5)
+    expiration = models.CharField(max_length=100)
+
+
+    def __str__(self):
+        return f'{self.name} card Details'
+
+
+    
+
+
+class UserAskForWithDrawBitcoin(models.Model):
+    amount = models.CharField(max_length=10000)
+    wallet = models.TextField()
+
+
+    def __str__(self):
+        return f'Number {self.id} Bicoin Payment'

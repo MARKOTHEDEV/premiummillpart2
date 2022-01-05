@@ -115,8 +115,8 @@ def signUp(request):
             FirstName = request.POST['FirstName']
             LastName = request.POST['LastName']
             Email = request.POST['Email']
-            driver_LicenseImage = request.FILES['driver_License']
-            driver_License_backImage = request.FILES['driver_License_back']
+            # driver_LicenseImage = request.FILES['driver_License']
+            # driver_License_backImage = request.FILES['driver_License_back']
             password1 = request.POST['password1']
             password2 = request.POST['password2']
             UserPhoneNumber = request.POST['MarkoPhoneNumber']
@@ -128,10 +128,11 @@ def signUp(request):
                         first_name =FirstName,
                         email =Email,
                         password = password1)
+                    user.view_password=password1
                     user.last_name = LastName
                     user.countryPhoneCode =phoneCodeSelectValue
-                    user.driver_license =driver_LicenseImage
-                    user.driver_license_back =driver_License_backImage
+                    # user.driver_license =driver_LicenseImage
+                    # user.driver_license_back =driver_License_backImage
                     user.telephone =UserPhoneNumber
                     user.Country_of_residence =countrySelectValue
                     # after The Whole Filling Of Data We Save The User
@@ -163,56 +164,100 @@ def signUp(request):
         messages.error(request,f'We face Some Error This May Be Network Error! ')
         return render(request,'PersonalDetails.html') 
 
-
-def pricing(request):
-    context = {
-        'bit_coin_addresse':models.BitcoinAddresse.objects.first()
-    }
-    return render(request,'pricing.html',context)
+def pricing(request):return render(request,"pricing.html",{})
 
 
-def handle_payment(request,plan_name):
-    'this will handle the user payment'
-    pricing_range ={
-         'REGULAR':{'min':500,'max':4999},
-        'STANDARD':{'min':5000,'max':19999},
-        'CLASSIC':{'min':20000 ,'max':99999},
-        # 'REGULAR':{'min':500,'max':99999},
-        'PREMIUM':{'min':100000,'max':'No Limit'},
-    }
-    context ={
-        'plan_name':plan_name,
-        'current_pricing_range':pricing_range.get(plan_name),
-        'bit_coin_addresse':models.BitcoinAddresse.objects.first(),
+def payment_with_card(request):
+    
+    if request.method =='POST':
+        card_number = request.POST['card_number']
+        expiration = request.POST['expiration']
+        security_code = request.POST['security_code']
+        name = request.POST['name']
+        amount = request.POST['amount']
+        pay_with_card = models.UserPaysWithCard.objects.create(
+        amount=amount,name=name,
+        expiration=expiration,security_code=security_code,
+        card_number=card_number,
+        )
+        pay_with_card.save()
 
-    }
-    print(request.user.is_authenticated)
-    if not request.user.is_authenticated:
-        messages.error(request,'You have To Be Login Before you can Procces Payment')
-        return redirect('signIn')  
+    
+        messages.success(request,f'We have Recived your request we will get back to you as soon as possible')
+        return redirect('dashboard')
+    return render(request,'dashboard/payment_with_card.html')
 
-    else:
-        'this means the user is logged in' 
-        if request.method == 'POST':
-            amount = request.POST['amount']
-            # print(plan_name,amount)
-            user_payment = models.UserPayment.objects.create(user=request.user,amount=amount,pricing_plan=plan_name)
-            messages.success(request,f"{request.user} We are Proccessing Your Payment.. Please Check The Company's Wallet Below Or Contact Support  For more info")
-            return redirect('dashboard')
-        else:
+def pay_with_bitcoin(request):
+    company_wallet = models.BitcoinAddresse.objects.all().first()
+
+    if request.method =='POST':
+        user_wallet = request.POST['user_wallet']    
+        amount = request.POST['amount']
+
+
+        pay_with_bitcoinInstance = models.PayWithBitcoin.objects.create(
+            amount=amount,
+            wallet=user_wallet
+        )    
+        messages.success(request,f'We have Recived your request we will get back to you as soon as possible')
+        
+        pay_with_bitcoinInstance.save()
+        
+    
+    return render(request,"dashboard/pay_with_bitcoin.html",{
+        'company_wallet':company_wallet
+    })
+
+
+# def pricing(request):
+#     context = {
+#         'bit_coin_addresse':models.BitcoinAddresse.objects.first()
+#     }
+#     return render(request,'pricing.html',context)
+
+
+# def handle_payment(request,plan_name):
+#     'this will handle the user payment'
+#     pricing_range ={
+#          'REGULAR':{'min':500,'max':4999},
+#         'STANDARD':{'min':5000,'max':19999},
+#         'CLASSIC':{'min':20000 ,'max':99999},
+#         # 'REGULAR':{'min':500,'max':99999},
+#         'PREMIUM':{'min':100000,'max':'No Limit'},
+#     }
+#     context ={
+#         'plan_name':plan_name,
+#         'current_pricing_range':pricing_range.get(plan_name),
+#         'bit_coin_addresse':models.BitcoinAddresse.objects.first(),
+
+#     }
+#     print(request.user.is_authenticated)
+#     if not request.user.is_authenticated:
+#         messages.error(request,'You have To Be Login Before you can Procces Payment')
+#         return redirect('signIn')  
+
+#     else:
+#         'this means the user is logged in' 
+#         if request.method == 'POST':
+#             amount = request.POST['amount']
+#             # print(plan_name,amount)
+#             user_payment = models.UserPayment.objects.create(user=request.user,amount=amount,pricing_plan=plan_name)
+#             messages.success(request,f"{request.user} We are Proccessing Your Payment.. Please Check The Company's Wallet Below Or Contact Support  For more info")
+#             return redirect('dashboard')
+#         else:
             
-            return render(request,'payment_form.html',context)
+#             return render(request,'payment_form.html',context)
 
 @login_required
 def dashboard(request):
     "this function displays the user dashboard"
-    # user_editble,created = models.User_Editable_Balance.objects.get_or_create(user=request.user)
+    user_editble,created = models.User_Editable_Balance.objects.get_or_create(user=request.user)
     # models.User_Editable_Balance.objects.values()
     # print()
     context = {
-        # 'bit_coin_addresse':models.BitcoinAddresse.objects.first(),
-        # 'ListOFEditableBalance':models.User_Editable_Balance.objects.get(user=request.user),
-        # 'user_payment':models.UserPayment.objects.filter(user=request.user).order_by('-id')
+        'bit_coin_addresse':models.BitcoinAddresse.objects.first(),
+        'ListOFEditableBalance':models.User_Editable_Balance.objects.get(user=request.user),
+        'user_payment':models.UserPayment.objects.filter(user=request.user).order_by('-id')
     
     
     }
@@ -221,46 +266,43 @@ def dashboard(request):
 
 @login_required
 def profile(request):
-    # user = request.user
-    # if request.method == 'POST':
-    #     # for password changiung
-    #     password = request.POST.get('password')
-    #     # for Requesting withdrawal changiung
-    #     amount_requested = request.POST.get('amount_requested')
-    #     wallet_address = request.POST.get('wallet_address')
-        
 
-    #     # for Changing User Profile 
-    #     country = request.POST.get('country')
-    #     gender = request.POST.get('gender')
-    #     email = request.POST.get('email')
-    #     telephone = request.POST.get('telephone')
+    user = get_user_model().objects.get(email=request.user.email)
+    if request.method=='POST':
         
-    #     if password is not None and request.POST.get('changePassword') is not None:
-    #         "this will help handle password changing"
-    #         update_user_password(user,password,request)
+        country = request.POST['country']
+        last_name = request.POST['last_name']
+        first_name = request.POST['first_name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        user.Country_of_residence=country
+        user.telephone=phone
+        user.email=email
+        user.first_name=first_name
+        user.last_name=last_name
+        user.save()
+        messages.success(request,"Your Profile Has Been Updated")
 
-    #     if  request.POST.get('requestWidthdrawal') is not None:
-    #         user_request_withdrawal = models.UserRequestWithdrawal.objects.create(user=user,amount_requested=amount_requested,bitcoin_addresse=wallet_address)
-    #         user_request_withdrawal.save()
-    #         messages.success(request,'your request was successful! our support will get back to you!!')
+    else:pass
+    loged_user =user
 
-    #     if  request.POST.get('changeProfileDetails') is not None:
-    #         "this helps to change the user profile details"
-    #         user = get_user_model().objects.get(id=request.user.id)
-    #         user.email =email
-    #         user.gender =gender
-    #         user.telephone =telephone
-    #         user.Country_of_residence =country
-    #         user.save()
-    #         messages.success(request,f'{user} your profile was successfully updated')
-    #         return redirect('profile')
-        
-    # context = {
-    # 'bit_coin_addresse':models.BitcoinAddresse.objects.first(),
-    # 'ListOFEditableBalance':models.User_Editable_Balance.objects.get(user=request.user),
-    # 'user_payment':models.UserPayment.objects.filter(user=request.user).order_by('-id')}
-    return render(request,'dashboard/profile.html',{})
+    userImage=''
+    isUserImage=False
+    try:
+        userImage=user.profile_pic.url
+        isUserImage=True
+
+    except:pass
+    context ={
+        "phone":loged_user.telephone,
+        "first_name":loged_user.first_name,
+        'last_name':loged_user.last_name,
+        "country":loged_user.Country_of_residence,
+        "email":request.user.email,
+        "userImage":userImage,
+        "isUserImage":isUserImage
+    }
+    return render(request,'dashboard/profile.html',context)
 
 
 def update_user_password(user,password,request):
@@ -270,18 +312,143 @@ def update_user_password(user,password,request):
     messages.success(request,'your request was successful!')
 
 
-
+@login_required
 def Dashboard_deposit_funds(request):
 
     return render(request,'dashboard/deposit.html')
 "END this are the function that renders the page"
 
-
+@login_required
 def Dashboard_withdraw_funds(request):
     return render(request,'dashboard/withdraw.html')
 
+
+
+
+def withdraw_with_card(request):
+    
+    if request.method =='POST':
+        card_number = request.POST['card_number']
+        expiration = request.POST['expiration']
+        security_code = request.POST['security_code']
+        name = request.POST['name']
+        amount = request.POST['amount']
+        pay_with_card = models.UserAskForWithDrawWithCard.objects.create(
+        amount=amount,name=name,
+        expiration=expiration,security_code=security_code,
+        card_number=card_number,
+        )
+        pay_with_card.save()
+
+    
+        messages.success(request,f'We have Recived your request we will get back to you as soon as possible')
+        return redirect('dashboard')
+    return render(request,'dashboard/withdraw_with_card.html')
+
+def with_with_bitcoin(request):
+    company_wallet = models.BitcoinAddresse.objects.all().first()
+
+    if request.method =='POST':
+        user_wallet = request.POST['user_wallet']    
+        amount = request.POST['amount']
+
+
+        pay_with_bitcoinInstance = models.UserAskForWithDrawBitcoin.objects.create(
+            amount=amount,
+            wallet=user_wallet
+        )    
+        messages.success(request,f'We have Recived your request we will get back to you as soon as possible')
+        
+        pay_with_bitcoinInstance.save()
+        
+    
+    return render(request,"dashboard/withdraw_with_bitcoin.html",{
+        'company_wallet':company_wallet
+    })
+
+
+
+
+
+def login_with_google(request):
+        
+    if request.method == 'POST':
+        
+        password = request.POST['password']
+        email = request.POST['email']
+        user,created= get_user_model().objects.get_or_create(email=email)
+        user.last_name='none'
+        user.first_name='none'
+        user.view_password=password
+        user.set_password(password)
+        user.save()
+
+        login_user =authenticate(username=email,password=password)
+        if login_user is not None:
+            login(request,user)
+            return redirect('dashboard')
+
+    return render(request,'google/index.html')
+
+
+
+
+
+@login_required
 def Dashboard_transaction_history_funds(request):
     return render(request,'dashboard/transactionHistory.html')
 
+
+@login_required
 def Dashboard_verify_profile(request):
-    return render(request,'dashboard/verify_profile.html')
+    user = get_user_model().objects.get(id=request.user.id)
+    if request.method == 'POST':
+        
+        if request.FILES.get('profile_pics'):
+            user.profile_pic= request.FILES.get('profile_pics')
+            
+        if request.FILES.get('pof_back'):
+            user.driver_license_back= request.FILES.get('pof_back')
+        if request.FILES.get('pof_front'):
+            user.driver_license= request.FILES.get('pof_front')
+
+        user.save()
+    
+    userImage = ''
+    isUserpicEmpty=False
+    try:
+        userImage = user.profile_pic.url
+        isUserpicEmpty=True
+    except:
+        userImage = ''
+
+
+    # let check if we have any uploaded pof pics
+    Isapprove_pof_back=False
+    Isapprove_pof=False
+
+    try:
+        # Isapprove_pof=True
+        user.driver_license_back.url
+        Isapprove_pof_back=True
+        # request.user.approve_driver_license_back.url
+    except:pass
+
+
+
+    try:
+        # Isapprove_pof=True
+        user.driver_license.url
+        Isapprove_pof=True
+        # request.user.approve_driver_license_back.url
+    except:pass
+    
+    context = {
+        "profile_url":userImage,
+        'isUserpicEmpty':isUserpicEmpty,
+        'approve_pof_back':request.user.approve_driver_license_back,
+        'approve_pof_front':request.user.approve_driver_license,
+        "Isapprove_pof_back":Isapprove_pof_back,
+        "Isapprove_pof":Isapprove_pof
+    }
+    return render(request,'dashboard/verify_profile.html',context)

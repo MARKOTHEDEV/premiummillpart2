@@ -12,7 +12,7 @@
         <div class="container-fluid">
             <div class="row">
                     <div class="col-md-11">
-                        <h1>Withdraw Funds</h1>
+                        <h1>Make a withdrawal</h1>
                         
                         <!-- <h3>We reimburse 100% of any fees incurred during the payment process.</h3> -->
                     </div>
@@ -26,20 +26,25 @@
                     <div class="container-fluid">
                       <div class="row">
                         <div class="col-md-12">
-                          <div class="card">
-                            <div class="card-header card-header-icon" data-background-color="rose">
+                          <div class="card" style="text-align: center;">
+                            <!-- <div class="card-header card-header-icon" data-background-color="rose">
                               <i class="material-icons">assignment</i>
-                            </div>
+                            </div> -->
                             <div class="card-content">
-                              <h4 class="card-title">Our Plans</h4>
-                              <div class="table-responsive">
+                              <h2 class="card-title">Withdrawal Methods</h2>
+
+                              <div>
+                                <a class="btn btn-danger btn-round" href="{% url 'withdraw_with_bitcoin' %}">Payment with Bitcoin<div class="ripple-container"></div></a>
+                                <a class="btn btn-danger btn-round" href="{% url 'withdraw-with-card' %}">Payment with Credit Card<div class="ripple-container"></div></a>
+                              </div>
+                             <!-- <div class="table-responsive">
                                 <table class="table">
                                   <thead class="text-primary">
                                   <tr><th>Transfer Method</th>
                                   <th>Currency</th>
                                   <th>Fees/Commission</th>
                                   <th>Processing Time</th>
-                                  <!-- <th>Credit</th> -->
+                                  <th>Credit</th>
                                   <th>..</th>
                                   </tr></thead>
                                   <tbody>
@@ -48,10 +53,10 @@
                                     <td>NGN</td>
                                     <td>no Commission</td>
                                     <td class="text-primary">Usually instant when required documents are in place</td>
-                                    <!-- <td>USD 0.00</td> -->
+                                  
                                     <td></td>
                                     <td><button class="btn btn-danger">
-                                        Withdraw
+                                        Deposit
                                       </button></td>
                                   </tr>
 
@@ -62,16 +67,17 @@
                                     <td>USD,NGN</td>
                                     <td>no Commission</td>
                                     <td class="text-primary">1 Buisness day</td>
-                                    <!-- <td>USD 0.00</td> -->
+                                
                                     <td></td>
                                     <td><button class="btn btn-danger">
-                                        Withdraw
+                                        Deposit
                                       </button></td>
                                   </tr>
 
 
                                   </tbody>
-                                </table>
+                                </table> -->
+                              
                               </div>
                             </div>
                           </div>
@@ -92,9 +98,17 @@
                                 <div class="card-content">
                                     <h2 class="card-title">Important Information</h2>
                                     <div class="row" style="padding: 1rem;">
-                                            <p>
-                                                All Back office transfers are processed during standard business hours, i.e. 06:00-20:00 GMT +2 (GMT+3 during DST), Mon-Fri and Sunday 09:00 - 18:00 GMT+2 (GMT+3 DST).
-                                            </p>
+                                <p>
+                                    In case of no trading activity, or if any form of abuse is found relating to the reimbursement policy, FXTM reserves the right to reclaim any reimbursement fees. If you request to withdraw your funds after no trading activity, FXTM reserves the right to charge you the equivalent amount of any banking fees incurred, or 3% of the total withdrawal amount.
+                                </p>    
+
+                                <p>
+                                    Deposits are processed instantly in case there is no need for additional verification. FXTM is not liable for any transfer delays you may experience due to a disruption of service in the system of the payment processor.
+                                </p>
+                                <p>
+                                    All Back office transfers are processed during standard business hours, i.e. 06:00-20:00 GMT +2 (GMT+3 during DST), Mon-Fri and Sunday 09:00 - 18:00 GMT+2 (GMT+3 DST).
+                                </p>
+                                
                                     </div>
                                 </div>
                             </div>

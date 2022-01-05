@@ -546,6 +546,9 @@ Portugues
 <h2>
 Complete our effortless online form and start trading with real money today.
 </h2>
+<br>
+<div id="google_element"></div>
+
 </div>
 <div class="oa-landing-banner">
     <img src="{% static 'Content/images/onlineApplication/Devices-mt4.png' %}" />
@@ -702,15 +705,15 @@ It looks like you already have an application in progress. Please provide your p
 <div v-if="!Data.IsDemoUserLoggedInPA">
 
 <br>
-<div  class="dropdown-holder relative-pos">
+<!-- <div  class="dropdown-holder relative-pos">
 	<label for="">Choose Document</label>
 	<select  class='form-control' required>
 		<option value="Driving License">Driving License</option>
 		<option value="State Identification">State Identification</option>
 	</select>
 </div>
-<br>
-<div >
+<br> -->
+<!-- <div >
 	<label for="">Proof Of Identification (POI)(*front)</label>
 	<input type="file" name="driver_License" id="" class="form-control" required>
 </div>
@@ -721,7 +724,7 @@ It looks like you already have an application in progress. Please provide your p
 	<label for="">Proof Of Identification (POI)(*back)</label>
 	<input type="file" name="driver_License_back" id="" class="form-control" required>
 </div>
-<br>
+<br> -->
 
 
 <div >
@@ -732,8 +735,9 @@ It looks like you already have an application in progress. Please provide your p
 <br>
 <div >
     <label for="Password">Confirm Password </label>
+    <i class="far fa-eye" id="change2"></i>
 
-    <input id="off" class="form-control ignore" name="password2" type="password" required />
+    <input id="password2" class="form-control ignore" name="password2" type="password" required />
 </div>
 
 <div class="relative-pos at-password-field">
@@ -1334,16 +1338,44 @@ Premium Mill Corp is a subsidiary of Premium Mill PLC, authorised and regulated 
 
 	Markobutton_submit.addEventListener('click',e=>{
 		if(e.target.parentElement.querySelector('#password1').type === 'password'){
-			e.target.parentElement.querySelector('#password1').type='text'
-
-		}else{
+			e.target.parentElement.querySelector('#password1').type='text'	
+		
+			//document.querySelector('#password2').type='text'
+		}
+		
+		else{
 		e.target.parentElement.querySelector('#password1').type='password'
+	
 		}
 	})
 
 
+
+
+
+
+const Markobutton_submit2 = document.querySelector('#change2')
+
+Markobutton_submit2.addEventListener('click',e=>{
+	if(e.target.parentElement.querySelector('#password2').type === 'password'){
+		e.target.parentElement.querySelector('#password2').type='text'	
+	}
+	
+	else{
+	e.target.parentElement.querySelector('#password2').type='password'
+
+	}
+})
+
+
+</script>
+
+<script src="http://translate.google.com/translate_a/element.js?cb=loadGoogleTranslate"></script>
+<script>
+	function loadGoogleTranslate(){
+		new google.translate.TranslateElement("google_element");
+	}
 </script>
 </body>
 
-<!-- Mirrored from secure.activtrades.com/personalarea/OnlineApplication/PersonalDetails by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 05 Jun 2021 05:05:30 GMT -->
 </html>

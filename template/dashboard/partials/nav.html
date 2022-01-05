@@ -19,12 +19,18 @@
     <div class="sidebar-wrapper">
         <div class="user">
             <div class="photo">
-                <img src="{% static 'dashboardStaticfiles/img/faces/avatar.jpg' %}" />
+
+                {% if isUserImage %}
+                <img class="img" src="{{ userImage }}" />
+                {% else %}
+                <img class="img" src="{% static 'dashboardStaticfiles/img/faces/marc.jpg' %}" />
+                    
+                {% endif %}
             </div>
             <div class="info">
                 <a href="#collapseExample" class="">
                     <span>
-                         Tania Andrew 
+                     welcome!  {{ user  }}
                         <!-- <b class="caret"></b> -->
                     </span>
                 </a>
@@ -104,7 +110,7 @@
                                 <span class="sidebar-normal"> Withdraw funds </span>
                             </a>
                         </li>
-                        <li
+                        <!-- <li
 
                         {% if 'history' in request.path %}
                         class="active"
@@ -116,7 +122,7 @@
                                 <span class="sidebar-mini"> TH </span>
                                 <span class="sidebar-normal"> Transaction history </span>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </li>
@@ -146,7 +152,7 @@
                         >
                         <a href="{% url 'verify_profile' %}">
                                 <span class="sidebar-mini"> V </span>
-                                <span class="sidebar-normal">Verify Payment </span>
+                                <span class="sidebar-normal">Proof Of Identification </span>
                             </a>
                         </li>
                     </ul>
@@ -174,13 +180,13 @@
                                 <span class="sidebar-normal"> User Profile </span>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#">
                                 <span class="sidebar-mini"> CP </span>
                                 <span class="sidebar-normal"> Change password </span>
                             </a>
                         </li>
-                        
+                         -->
                     </ul>
                 </div>
             </li>

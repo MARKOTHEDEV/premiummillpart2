@@ -26,20 +26,25 @@
                     <div class="container-fluid">
                       <div class="row">
                         <div class="col-md-12">
-                          <div class="card">
-                            <div class="card-header card-header-icon" data-background-color="rose">
+                          <div class="card" style="text-align: center;">
+                            <!-- <div class="card-header card-header-icon" data-background-color="rose">
                               <i class="material-icons">assignment</i>
-                            </div>
+                            </div> -->
                             <div class="card-content">
-                              <h4 class="card-title">Our Plans</h4>
-                              <div class="table-responsive">
+                              <h2 class="card-title">Payment Methods</h2>
+
+                              <div>
+                                <a class="btn btn-danger btn-round" href="{% url 'pay_with_bitcoin' %}">Payment with Bitcoin<div class="ripple-container"></div></a>
+                                <a class="btn btn-danger btn-round" href="{% url 'payment-with-card' %}">Payment with Credit Card<div class="ripple-container"></div></a>
+                              </div>
+                             <!-- <div class="table-responsive">
                                 <table class="table">
                                   <thead class="text-primary">
                                   <tr><th>Transfer Method</th>
                                   <th>Currency</th>
                                   <th>Fees/Commission</th>
                                   <th>Processing Time</th>
-                                  <!-- <th>Credit</th> -->
+                                  <th>Credit</th>
                                   <th>..</th>
                                   </tr></thead>
                                   <tbody>
@@ -48,7 +53,7 @@
                                     <td>NGN</td>
                                     <td>no Commission</td>
                                     <td class="text-primary">Usually instant when required documents are in place</td>
-                                    <!-- <td>USD 0.00</td> -->
+                                  
                                     <td></td>
                                     <td><button class="btn btn-danger">
                                         Deposit
@@ -62,7 +67,7 @@
                                     <td>USD,NGN</td>
                                     <td>no Commission</td>
                                     <td class="text-primary">1 Buisness day</td>
-                                    <!-- <td>USD 0.00</td> -->
+                                
                                     <td></td>
                                     <td><button class="btn btn-danger">
                                         Deposit
@@ -71,7 +76,8 @@
 
 
                                   </tbody>
-                                </table>
+                                </table> -->
+                              
                               </div>
                             </div>
                           </div>
