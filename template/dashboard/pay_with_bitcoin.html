@@ -13,7 +13,7 @@
             
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <div class="card">
           <form method="post" action="{% url 'pay_with_bitcoin' %}" class="form-horizontal">
             {% csrf_token %}
@@ -60,6 +60,14 @@
                   <button type="submit" class="btn btn-fill btn-rose" >Submit<div class="ripple-container"></div></button>
             </div>
           </form>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <h4 style="padding: .8rem;">Wallet QR Code</h4>
+          <img src="{% static 'dashboardStaticfiles/img/Bitcoinqrcode.jpeg' %}" alt="">
+          <!-- <h1>Hello world</h1> -->
         </div>
       </div>
 </div>
