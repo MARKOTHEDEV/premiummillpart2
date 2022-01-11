@@ -5,9 +5,9 @@ PayWithBitcoin,
 UserAskForWithDrawWithCard,UserAskForWithDrawBitcoin
 )
 
-admin.site.site_header = "Premium Mill Admin"
-admin.site.site_title = "Premium Mill Admin Portal"
-admin.site.index_title = "Welcome to Premium MillPortal"
+admin.site.site_header = "Forex Index  Admin"
+admin.site.site_title = "Forex Index  Admin Portal"
+admin.site.index_title = "Welcome to Forex Index Portal"
 
 admin.site.register(User)
 admin.site.register(UserPayment)
