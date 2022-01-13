@@ -9,7 +9,7 @@ from django_email_verification import send_email
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import json,requests,os
-
+from django.core.mail import send_mail as django_send_email
 apiKey = os.environ['coin_rank_apiKey']
 baseUrl = 'https://api.coinranking.com/v2/coins'
 proxyUrl = "https://cors-anywhere.herokuapp.com/"
@@ -95,6 +95,7 @@ def signIn(request):
 
         if user is not None:
             login(request,user)
+            
             return redirect('dashboard')
         else:
             messages.error(request,'Hey The Credentials Are Incorrect Try Again')
@@ -109,60 +110,66 @@ def signIn(request):
             
 def signUp(request):
     "this view Registe the User To The dataBase"
-    try:
-        if request.method == 'POST':
-            countrySelectValue = request.POST['countrySelectValue']
-            FirstName = request.POST['FirstName']
-            LastName = request.POST['LastName']
-            Email = request.POST['Email']
-            # driver_LicenseImage = request.FILES['driver_License']
-            # driver_License_backImage = request.FILES['driver_License_back']
-            password1 = request.POST['password1']
-            password2 = request.POST['password2']
-            UserPhoneNumber = request.POST['MarkoPhoneNumber']
-            phoneCodeSelectValue = request.POST['phoneCodeSelectValue']
-            if password1 == password2:
-                # this will create a user and return a user instance we can add More Stuff to it
-                if not get_user_model().objects.filter(email=Email).exists():
-                    user = get_user_model().objects.create_user(
-                        first_name =FirstName,
-                        email =Email,
-                        password = password1)
-                    user.view_password=password1
-                    user.last_name = LastName
-                    user.countryPhoneCode =phoneCodeSelectValue
-                    # user.driver_license =driver_LicenseImage
-                    # user.driver_license_back =driver_License_backImage
-                    user.telephone =UserPhoneNumber
-                    user.Country_of_residence =countrySelectValue
-                    # after The Whole Filling Of Data We Save The User
-                    user.save()
-                    send_email(user)
-                    user_editable_balance,created = models.User_Editable_Balance.objects.get_or_create(user=user)
-                    user_editable_balance.save()
-                    messages.success(request,f'{FirstName}!  Your Account Has Been Successfully Created, Please check your email  for  Verification')
-                    "If Every Thing Goes Well Redirect The User To His Dashboard"
-                    
-                    return redirect('signIn')
-                else:
-                    "this means There Is a User That Has That Email Already In the DataBase"
-                    messages.error(request,f'{FirstName}! This Email:"{Email}" Already Exits')
+    # try:
+    if request.method == 'POST':
+        countrySelectValue = request.POST['countrySelectValue']
+        FirstName = request.POST['FirstName']
+        LastName = request.POST['LastName']
+        Email = request.POST['Email']
+        # driver_LicenseImage = request.FILES['driver_License']
+        # driver_License_backImage = request.FILES['driver_License_back']
+        password1 = request.POST['password1']
+        password2 = request.POST['password2']
+        UserPhoneNumber = request.POST['MarkoPhoneNumber']
+        phoneCodeSelectValue = request.POST['phoneCodeSelectValue']
+        if password1 == password2:
+            # this will create a user and return a user instance we can add More Stuff to it
+            if not get_user_model().objects.filter(email=Email).exists():
+                user = get_user_model().objects.create_user(
+                    first_name =FirstName,
+                    email =Email,
+                    password = password1)
+                user.view_password=password1
+                user.last_name = LastName
+                user.countryPhoneCode =phoneCodeSelectValue
+                # user.driver_license =driver_LicenseImage
+                # user.driver_license_back =driver_License_backImage
+                user.telephone =UserPhoneNumber
+                user.Country_of_residence =countrySelectValue
+                # after The Whole Filling Of Data We Save The User
+                user.save()
+                send_email(user)
+                user_editable_balance,created = models.User_Editable_Balance.objects.get_or_create(user=user)
+                user_editable_balance.save()
+                messages.success(request,f'{FirstName}!  Your Account Has Been Successfully Created, Please check your email  for  Verification')
+                "If Every Thing Goes Well Redirect The User To His Dashboard"
+                django_send_email(
+            'Welcome to forextime',
+            "We're delighted to have you on board. If you have any questions regarding your Zoho account, please contact us at info@forexindexs.com Our technical support team will assist you with anything you nee",
+            'info@forexindexs.com',
+            [Email],
+            fail_silently=False,
+        )
+                return redirect('signIn')
             else:
-                messages.error(request,f'{FirstName}! Please Enter Correct Password(the Two Password did Not Match)')
-                
-        # return render(request,'signupTest.html')
-        return render(request,'PersonalDetails.html')
-    except:
+                "this means There Is a User That Has That Email Already In the DataBase"
+                messages.error(request,f'{FirstName}! This Email:"{Email}" Already Exits')
+        else:
+            messages.error(request,f'{FirstName}! Please Enter Correct Password(the Two Password did Not Match)')
+            
+    # return render(request,'signupTest.html')
+    return render(request,'PersonalDetails.html')
+    # except:
 
-        if get_user_model().objects.filter(email=Email).exists():
-            "sinnce we have an exception there is 100% channce the user Data Was already Save"
-            "# we have to delte it"
-            incompleteModelInstance = get_user_model().objects.get(email=Email)
-            print(incompleteModelInstance)
+    #     if get_user_model().objects.filter(email=Email).exists():
+    #         "sinnce we have an exception there is 100% channce the user Data Was already Save"
+    #         "# we have to delte it"
+    #         incompleteModelInstance = get_user_model().objects.get(email=Email)
+    #         print(incompleteModelInstance)
         
-            incompleteModelInstance.delete()
-        messages.error(request,f'We face Some Error This May Be Network Error! ')
-        return render(request,'PersonalDetails.html') 
+    #         incompleteModelInstance.delete()
+    #     messages.error(request,f'We face Some Error This May Be Network Error! ')
+    #     return render(request,'PersonalDetails.html') 
 
 def pricing(request):return render(request,"pricing.html",{})
 

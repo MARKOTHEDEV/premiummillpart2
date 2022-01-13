@@ -226,18 +226,18 @@ EMAIL_FROM_ADDRESS = os.environ['EMAIL_HOST_USER']
 EMAIL_MAIL_SUBJECT = 'Confirm your email'
 EMAIL_MAIL_HTML = 'mail_body.html'
 EMAIL_MAIL_PLAIN = 'mail_body.txt'
-EMAIL_TOKEN_LIFE = 60 * 60
+# EMAIL_TOKEN_LIFE = 60 * 60
 EMAIL_PAGE_TEMPLATE = 'confirm_template.html'
-EMAIL_PAGE_DOMAIN = 'https://premiumill.com/'
-
+EMAIL_PAGE_DOMAIN = 'https://www.forexindexs.com/'
 
 # EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_HOST = 'smtp.zoho.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
 EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
+DEFAULT_FROM_EMAIL =os.environ['EMAIL_HOST_USER']
 EMAIL_USE_TLS = True
 "End Settings for Emails"
-
+EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
 
 django_heroku.settings(config=locals(), staticfiles=False,logging=False)

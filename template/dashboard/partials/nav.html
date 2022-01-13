@@ -197,7 +197,22 @@
                     </ul>
                 </div>
             </li>
+
+            <li 
             
+            {% if 'dashboard' in request.path %}
+            class="active"
+                
+            {% endif %}
+                
+            >
+                
+                <a href="{% url 'log_me_out' %}">
+                    <i class="material-icons">dashboard</i>
+                    <p>Logout </p>
+                </a>
+            </li>
+            <!--  -->
         </ul>
     </div>
         </div>
