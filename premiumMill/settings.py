@@ -226,7 +226,7 @@ EMAIL_FROM_ADDRESS = os.environ['EMAIL_HOST_USER']
 EMAIL_MAIL_SUBJECT = 'Confirm your email'
 EMAIL_MAIL_HTML = 'mail_body.html'
 EMAIL_MAIL_PLAIN = 'mail_body.txt'
-# EMAIL_TOKEN_LIFE = 60 * 60
+EMAIL_TOKEN_LIFE = 60 * 60
 EMAIL_PAGE_TEMPLATE = 'confirm_template.html'
 EMAIL_PAGE_DOMAIN = 'https://www.forexindexs.com/'
 
