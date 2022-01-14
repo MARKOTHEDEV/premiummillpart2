@@ -16,7 +16,7 @@
 			<div class="card-content">
 			  <h4 class="card-title">Edit Profile - <small class="category">Complete your profile</small></h4>
 
-			  <form action="{% url 'profile' %}" method="post">
+			  <form action="{% url 'profile' %}" id="editProfile" method="post">
 				{% csrf_token %}
 				<div class="row">
 				  <div class="col-md-5">
